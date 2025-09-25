@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 40: expected 'word' not found.
+    define  = Character ("")
+            ^
+
+Ren'Py Version: Ren'Py 8.3.7.25031702
+Fri Sep 19 02:03:50 2025
