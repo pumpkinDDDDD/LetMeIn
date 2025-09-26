@@ -436,17 +436,17 @@ label start:
     MC "(I DON’T KNOW)"
     B "Father, I think we’ve spoken enough about the fair these past few days."
     MC "(Wait, I want to know more about the fair.)"
-    show d_happy
+    show d happy
     D "Really? But-"
-    show d_normal
+    show d normal
     Y "Dad, I’m done eating! Can we go out now?"
-    show d_happy
+    show d happy
     D "Very well."
-    show d_normal
+    show d normal
     "Once she dragged the bearded man out the door, she waves her hands wildly back at me. "
     Y "Bye, [mc]! We’ll be back before the sun sets!"
     B "Stay safe out there!"
-    show d_happy
+    show d happy
     D "We will."
     #door close
 
@@ -457,18 +457,18 @@ label start:
     scene kitchen with fade
     #water sfx
     MC "So, what was the fair like?"
-    show b_silent
+    show b silent
     "She pauses her movements for a brief moment, barely stopping herself from sighing before continuing to scrub the plates with more fury than before."
-    show b_normal
+    show b normal
     B "Oh you wouldn’t want to hear about it again. We’ve spoken far too many times about it."
     MC "But I don’t remember any of it."
     B "[mc], it has been months since the fair ended. I believe we should let the topic pass."
-    show b_silent
+    show b silent
     MC "Please? It might jog my memory."
     "While I try my best at a pitiful expression, it seems to have no effect as she responds with as neutral an expression as possible."
-    show b_normal
+    show b normal
     B "Maybe some other time."
-    show b_silent
+    show b silent
     MC "(Somethings not right here.)"
         menu:
             "(I’ll drop the topic so I can investigate without her feeling suspicious)":
@@ -479,21 +479,22 @@ label start:
                 MC "(Fine then, keep your secrets. I’ll find out for myself!)"
 
     scene kitchen with fade
-    show b_happy
+    show b happy
     B "Thank you for helping me clean up, [mc]."
     MC "Sure thing."
-    B A"re you feeling alright?"
+    B "Are you feeling alright?"
     MC "Who knows."
-    extend I think I’m fine but my head’s a little foggy.
-    show b_normal
+    extend I think I’m fine but my head’s a little foggy?
+    show b normal
     B "Oh dear."
     B "Maybe it’d be best if I took over your chores for the day."
-    show b_silent
+    show b silent
     MC "I have chores?"
     MC "(Wait that was really stupid.)"
-    show b_normal
+    show b normal
     B "We all do. But given your current state you’re better off resting."
     MC "Shouldn’t I move around so I can start remembering things?"
+    show b happy
     B "That can wait until tomorrow, I’m worried."
     MC "Alright then, I’ll return back to my room."
         menu:
@@ -524,80 +525,103 @@ label start:
     MC "(I’ve seen this thing before!)"
     MC "(It wasn’t just a dream.)"
     scene kitchennight with fade
-    show d_normal
+    show d happy
     D "[mc]? What were you doing outside? It’s dangerous out there."
+    show d normal
     MC "Sorry, I was out for a stroll."
     MC "But look! I found this feather, isn’t it pretty?"
+    show d happy
     D "Yes, it is, [mc]."
     MC "You don’t mind if I decorate my bedroom window with it, right dad?"
     D "Do as you like."
 
     scene kitchenday with fade
+    show d happy
     D "Settle down, I’m going to the fair today. Is there anything you’d like?"
-            show y_happy:
+    show d normal
+            show y_happy at left:
                         linear 0.050 yoffset +10
                         linear 0.050 yoffset -10
 
     Y "Ooh! Ooh! I want new boots! Something that’ll really hold up when we’re hiking."
+    show y smile
+    show b happy at right
     B "I’d like a shawl if it isn’t too much."
+    show b silent
+    show d happy
     D "Very well. "
     D "What about you, [mc]?"
     MC "I want a feather just like this one."
     D "A feather? Are you sure? Why not boots or a coat?"
+    show d normal
     MC "I’m sure. It’s so pretty I could spend a whole day staring at it! "
+    show b happy
     B "[mc], we love you and all. But don’t you think you’re better off asking for a new cloak?"
+    show y happy
     Y "For once I agree, don’t you want something to help survive the winter?"
-    MC "I guess I won’t be going out this winter. I want this feather!"
+    MC "I guess I won’t be going out this winter. I want this feather!
+    show d happy
     D "Well, if that’s what you want then I’ll try my best."
 
     scene bedroomday with vpunch
     #fallonwood sfx
     MC "(!!!)"
     MC "(Was that…my memory?)"
+    show mc fehand
     "With the feather right in my hands, I observe the way its colors seemingly shift as I hold it against the window."
     "Sometimes it’s seemingly a metallic blue-ish hue, while at other times it appears as a shiny green."
     MC "(It’s beautiful that’s for sure.)"
     MC "(But why is it underneath the covers? Did a bird perch on my window and shedded a feather?)"
     MC "(Whatever, I wanna hang this on my window!)"
+    hide mc
+    scene bedroom day:
+        parallel:
+            ease .5 zoom 1.5
+        parallel:
+            yalign 0.0
+            linear 0.0 yalign 0.0 xalign 0.5
+
     #thump, zoom bg
     MC "(Oh? That’s strange. There’s already a hook for me to hang it.)"
     MC "(I guess I don’t change much.)"
     #door
     show b_normal
     B "[mc]?!"
-    show b_silent
+    scene bedroomday with vpunch
+    show b silent
     MC "(!!)"
     MC "I’m not doing anything!"
-    show b_normal
+    show b normal
     B "[mc], get down from there. What if you fall?"
     MC "Sorry?"
     B "For goodness sake, this is the second floor. What were you even doing?"
-    show b_silent
+    show b silent
     MC "Sorry, I just wanted to decorate my window."
     MC "Look at what I found! Isn’t it pretty?"
-    show b_normal
+    show b normal
     B "{b}Where did you get that?{/b}"
-    show b_silent
+    show b silent
     MC "(Uh oh.)"
     "Her mood shifted from concern to anger in a second as she took a step closer to me, slowly closing the distance between us."
-    show b_normal
+    show b normal
     B "Throw it away, [mc]."
     MC "I don’t want to. I like it!"
     B "Well, I {b}don’t{/b}."
     MC "It’s not your room, it’s mine. I can decorate it as I like."
-    show b_normal with vpunch
+    show b normal with vpunch
     B "Why won’t you listen?!"
     MC "Why should I?"
-    show b_normal with vpunch
+    show b normal with vpunch
     B "Just listen to me!"
-    show b_silent
+    show b silent
     B "..."
-    show b_normal
+    show b normal
     B "No. You know what. Keep it. But don’t ask for more and don’t hang it on the window."
     MC "Why?"
     B "You lost your memory so you probably don’t remember but that thing attracts monsters."
         menu:
             "That sounds really fake":
+                show b normal with vpunch
                 B "It’s real!"
                 B "If you hang that thing, it will make you a target."
                 MC "Target for what?"
@@ -651,8 +675,8 @@ label start:
             parallel:
                 yalign 0.0
                 linear 0.0 yalign 0.5 xalign 0.8
-
-
+        pause 1.5
+    scene bedroomnight3 with fade
 
     #bg moves left to right before back to normal
     #swoosh
@@ -725,7 +749,7 @@ label start:
     BM "Umm..Maybe?"
     #knife asset, sfx
     scene surprisedtacklecg with vpunch
-    show mc_knife
+    show mc knife
     BM "Ack! I’m sorry! I won’t do that again!"
     scene tacklecg
     BM "But also.."
@@ -760,16 +784,16 @@ label start:
     BM "Well it wasn’t that hard to-"
     #knife
     scene surprisedtacklecg with vpunch
-    show mc_knife
+    show mc knife
     BM "Alright, alright! I’m sorry for breaking in!" 
     scene tacklecg
-    show mc_knife
+    show mc knife
     BM "I-it wasn’t {i}just{/i} for the decorations."
     MC "If you’re looking for money you came to the wrong house."
     BM "It’s not the money!"
     BM "I..I..also wanted to meet the person behind the decorations."
 
-    hide mc_knife
+    hide mc
     MC "Me?"
     BM "Y..yea.."
     #knock
@@ -808,105 +832,133 @@ label start:
 
     #zooming back to reality, door slam
     scene bedroomday with vpunch
-    show y_happy
+    show y happy
     Y "[mc]! We’re back!"
     MC "(???)"
     Y "Really, you gotta stop sleeping the day away. You’re not an owl."
     Y "You used to sleep normally like the rest of us!"
-    show y_smile
+    show y smile
     MC "Well it’s not my fault. I was told-"
-    show y_happy
+    show y happy
     Y "Ah, got it. Say no more! "
     Y "I bet she told you to take a nap, didn’t she?"
     MC "Yea."
     Y "Anyway, it’s time for dinner!"
     MC "Dinner?"
-    show y_happy
+    show y happy
     Y "Yea, look outside."
-    show y_smile
+    show y smile
     MC "(It really is night.)"
     MC "How did I miss the entire day?"
-    show y_happy
+    show y happy
     Y "Don’t worry about it too much. Happens to the best of us."
     Y "Come on, let’s head down. We’re eating stew tonight!"
     MC "Okay?
     "
     scene kitchen with fade
-    show y_happy
+    show y happy
     Y "Time for dinner everyone! [mc]’s up!"
     #plate sfx.
-    show d_happy at center
-    show y_smile at left
+    show d happy at center
+    show y smile at left
     D "Are you feeling alright [mc]? I was told you slept the whole day."
-    show d_normal
+    show d normal
     MC "I’m fine. Although, a certain{i}someone{/i} insisted that I rest."
-    show b_silent at right
+    show b silent at right
     "She returns my glare and pointed tone, unimpressed that I singled her out during dinner."
-    show b_normal
+    show b normal
     B "It’s for your own good, [mc]."
         menu:
             "I appreciate it.":
-                show y_happy
+                show y happy
                 Y "You should tell her if you’re upset, [mc]. I’d be mad if I was stuck in bed the whole day."
             "(Oh is it? Or is it for some other mysterious reason I’m not told about?)":
-                show y_happy
+                show y happy
                 Y "Woa, that’s an intense glare [mc]. Are you that hungry?"
 
     MC "We should eat."
     Y "No kidding, I’m starving!"
     B "Please chew your food properly."
-    show b_silent
-    show y_grumpy
+    show b silent
+    show y grumpy
     Y "Whatever."
     Y "I gotta be ready to head back out later."
-    show y_smile
+    show y smile
     MC "Why? It’s dark out."
-    show d_happy
+    show d happy
     D "Oh [mc], it’s like you’ve forgotten about the night patrol."
     MC "Night patrol?"
     D "Your sisters and I will be out tonight to patrol the village for the next 3 nights or so."
     D "As we have been doing for the past few months."
-    show d_normal
+    show d normal
     MC "Why can’t I go?"
-    show b_normal
+    show b normal
     B "It’s dangerous, you can’t go."
-    show b_silent
-    show y_grumpy
+    show b silent
+    show y grumpy
     Y "Stop lying, [player_gender] can’t go because [player_possessive] boots are all torn and [player_possessive] coat isn’t thick enough."
     #stomp
-    show y_grumpy:
+    show y grumpy:
         linear 0.050 yoffset +10
         linear 0.050 yoffset -10
     Y "Ow! Come on, what did I say?"
-    show b_normal
+    show b normal
     B "{size=-10} Keep your mouth shut.{/size}"
-    show b_silent
+    show b silent
     MC "(As much as I think they’re keeping secrets from me, they’re not very good at hiding them are they?)"
     MC "(Now I just need to figure out what those secrets are)"
+    show y grumpy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y "I’m not wrong!"
     MC "Why am I the only one without proper clothes?"
+    show d happy
     D "[mc]... I tried telling you this during the fair, remember?"
     D "I asked if you wanted a coat or new boots and you said that you wanted a feather instead."
+    show d normal
     MC "(Curse you past me!)"
     MC "(But also..it was really pretty. Maybe it was worth it?)"
     Y "I tried telling you that it wasn’t gonna be useful."
     #stompsfx
+    show y grumpy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y "Ow! What did I say this time?"
+    show b normal
     B "In any case, it’d be best if [mc] guarded the house while we’re away."
+    show b silent
+    show d happy
     D "I agree, I believe the intruder would be far more scared of [mc] than the other way around."
+    show d normal
+    show y happy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y "That’s right! Nothing can beat my little [player_fm]!"
+    show y smile
     B "Still, you need to be careful [mc]. Don’t let anyone inside the house."
     MC "I won’t."
+    show b happy
     B "We’ll be on our way now. Take care."
+    show y happy
+    show b silent
     Y "Sorry you have to clean after us [mc]. I’ll be on duty in a few days so don’t worry!"
     MC "It’s fine, I haven’t done any chores today."
-    Y Y"ou’re kidding. "
+    Y "You’re kidding. "
+    show y grumpy
     Y "Hey, you can’t make [player_object] rest all day. Physical movement is necessary to help [player_object] remember things."
     #stomp
+    show y grumpy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y "Watch it! Are we gonna have a prob-"
+    show b normal
     B "{b}We will talk outside.{/b}"
+    show b silent
+    show d happy
     D "Sorry for leaving you, [mc]. Stay safe."
+    show d normal
     MC "I will."
+    scene kitchen with fade
     #doorclose
     MC "(Time to clean up.)"
     #platesfx
@@ -931,7 +983,7 @@ Label bedroom search:
         #Menu: 
             #menu 1
             #"The bed, it’s gotta be there. It’s closest to the window.":
-            scene bedroomday:
+            scene bedroomnight:
                 parallel:
                     ease .5 zoom 2.0
                 parallel:
@@ -950,55 +1002,69 @@ Label bedroom search:
             BM "It’s me... Howard? If you even remember me..?"
             BM "Psst, can you open the window? "
             #knock
-            scene bedroomnight with vpunch:
+            scene bedroomnight2 with vpunch:
                 parallel:
                     ease .5 zoom 2.0
                 parallel:
                     yalign 0.0
                     linear 0.0 yalign 0.5 xalign 0.5
-            show bm_surprised
+            show bm surprised
             MC "You!"
-            show bm_idia
+            show bm idia
             MC "The one from yesterday!"
             BM "Umm...I’m sorry about that?"
             BM "But also.. You shouldn’t be too loud. I thought you didn't want that woman from yesterday to find out, right [mc]?"
             MC "I didn’t tell you my name."
-            show bm_explanation
+            show bm explanation
             BM "D-did I get it right? That’s what that woman from yesterday called you."
             MC "Right, my sister."
             MC "How did you disappear so quickly yesterday?"
-            show bm_finger
+            show bm finger
             BM "Can you please let me in now?"
             MC "No."
-            show bm_idia
-            show sf_sweat
+            show bm idia
+            show fx sweat
             BM "Please? Talking to you would be much nicer if I’m not perching on the side of a roof?"
+            hide fx
             MC "You’re a suspicious stranger. How do I know you won’t do anything?"
+            show bm idia:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
             BM "I won’t touch you by a hair, I swear!"
             MC "I can’t be sure of that."
+            show bm explanation
             BM "What do I need to do to convince you I won’t do anything?"
             MC "I’ve got an idea."
+            show bm surprised:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
             BM "Eek! Can you drop the knife? "
             MC "No."
+            show bm idia
             BM "W-what are you gonna do?"
             MC "Why do you seem even more scared than I am? {i}You’re{/i} the intruder here."
+            show bm finger
             BM "Your knife looks very sharp."
             MC "Your gloves look really sharp and you’re not putting them away. Are you in any position to complain about this little thing?"
+            show bm swpose
             BM "Very well, do as you please."
             BM "J-just..don’t hurt me, please?"
             MC "Depends, will you attack me?"
+            show bm idia
             BM "I won’t!"
             MC "Alright, don’t make me regret this."
             #window open, thump
+            show bm swpose
             BM "Thank you for letting me in."
             MC "Now, lie down on the bed."
             BM "Pardon?"
             MC "Stick your hands up, I’m gonna tie them to the bed post with my scarf."
+            show fx sweat2
             BM "I-is this really necessary..?"
             MC "If you don’t want to, you can always get out of my room? The window’s still open."
             BM "I’ll do it."
 
-            #cg
+            scene tiedupcg
             MC "And done!"
             BM "I fail to see how this would make you safe. This scarf is already torn and you didn’t tie it very tightly."
             BM "I can break out of this fairly easily."
@@ -1014,7 +1080,9 @@ Label bedroom search:
             MC "Speak."
             BM "I-I wanted to see you."
             MC "Why? Did you like being held at knife point?"
-            BM "Y-ye..I mean NO! NO I don’t!"
+            BM "Y-ye..
+            scene tiedupcg with vpunch
+            extend I mean NO! NO I don’t!"
             BM "I-I wanted to ask for your opinions on the monster?"
             MC "Again, why?"
             BM "Please? Just tell me?"
@@ -1037,28 +1105,38 @@ Label bedroom search:
                         MC "I’m not much of a looker myself."
                         BM T"hat’s not true.."
                     #maskoffcg
+            scene tiedupscaredcg with fade
             MC "..."
             BM "[mc], w-why are you quiet? Please don’t stare at me too much."
             MC "Honestly, I don’t see the issue."
+            scene sdtiedupcg 
             BM "Y-you’re lying!"
             MC "I’m not! "
             MC "You look like fairy tale royalty! I was expecting an actual monster face!"
+            scene tiedupworrycg
             BM "But, I am a monster?"
             MC "(Uhhh, is he seeing something that I’m not seeing?)"
             MC "(If this guy is a monster then what am I? I’m starting to feel really bad about tying him to my bedpost.)"
             MC "A monster? Are you... cursed or something?"
+            scene tiedupworrycg with vpunch
             BM "How did you know?!"
             MC "I was joking. You really think you’re cursed?"
+            scene tiedupinquirecg
             BM "Y-yes?"
             MC "Okay, so what’s the curse about?"
+            scene sdtiedupcg
             BM "I don’t want to say.."
             MC "Don’t? Or can’t say?"
+            scene tiedupinquirecg
             BM "Both?"
             MC "Can I assume that you’re cursed to become a monster of some kind?"
+            scene sdtiedupcg
             BM "{size=-10}Already am one{/size}"
             MC "Hey, don’t hide your face! If you keep moving you might tear my scarf and I’ll have to fix it."
+            scene tiedupscaredcg
             BM "Sorry!"
             BM "I-I just feel antsy without that mask.."
+            scene tiedupinquirecg
             BM "But I’m safe here right? I don’t see any other houses nearby and no one else can see me?"
             MC "Yea? If you don’t count my sisters and my dad."
             BM "Y-you’ll hide me from them, right? Like you did yesterday?"
@@ -1068,30 +1146,39 @@ Label bedroom search:
             MC "If that bird was a monster, I remember it being beautiful?"
             MC "It didn’t attack me when I saw either so I don’t think it’s very aggressive?"
             MC "It’s not much of a monster is it?"
+            scene tiedupworrycg
             BM "But it can transform!"
             MC "Into what?"
             BM "A scarier version!"
             MC "Howard, you’re not making it sound very scary."
             MC "I get that birds can be terrifying but you don’t have to call it a monster."
+            scene tiedupinquirecg
             BM "But it can shapeshift?"
             MC "Into a “scarier version”? Isn’t that called “turning into an adult”?"
+            scene tiedupworrycg
             BM "No no no, it can turn into a human!"
                 menu:
                     "Well if it turns out as pretty as you are then I have no issues with it.":
+                        scene tiedupsurprisedcg with vpunch
                         BM "(!!)"
+                        scene tiedupscaredcg
                         BM "H-hey..You can’t just say things like that.."
                         MC "Why not?"
                         BM "W-what if it does anything to you?"
                         MC "Like?"
+                        scene sdtiedupcg
                         BM "Uh..Scratch you? I-i don’t know but it could be dangerous."
                     "Does it kill people?":
+                        scene tiedupworrycg with vpunch
                         BM "NO! I would never!"
                         MC "{i}I?{/i}"
+                        scene sdtiedupcg
                         BM "Nothing!"
                         BM "I’m just saying it would never kill anyone, or not on purpose at least.."
             MC "You sure know a lot about this monster. Is it your friend or something?"
             #footsteps
             MC "Someone’s coming, I’ll let you go now!"
+            scene tiedupscaredcg
             BM "W-who?"
             MC "Under the covers, now!"
             BM "W-wait! I have a better way."
@@ -1101,12 +1188,15 @@ Label bedroom search:
             #sfx
             scene bedroomnight with fade
             MC "Howard?"
+            show bm bird
             BM "Yea?"
             scene bedroomnight with vpunch
             MC "(!!!)"
             MC "(The bird can talk!!!)"
+            show fx sweat2
             BM "NO no no, don’t be scared please? I-it’s just me..? Howard?"
             BM "P-please don’t hurt me!"
+            hide fx
             MC "You’re a bird?!"
             BM "Monster but-"
             #footsteps
@@ -1115,12 +1205,21 @@ Label bedroom search:
             BM "Can I visit you tomorrow night?"
             MC "Whatever, just hurry!"
             MC "Oh, and be careful!"
+                    show bm bird:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
             BM "I will!"
+            scene black with fade
             "And with that, he flew into the darkness of the night."
 
             #menu 2
             "My wardrobe has to have something, right?":
-            #zoom to wardrobe
+             scene bedroomnight:
+                        parallel:
+                            ease .5 zoom 1.3
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.3
             #sfx
             MC "(I don’t have a lot of clothes in here do I?)"
             #fabric
@@ -1132,105 +1231,160 @@ Label bedroom search:
             MC "(A feather..)"
 
             scene kitchennight with fade
+            show b normal
             B "Are you sure you’re alright?"
             MC "Positive."
+            show b happy
             B "Very well, we’ll be off now."
+            show b silent at right
+            show y happy at left
             Y "Bye, [mc]!"
+            hide b
+            hide y
             MC "Bye!"
             MC "(They’re gone.)"
             #stepssfx
-            scene bedroomnight with fade
+            scene bedroomnight3 with fade
             MC "You can come out now."
             MC "Howard?"
             #wardrobeopensfx
+            show bm explanation
             BM "Here!"
             BM "You don’t have a lot of clothes in there do you?"
             BM "I can’t even find a coat."
             MC "That’s half your fault y’know."
+            show bm surprised
             BM "Me?! What did I do?"
             MC "If I wasn’t so entranced by those feathers of yours I would’ve asked my dad for clothes instead."
+            show bm swpose
             BM "How is that my fault?"
                 menu: 
                     "You’re too beautiful. You’ve led my decision making astray.":
+                        show fx blush
                         MC "What are you gonna do about it?"
                         BM "I-I don’t know… What do you want me to do..? Buy you a coat?"
+                        
                         BM "I-I can’t really do much.."
                         MC "I was thinking you could take responsibility and marry me but that works too."
+                        hide fx
+                        show bm surprised:
+                                    linear 0.050 yoffset +10
+                                    linear 0.050 yoffset -10
                         BM "M-m-marry you??"
+                        show fx blush
+                        show bm swpose
                         BM "I-uh..I.."
                         MC "Don’t want to?" 
+                        show bm idia
                         BM "No that’s not it..! But I..uh.."
                         MC "Relax, I’m kidding. It’s all because of my poor decision making anyway."
                     "It isn’t, I’m just joking.":
                         BM "Thanks goodness."
                         BM "Still.."
-                        #extend It’s nice to know that you view my appearance favorably.
+                        show fx blush
+                        extend "It’s nice to know that you view my appearance favorably."
                         MC "Who wouldn’t?"
                         BM "Lot’s of people. Me included."
                         MC "Well they have horrific taste,"
-                        #extend you included.
+                        extend "you included."
                         BM "[mc]..."
                         MC "I think you’re lovely."
+
+            hide fx
             MC "But really, you have to stop coming here. They’re gonna find out eventually."
+            show bm finger
+            show fx huffy
             BM "But [mc]..."
             MC "Really Howard?"
             MC "If you’re making a pitiful expression, just know that I can’t see it under the mask."
+            show bm explanation
             BM "Curses."
             MC "If you want to pout at me all you like, you’ll have to take off your mask so I can actually see it."
             BM "Hmph."
+            hide fx
+            show bm swpose
             BM "I don’t want to leave."
             MC "Why? Did you fall in love with me?"
+            show bm idia:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
             BM "N-no..! I didn’t!"
-            #extend {size=-10}Or.. Maybe I did..?{/size}
+            show fx blush
+            extend "{size=-10}Or.. Maybe I did..?{/size}"
             MC "Well?"
+            show bm swpose
             BM "Please don’t come closer..!! Seriously, you’ll give me a heart attack..."
             MC "Sorry."
             
             #menu 3
             "That chest over there, what did I store in it?":
+                    scene bedroomnight:
+                        parallel:
+                            ease .5 zoom 1.75
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.8 xalign 0.2
             #zoom, chestsfx
             MC "(I have a lot crafting supplies, I guess that’s to be expected.)"
             MC "(I wasn’t expecting this many sharp objects though. Scissors, dagger, needles, you name it.)"
             MC "(I suppose I needed the supplies to make those decorations somehow.)"
             MC "(But, where are those decorations? It’s not at the window.)"
+
             #menu 4
             "There’s usually something under the carpet, I gotta look."
+                    scene bedroomnight:
+                        parallel:
+                            ease .5 zoom 1.75
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.8 xalign 0.5
             #carpet sfx
             MC "(Here we go! There’s...)"
-            #extend nothing?
+            extend "nothing?"
             MC "(Wait no, there’s a heart etched onto the floor.)"
+            scene black with fade
             MC "(Why would it be under the carpet though?)"
-            scene bedroomnight with fade
+            scene bedroomnight2 with fade
             "..."
             #knock
+            show bm swpose
             BM "Hello? Are you here?"
             "..."
             BM "Did [player_gender] leave?"
             MC "Boo!"
             #stumblesfx
+            show bm surprised with vpunch
             BM "Ack!"
             MC "Sorry! I’ll open the window for you."
+            scene bedroomnight3 with fade
             #sfx
+            show bm finger
             BM "[mc].. Don’t scare me like that, what if I fell off?"
             BM "Your whole family would hear me.."
             MC "I thought you were gonna say that you’d be seriously injured."
+            show bm explanation
             BM "Oh that too, but I’ll be fine."
             MC "That’s worrying, you need to care for yourself more."
             BM "It’s alright, you won’t be able to see any cuts or bruises anyway."
             MC "Please don’t tell me you’re hiding cuts and bruises underneath your clothes."
+            show bm idia
             BM "I-I’m not!"
             MC "Are you sure? I can’t see your face but you don’t sound very convincing."
+            show bm swpose
             BM "R-really, don’t worry about me."
             MC "If you say so."
             MC "Anyway, we can’t talk for long today."
             BM "W-why not? Did I do something?"
             MC "Oh it’s not your fault, don’t worry."
             MC "Or maybe it is in a way..?"
+            show bm idia
             BM "I-I’m not sure what I did but I’m sorry..? Please don’t leave me.."
             MC "I’m not leaving you. It’s just that my family has caught on to the fact that I’ve been super tired in the daytime now."
             MC "Since I’ve been spending my nights talking to you, I haven’t been getting much sleep."
+            show bm swpose
             BM "Sorry.."
             MC "It’s fine. I just really like talking to you."
+            show bm finger
             BM "You do..?!"
             MC "Well yea? Otherwise I would just ignore you."
             MC "Anyway, while I did say that we can’t talk for long, that doesn’t mean I want you to leave."
@@ -1238,22 +1392,32 @@ Label bedroom search:
             MC "Definitely."
             MC "Anyway, wanna sleep with me tonight?"
             #cough
+            show bm idia:
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+
             BM "WHAT."
             BM "Y-y-you want m-me to.."
-            #extend to WHAT???
+            extend "to WHAT???"
             MC "Sleep."
-            #extend We’re sleeping. 
-            #extend Do you not like to sleep??
+            extend "We’re sleeping. "
+            extend "Do you not like to sleep??"
+            show fx sweat2
             BM "B-but..the bed?? It’s...there’s ..There’s only one??"
+            hide fx
             MC "Yea? It fits up to three people last I checked, my older sisters used to sleep over when I have nightmares."
+            show bm explanation
             BM "This thing fits three people??"
             MC "Then again, that was a few years ago..."
             MC "Is the bed too small for you?"
+            show bm swpose
             BM "W-well no.. but that would mean y-you and me, we’d be..uhh"
             MC "Use your words, I don’t understand you."
+            show bm idia
             BM "We’d be too close!"
                 menu:
                     "Why would that be an issue?"
+                        show bm swpose
                         BM "Because.."
                         BM "W-what if I hurt you..? I have sharp claws and if I transform in the middle of night-"
                         MC "Then I get to hangout with a super cool monster."
@@ -1262,30 +1426,50 @@ Label bedroom search:
                         BM "You’re human and as strong as you are, you get injured easily and you don’t heal as quickly.."
                     "Oh I get it, I like my personal space too."
                         MC "As long as we have space to be further apart, would that be an issue?"
+                        show bm swpose
                         BM "N-no that’d be fine."
 
             MC "So you’ll agree if one of us sleeps on  the bed and the other sleeps on the carpet?"
+            show bm explanation
             BM "That sounds fine, your carpet doesn’t look too bad to sleep on."
             MC "Did I say {i}you{/i} were the one who’s sleeping on the floor?"
             BM "Why wouldn’t it be me? This is your room."
             MC "I don’t know, your clothing makes me think you’re used to finer things."
             MC "And people like that don’t usually sleep on hard surfaces."
             MC "What if your bones broke because you slept on the floor?"
+            show bm idia
             BM "That won’t happen! I’m not that fragile!"
             MC "Are you sure? "
+            show fx huffy
+            show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+
             BM "Yes! Gosh, you can be stupid sometimes.."
+            show bm swpose
+            show fx blush
             BM "B-but I guess it’s nice to know that you care.."
+            show bm explanation
             BM "What if I sleep on the floor with you?"
-            BM "On the carpet, if possible."
-            #extend Or I can stay in the area without the carpet if you don’t want me there!
+            BM "On the carpet, if you don't mind?"
+            hide fx
+            extend "Or I can stay in the area without the carpet if you don’t want me there"
             MC "Howard, that would place you right in front of the door, I can’t do that."
             MC "The carpet covers half the room anyway."
+            show bm swpose
             BM "Alright, if you say so."
             MC "Here’s my blanket, if we turn it horizontally it’ll be enough to cover both of us."
             BM "Thank you."
-            scene bedroomnight with fade.
+            scene bedroomnight3 with fade.
             #thump,fabric
             MC "So, any thoughts so far?"
+                    show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+
             BM "It’s.. strange. But I like it."
             MC "You think you can go to sleep like this?"
             BM "Well...if you’re with me then perhaps I can."
@@ -1295,13 +1479,27 @@ Label bedroom search:
             
             #menu 5
             "It feels weird to see the walls being barren, it’s like there should be something there."
+                 scene bedroomnight:
+                        parallel:
+                            ease .5 zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.5 xalign 0.9
+
             #zoom
             "Looking closer at the walls I notice the residue of something sticky, perhaps adhesives."
             MC "(So there should be something hanging on my walls, but they’re not here.)"
             MC "(Did I tear them off?)"
+
             #menu 6
             "The window! Will he show up tonight?"
-            #zoom
+                    show tsm nsdnormal:
+                        parallel:
+                            ease .5 zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.35 xalign 0.5
+
             MC "(I hope he does, maybe he can fill in a few gaps for me)"
             MC "(Speaking of gaps...)"
             MC "(What are these vertical slits in the window sill? They don’t seem like they came from any animal.)"
