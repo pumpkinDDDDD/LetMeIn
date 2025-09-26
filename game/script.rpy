@@ -1547,86 +1547,171 @@ label afternight1:
     #doorslam
     Y "Wakey wakey [mc]! You feeling good today?"
     scene bedroomday with fade
+    show y smile
     MC "Good morning?"
     MC "Have you always slammed the door when you’re waking me up?"
+    show y happy:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
+
     Y "Of course! It’s effective, yea?"
+    show y smile
     MC "I guess? It makes my head ring though."
+    show y happy
     Y "Sorry..It’s the whole ‘losing your memories’ thing isn’t it?"
     Y "I’ll try to stop."
     Y "Are you feeling okay?"
+    show y smile
     MC "Better? I guess"
+    show y happy
     Y "Good to hear, but also it’s time for lunch."
     MC "Lunch?? I missed breakfast?"
     Y "Yea, we all did. Those night patrols really sap the energy out of you, huh?"
     Y "Let’s head down, I caught us some fish!"
-    scene kitchen day with fade
+
+    scene kitchenday with fade
+    show y happy:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
     Y "Guess who’s back!"
     MC "Morning! Or I guess, afternoon?"
+    show y smile at left
+    show d happy at center
     D "Good afternoon [mc], sit down."
+    show d normal
     #sfx
     MC "How was the night patrol?"
+    show b normal at right
     B "Oh you wouldn’t want to know, it might frighten you."
+    show d happy
     D "Now, now, we all know that’s not true. [mc]’s the one most interested in them afterall."
+    show d normal
     MC "Yea! You heard what dad said."
+    show b normal:
+            linear 0.050 yoffset +5
+            linear 0.050 yoffset -5
     B "Father, we should-"
+    show d happy
+    show b silent
     D "Let [player_object] listen."
     MC "(Woo! Dad’s on my side here!)"
     MC "So, what’s the night patrol for anyway?"
     D "Haven’t we had this discussion before?"
-    MC W"ell I forgot and I’d like to ask again."
+    show d normal
+    MC "Well I forgot and I’d like to ask again."
+    show b normal
     B "It’s to keep everyone safe."
+    show b silent
     MC "From..?"
+    show y happy
     Y "The monster, obviously."
+    show y smile
     MC "(Please tell me the monster isn’t Howard.)"
     MC "Well, what does it look like?"
+    show d happy
     D "You should know best [mc], you asked for its feathers afterall."
+    show d normal
     MC "(Darn it, it is him.)"
     MC "But that just means it wasn’t dangerous! Why do we need the night patrol?"
+    show b normal
     B "[mc], just because something is pleasing to the eye, does not mean that it isn’t dangerous."
     MC "But that thing wouldn't hurt-"
+    show b normal:
+            linear 0.050 yoffset +5
+            linear 0.050 yoffset -5
     B "Yes it would, [mc]! Why do you think the disappearance cases have gone up alongside the monster sightings?"
     MC "What?"
     B "That thing is clearly kidnapping members of our community."
+    show b silent
     MC "Is that true dad?"
+    show d happy
     D "Unfortunately so."
     MC "(Would he do something like that..?)"
     MC "(The man in my memories…how much of it was true..?)"
     D "In any case, if we ever manage to hunt him down, I'll make sure to take some of its feathers for you."
-    #tableslam
+
+    show d normal with vpunch
     MC "NO DON’T"
     MC "(PLEASE DON’T KILL HIM.)"
+    show d happy
     D "[mc]?!"
     MC "I mean..I don’t need them anymore."
     D "Really? Why the sudden change of mind?"
     D "Then again, I noticed that your window decorations disappeared. Did something happen?"
+    show d silent
     MC "(Yea, I lost my memory. But also.."
-    #extend Good question, where did they go??)
+    extend "Good question, where did they go??)"
     MC "Nothing dad, to be honest, I don’t know where they went either."
+    show y smile:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
+    show b silent:
+            linear 0.050 yoffset +5
+            linear 0.050 yoffset -5
     #Y&B sprite jump
     MC "(It’s their doing isn’t it?)"
+    show d happy
     D "That’s odd. Have you two seen where it went?"
+    show d normal
     MC "Yea, {i}Have you?{/i}"
+    show y happy
     Y "Ha ha, Nope! Not at all! Gee, I wonder where it went."
+    show y grumpy:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
     #stomp
     Y "Ow!"
+    show b normal:
+                        parallel:
+                            ease .5 zoom 1.1
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.2
+
     B "No, we haven’t seen it."
     MC "That’s odd, you seem like you know something."
+    show b normal:
+                        parallel:
+                            ease .5 zoom 1.2
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.2
+
     B "{b}We don’t.{/b}"
     MC "{b}Do you?{/b}"
     D "Now, now, let’s finish our lunch in peace."
+    show b silent:
+             parallel:
+                ease .5 zoom 1.0
+    
+    show y happy:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
     Y "Sounds great!"
     MC "Yea.. sounds {i}great{/i}"
 
     scene kitchenday with fade
+    show d happy
     D "Alright, I’ll be off with your eldest sister today. Stay safe and guard the house, alright?"
+    show d normal
+    show y happy at right:
+            linear 0.050 yoffset +10
+            linear 0.050 yoffset -10
     Y "Leave it to us!"
+    show b silent at left
     B "..."
     MC "Good bye."
+    show d happy
     D "See you at dinner."
     #footsteps, doorclose
+    scene kitchenday with fade
+    show y happy
     Y "So [mc], you feeling better after lunch?"
+    show y smile
     MC "I’m fine."
+    show y happy
     Y "Don’t think too hard about the monster alright? You’ll be safer without it in your life."
+    show y smile
 
     MC (My other sister..)
     MC (She seems worse at hiding things than the eldest, maybe I can actually get something out of her)
@@ -1634,25 +1719,42 @@ label afternight1:
     MC (Do I take the risk?)
         menu:
             "Can I talk to you?":
-                Y "Uhh, sure?? About what?":
+                show y happy
+                Y "Uhh, sure?? About what?"
+                show y smeile
                 MC "The monster. The missing window decorations, my sudden memory loss. There’s a lot."
+                show y happy
                 Y "Sorry! Can’t tell you! I promised her I wou-"
+                show y grumpy:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
                 Y "YOU DIDNT HEAR THAT! I’M BUSY!"
                 Y "BYE"
+                show y at offscreenright with easeoutright
                 #zoomoffscreen, runsfx
                 MC "(That settles it, those two are hiding something.)"
+                hide y
                 MC "(And my memory loss is possibly related to them, but why?)"
             "(No, I need to shut up.)":
+                show y happy
                 Y "Uhh [mc]? Why are you glaring at me like that?"
+                show y smile
                 MC "I’m not, that’s just my face."
+                show y happy
                 Y "Well I know that but you look extra scary today."
                 MC "What about you? You look shifty today, like you’re hiding something."
+                show y grumpy:
+                       linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
                 Y "Uh..I. I’M DOING MY CHORES BYE."
+                show y at offscreenright with easeoutright
                 #sfx
+                hide y
                 MC "(Those two are definitely keeping secrets from me, secrets that are potentially related to my sudden lack of memories.)"
 
     MC "(In any case, she’s unlikely to hang around me for now. Seems like a good time to re-familiarize myself with the layout of my own house.)"
     MC "(Starting..here.)"
+    scene hallwayday
     "Given that I haven’t spent much time outside my room and the kitchen, I figured that going through each room one by one would be a great idea."
     "But reality seems to disagree."
     #sfx
@@ -1672,70 +1774,115 @@ label afternight1:
                 MC "(“Edible Plants”, “Children’s Fairytales”, “Grandma’s Recipe”, “Local Animals” and “Basic Emergency Care”..?)"
                 MC "(Wait, this last one seems familiar.)"
 
-                scene bedroomnight with fade
+                scene bedroomnight2 with fade
                 "..."
                 MC "(It’s getting late. Is he not showing up tonight?)"
                 MC "(I guess he can’t show up {i}every{/i} night, I should try and sleep for once.)"
+                scene bedroomnight3
                 MC "(I’ll open the windows, just in case.)"
                 scene black with fade
                 #feathers,cough
                 BM "[mc]...I’m here"
                 BM "Curses, am I too late?"
                 BM "H-hey, [mc]?"
-                scene bedroomnight with fade
+                scene bedroomnight3 with fade
                 MC "?"
+                show bm swpose
                 MC "Hey, you came. I thought you wouldn’t be here tonight."
                 BM "I try my best."
                 MC "Wait, what happened to your arm?"
                 BM "D-don’t worry about me. An arrow just grazed my wing."
                 MC "So your arms are what turns into wings, huh?"
+                show bm explanation
                 BM "Well, yes."
                 MC "Interesting, I thought they’d grow out of your back like on portraits of angels."
+                show bm swpose
                 BM "But I’m not an angel. "
                 MC "You sure? You seem like one to me."
+                show bm idia
+                show fx blush
                 BM "[mc]... Stop saying things that would make me go red.."
                 MC "But I can’t see your expressions..?"
+                show bm finger
                 BM "Still...Hearing you say things like that is embarrassing.."
                 MC "Well, too bad." 
                 MC "Anyway, we should hurry and clean up that wound."
+                show bm explanation
+                hide fx
                 BM "You don’t need to care about me that much, I’ll heal. Besides, your family will hear us."
                 MC "They’re out for the night patrol."
                 BM "What if they come back?"
                 MC "They won’t, not at this hour. Now don’t be stubborn, we should wash and bandage it."
+                show bm idia
                 BM "B-but then you’ll see my bare arm!"
                 menu: 
-                No "complaints, I’ll carry you downstairs."
-                BM "Eek! [mc]! P-please put me down!"
-                MC "I wouldn’t have to do this if you agreed to let me take care of you."
-                BM "T-that’s not fair..."
-                MC "What is?"
-                BM "Hmph.. I don’t wanna say it.."
-                MC "Just let me clean the wound, it won’t take more than five minutes."
-                BM "Fine.. but be nice to me, alright?"
-                MC "As you wish."
-                "Really? How {i}scandalous{/i}."
-                MC "Do I have to take responsibility for your shattered pride if I see your bare arm?"
-                BM "W-well no..."
-                MC "Must I swear to stay with you in sickness and health just so I can clean your wound?"
-                BM "[mc].. Please stop teasing me."
-                MC "Sorry, I bet you’re all red underneath that mask huh?"
-                BM "I-if you knew that then why did you keep going?"
-                MC "Because I like seeing your reactions?"
-                BM "Hmph.."
-                MC "Come on, let me take care of you."
-                BM "P-please be gentle, alright?"
-                MC "I will."
+                    "No complaints, I’ll carry you downstairs.":
+                        show bm surprised:
+                            parallel:
+                                ease .5 zoom 2.0
+                            parallel:
+                                yalign 0.0
+                                linear 0.0 yalign 0.0 xalign 0.5
+                        show bm idia
+                        BM "Eek! [mc]! P-please put me down!"
+                        MC "I wouldn’t have to do this if you agreed to let me take care of you."
+                        show bm finger
+                        show fx blush:
+                            parallel:
+                                zoom 2.0
+                            parallel:
+                                yalign 0.0
+                                linear 0.0 yalign 0.0 xalign 0.5
+                        BM "T-that’s not fair..."
+                        MC "What is?"
+                        show fx huffy
+                        BM "Hmph.. I don’t wanna say it.."
+                        show fx blush
+                        MC "Just let me clean the wound, it won’t take more than five minutes."
+                        show bm swpose
+                        BM "Fine.. but be nice to me, alright?"
+                        MC "As you wish."
+
+                    "Really? How {i}scandalous{/i}.":
+                        MC "Do I have to take responsibility for your shattered pride if I see your bare arm?"
+                        show bm swpose
+                        BM "W-well no..."
+                        MC "Must I swear to stay with you in sickness and health just so I can clean your wound?"
+                        show fx blush
+                        show bm idia
+                        BM "[mc].. Please stop teasing me."
+                        MC "Sorry, I bet you’re all red underneath that mask huh?"
+                        BM "I-if you knew that then why did you keep going?"
+                        MC "Because I like seeing your reactions?"
+                        show bm swpose
+                        show fx huffy
+                        BM "Hmph.."
+                        hide fx
+                        MC "Come on, let me take care of you."
+                        BM "P-please be gentle, alright?"
+                        MC "I will."
 
             scene kitchennight with fade
             MC "There we go, all done! Does it hurt?"
+            show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+
             BM "No.. I guess not."
+            show bm explanation
             BM "Honestly, I was expecting you to knock me out first."
             MC "Why would I do that?"
             BM "Is that not how typical medical procedures go?"
             MC "Uhh no? I’m not a healer but I don’t think that’s how it works. Is that how it works where you came from?"
+            show fx sweat
             BM "Umm..In a way, yes?"
+            hide fx
             MC "Whatever healer you’ve been visiting, you need to stop seeing them immediately."
             BM "I’ll keep that in mind."
+            show bm swpose
             BM "Thank you. You’re.. really nice to me"
             MC "I wouldn’t say that I’m nice, in fact I’m sure I may have pushed you out of your comfort zone a few times."
             BM "W-well...I..I don’t hate it.."
@@ -1744,25 +1891,37 @@ label afternight1:
             BM "But what if you get hurt..? I really don’t want that.."
             MC "You’re not gonna hurt me, especially when you’re too scared to even touch me."
             MC "By this point, I don’t mind if you touch me y’know?"
-            BM I-i’m still scared.. What if I hurt you..?
+            BM "I-i’m still scared.. What if I hurt you..?"
+            show bm explanation
             BM It almost feels easier for me if you just tie me up with that scarf again.
             MC Like I did the first few nights you broke into my room?
             BM Y-yea..
             BM But if you put it that way I guess I did come off as someone up to no good.
-            BM I’m sorry, I was just..
-            extend really desperate for any sort of positive interaction.
+            show bm swpose
+            BM "I’m sorry, I was just.."
+            extend "really desperate for any sort of positive interaction."
             BM And I thought that someone who likes my feathers might also take an interest in me..?
             MC Sweetie, by this point I’m more than just interested in you. 
             MC I like getting to know you and I definitely enjoy having you around.
+            show fx blush:
+                        parallel:
+                            zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
             BM Promise you’re not lying to me?
             MC I promise. 
+            show bm explanation
             BM Are you sure?  I don’t think I’ve ever met someone who liked having me around before.
+            show bm sw pose
             BM I..I..uh..nevermind.
             MC Whoa, don’t stop there! Now I’m curious.
             BM N-no need.
             MC C’mon, use your words.
             BM W-well, I was about to ask if I could hug you but… I got scared. W-what if I scratch you?
             MC Well in that case, I can hug you instead?
+            show bm idia
+            show fx blush
             BM You would do that..?!
             MC Of course.
             #zoom sprite
