@@ -402,7 +402,7 @@ label start:
     Y "WOO!"
     B "Careful, you’ll get your new clothes dirty."
     Y "They’re clothes. "
-    #extend They’re meant to get dirty.
+    extend They’re meant to get dirty.
     #ini pk  https://www.youtube.com/watch?v=TsOM4gmW_As
 
     Y "Shame the fair’s already over. I wanted to ask for more things."
@@ -464,7 +464,7 @@ label start:
     MC "Sure thing."
     B A"re you feeling alright?"
     MC "Who knows."
-    #extend I think I’m fine but my head’s a little foggy.
+    extend I think I’m fine but my head’s a little foggy.
     show b_normal
     B "Oh dear."
     B "Maybe it’d be best if I took over your chores for the day."
@@ -721,7 +721,7 @@ label start:
 
             "Do they? Tell me more.":
                 BM "It’s been a local legend for.."
-                #extend umm..
+                extend umm..
                 BM "I’m not actually sure, but it sure has been a while."
                 BM "But haven’t you heard about it?"
 
@@ -782,7 +782,7 @@ label start:
     MC "(I’m missing the one over...)"
     MC "(Wait, they’re all intact.)"
     scene black with fade
-    #centered Where did this come from?
+    centered Where did this come from?
     "Was that a dream? Or was it a forgotten memory?"
     "Howard, who was he?"
 
@@ -897,10 +897,17 @@ label start:
 Label bedroom search:
     scene bedroomnight with fade
     #pokoknya ini nge-loop kyk pas milih sayur di rute tsm atau kita tes yg bg bisa diklik
+    # kalau bisa yg diklik yg diklik aja
 
         #Menu: 
             #menu 1
             #"The bed, it’s gotta be there. It’s closest to the window.":
+            scene bedroomday:
+                parallel:
+                    ease .5 zoom 2.0
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.5 xalign 0.5
             #zoom
             ###MC (I checked under the covers earlier, what about under the pillow though?)
             #sfx
@@ -914,17 +921,28 @@ Label bedroom search:
             BM "It’s me... Howard? If you even remember me..?"
             BM "Psst, can you open the window? "
             #knock
-            scene bedroomnight with vpunch
+            scene bedroomnight with vpunch:
+                parallel:
+                    ease .5 zoom 2.0
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.5 xalign 0.5
+            show bm_surprised
             MC "You!"
+            show bm_idia
             MC "The one from yesterday!"
             BM "Umm...I’m sorry about that?"
             BM "But also.. You shouldn’t be too loud. I thought you didn't want that woman from yesterday to find out, right [mc]?"
             MC "I didn’t tell you my name."
+            show bm_explanation
             BM "D-did I get it right? That’s what that woman from yesterday called you."
             MC "Right, my sister."
             MC "How did you disappear so quickly yesterday?"
+            show bm_finger
             BM "Can you please let me in now?"
             MC "No."
+            show bm_idia
+            show sf_sweat
             BM "Please? Talking to you would be much nicer if I’m not perching on the side of a roof?"
             MC "You’re a suspicious stranger. How do I know you won’t do anything?"
             BM "I won’t touch you by a hair, I swear!"
