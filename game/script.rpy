@@ -835,6 +835,7 @@ label start:
     MC "We should eat."
     Y "No kidding, I’m starving!"
     B "Please chew your food properly."
+    show b_silent
     show y_grumpy
     Y "Whatever."
     Y "I gotta be ready to head back out later."
@@ -847,11 +848,19 @@ label start:
     D "As we have been doing for the past few months."
     show d_normal
     MC "Why can’t I go?"
+    show b_normal
     B "It’s dangerous, you can’t go."
+    show b_silent
+    show y_grumpy
     Y "Stop lying, [player_gender] can’t go because [player_possessive] boots are all torn and [player_possessive] coat isn’t thick enough."
     #stomp
+    show y_grumpy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y "Ow! Come on, what did I say?"
+    show b_normal
     B "{size=-10} Keep your mouth shut.{/size}"
+    show b_silent
     MC "(As much as I think they’re keeping secrets from me, they’re not very good at hiding them are they?)"
     MC "(Now I just need to figure out what those secrets are)"
     Y "I’m not wrong!"
