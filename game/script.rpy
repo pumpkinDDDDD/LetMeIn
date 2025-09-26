@@ -184,49 +184,49 @@ label start:
     "I stumble out of bed, squinting and frowning at the bright sun shining right in my face. While I never expected to wake up feeling refreshed, things like this make mornings feel worse."
     "(I should get some curtains)"
     #door sfx
-    show y_happy
+    show y happy
     "Y Morning sleepyhead! You up yet?"
-    show y_smile
+    show y smile
     "(Who..?)"
     "A blonde woman I don’t recognize beams cheerfully at me, smiling like she’s ready to outrun a horse."
-    show y_happy at left
-    show b_normal at right
+    show y happy at left
+    show b normal at right
     B "Don’t shout so loudly, it’s still morning."
-    show b_silent
+    show b silent
     "To contrast, the next woman who entered is seemingly calm or maybe..tired? Whatever the right word is, she’s much more subdued."
     "(Who are these people?)"
-    show y_grumpy
+    show y grumpy
     Y "Yea yea. Who cares? It’s not like we have any neighbors."
-    show b_normal
+    show b normal
     B "Still, I’d like it if you’d be a bit more mindful."
         menu : 
             "Excuse me, who are you two?":
-                show y_grumpy:
+                show y grumpy:
                             linear 0.050 yoffset +10
                             linear 0.050 yoffset -10
                 Y "Oh come on!"
-                show b_happy
+                show b happy
                 B "See, even a certain someone is embarrassed by your antics."
                 MC "(Am I supposed to know these people?)"
-                show b_normal
+                show b normal
                 B "Why are you frowning like that?"
                 Y "Don’t tell me.."
                 B "That question was genuine?"
-                show y_grumpy:
+                show y grumpy:
                             linear 0.050 yoffset +10
                             linear 0.050 yoffset -10
-                show b_silent
+                show b silent
                 Y "WHAT?!"
                 Y "Nonono, say that again!"
-                show b_normal
+                show b normal
                 B "We’re your sisters. Do you.. not remember us?"
                 Y "Oh no."
                 B "Do you even remember your name? Or who you are?"
                 $ mc = renpy.input ("What’s my name?")
                 MC "I’m..[mc]?"
-                show b_happy
+                show b happy
                 B "Oh thank goodness you at least remembered your name."
-                show b_silent
+                show b silent
                 MC "And I’m.."
                     menu:
                             "A woman?":
@@ -257,34 +257,34 @@ label start:
                                 $ player_ds =  "person"
                                 $ player_fm =  "sibling"
                 
-                show y_happy:
+                show y happy:
                         linear 0.050 yoffset +10
                         linear 0.050 yoffset -10
                 Y "Yep! That’s what you are!"
-                show b_happy
+                show b happy
                 B "Well, I’m glad you didn’t lose {i}all{/i} your memories."
             "(I should shut up)":
-                show y_happy
+                show y happy
                 Y "By the way, you’re being awfully quiet today. What’s up?"
-                show b_happy
-                show y_smile
+                show b happy
+                show y smile
                 B "Did you have a nightmare last night?"
-                show b_silent
+                show b silent
                 "(Who are these people??)"
-                    show y_grumpy:
+                    show y grumpy:
                                 linear 0.050 yoffset +10
                                 linear 0.050 yoffset -10
                 Y "Woa, you don’t have to back away from us like we’re strangers!"
-                show b_normal
+                show b normal
                 B "Actually, you’re staring at us like we are."
                 #sprite moves closer to eachother
-                    show y_grumpy:
+                    show y grumpy:
                         parallel:
                             ease .5 zoom 1.0
                         parallel:
                             yalign 0.0
                             linear 0.0 yalign 0.0 xalign 0.35
-                    show b_normal:
+                    show b normal:
                         parallel:
                             ease .5 zoom 1.0
                         parallel:
@@ -292,17 +292,17 @@ label start:
                             linear 0.0 yalign 0.0 xalign 0.65
                 "(What are they whispering about..?)"
                 #Y jumps back to earlier position
-                show y_grumpy at left with vpunch
-                show b_silent
+                show y grumpy at left with vpunch
+                show b silent
                 Y "No way! Really?!"
-                show b_normal
+                show b normal
                 B "Could it be? You lost your memories?"
                 "(!!)"
                 B "Do you at least remember your name?"
-                show b_silent
+                show b silent
                 $ mc = renpy.input ("What’s my name?")
                 MC "I’m..[mc]?"
-                show b_happy
+                show b happy
                 B "Oh thank goodness you at least remembered your name."
                 MC "And I’m.."
                 menu:
@@ -333,29 +333,29 @@ label start:
                                 $ player_sbn = "aren’t"
                                 $ player_ds = "person"
                                 $ player_fm =  "sibling"
-                show y_happy
+                show y happy
                 Y "Yep! That’s what you’ve always told us."
-                show b_happy
+                show b happy
                 B "Just so we can be reacquainted, we’re your sisters."
-                show b_silent
+                show b silent
                 Y "You better not forget us again!"
 
     MC "Still though if you were my sisters, why do I not remember you?"
-            show y_grumpy:
+            show y grumpy:
                         linear 0.050 yoffset +10
                         linear 0.050 yoffset -10
     Y "That’s what we’d like to know!"
-    show b_normal
+    show b normal
     B "In all honesty, there have been some mysterious cases going around the surrounding villages.."
     B "Perhaps [player_possessive] sudden memory loss is related to it?"
-    show b_silent
+    show b silent
     MC "(Well that sounds like a convenient explanation.)"
     Y "Aw man..That blows."
-    show y_happy
+    show y happy
     Y "Anyway, we should go downstairs. I bet dad’s waiting for us to have breakfast with him."
-    show y_smile
+    show y smile
     MC "(So I have a dad.)"
-    show b_normal
+    show b normal
     B "Guessing from your expression, do you not remember him too?"
         menu:
             "Yea, I don’t remember him at all.":
@@ -366,51 +366,71 @@ label start:
     scene kitchen with fade
     "They held my hands as they led me into the halls and down the stairs, eventually stopping at a kitchen."
     "There sat a bearded man at the table, his blank expression shifting into a smile as he saw us enter."
-            show y_happy:
+            show y happy:
                         linear 0.050 yoffset +10
                         linear 0.050 yoffset -10
 
     Y "Morning, dad!"
-    show y_smile at left
-    show b_happy at right
+    show y smile at left
+    show b happy at right
     B "Good morning father."
-    show d_happy
+    show d happy
     D "Good morning you two."
-    show d_normal
+    show d normal
     MC "(Uh oh, he’s staring at me.)"
         menu: 
             "Morning!":
                 D "Chipper as always I see."
-            "Good morning."
+            "Good morning.":
                 D "Oh? Taking after your older sister today?"
-            "(HELP.)"
+            "(HELP.)":
                 #B closer
+                scene b happy:
+                    parallel:
+                        ease .5 zoom 1.7
+                    parallel:
+                        yalign 0.0
+                        linear 0.0 yalign 0.0 xalign 0.0
                 B "{size=-10} Stay calm, just greet him as cheerfully as you can{/size}"
                 MC "{size=-10} Alright{/size}"
                 #sprite back
+                scene b silent:
+                    parallel:
+                        ease .5 zoom 1.0
+                    parallel:
+                        yalign 0.0
+                        linear 0.0 yalign 0.0 xalign 0.0
                 D "Is anything wrong, [mc]?"
                 MC "Nope, I'm good. Good Morning Dad!"
 
     MC "(So this is my father.)"
-    show d_happy
+    show d happy
     D "Eat up [mc], I’ll bring back some more bread tonight."
-    show d_normal
+    show d normal
     Y "And meat!"
-    show d_happy
+    show d happy
     D "Yes, we’ll bring back some meat."
-    show d_normal
+    show d normal
+            show y happy:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+
     Y "WOO!"
+    show b normal
     B "Careful, you’ll get your new clothes dirty."
     Y "They’re clothes. "
     extend They’re meant to get dirty.
     #ini pk  https://www.youtube.com/watch?v=TsOM4gmW_As
 
     Y "Shame the fair’s already over. I wanted to ask for more things."
+    show y smile
+    show b happy
     B "We’ve asked for plenty."
-    show d_happy
+    show b silent
+    show d happy
     D "Not [mc] though, I feel a little guilty I couldn’t bring back more. Not to mention it took so long to even find it."
     D "Are you sure you were alright with what I got you?"
-    show d_normal
+    show d normal
     MC "(What did I ask for??)"
     MC "Of course I’m alright."
     MC "(I DON’T KNOW)"
