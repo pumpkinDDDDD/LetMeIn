@@ -2,9 +2,29 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 40: expected 'word' not found.
-    define  = Character ("")
-            ^
+File "game/script.rpy", line 3355: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show forest:
+    ^
+
+File "game/script.rpy", line 3368: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show forest:
+    ^
+
+File "game/script.rpy", line 3381: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show forest:
+    ^
+
+File "game/script.rpy", line 3408: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show hutouside:
+    ^
+
+File "game/script.rpy", line 3617: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show forest:
+    ^
+
+File "game/script.rpy", line 3804: end of line expected.
+    jump label aftercage
+               ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Fri Sep 19 02:03:50 2025
+Sun Sep 28 01:00:02 2025

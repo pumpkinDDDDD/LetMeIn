@@ -19,12 +19,12 @@ define config.name = _("All-In-One GUI Template")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
 ### Please remember to change this for your game!
-define config.version = "2.7"
+define config.version = False
 
 
 ## Text that is placed on the game's about screen. Place the text between the
