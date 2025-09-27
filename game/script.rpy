@@ -1,5 +1,5 @@
 ﻿# The script of the game goes in this file.
-
+# cektes masuk 
 # Set up LayeredImage Sprites
 layeredimage eileen:
 
