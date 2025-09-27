@@ -859,7 +859,7 @@ label start:
     show y happy
     Y "Time for dinner everyone! [mc]’s up!"
     #plate sfx.
-    show d happy at center
+    show d happy at right
     show y smile at left
     D "Are you feeling alright [mc]? I was told you slept the whole day."
     show d normal
@@ -1002,13 +1002,11 @@ Label bedroom search:
             BM "It’s me... Howard? If you even remember me..?"
             BM "Psst, can you open the window? "
             #knock
-            scene bedroomnight2 with vpunch:
-                parallel:
-                    ease .5 zoom 2.0
-                parallel:
-                    yalign 0.0
-                    linear 0.0 yalign 0.5 xalign 0.5
-            show bm surprised
+            scene night with fade
+            show bm surprised:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+            show window
             MC "You!"
             show bm idia
             MC "The one from yesterday!"
@@ -1054,6 +1052,7 @@ Label bedroom search:
             BM "I won’t!"
             MC "Alright, don’t make me regret this."
             #window open, thump
+            scene bedroomnight3 with fade
             show bm swpose
             BM "Thank you for letting me in."
             MC "Now, lie down on the bed."
@@ -1061,6 +1060,7 @@ Label bedroom search:
             MC "Stick your hands up, I’m gonna tie them to the bed post with my scarf."
             show fx sweat2
             BM "I-is this really necessary..?"
+            hide fx
             MC "If you don’t want to, you can always get out of my room? The window’s still open."
             BM "I’ll do it."
 
@@ -1344,7 +1344,9 @@ Label bedroom search:
             MC "(Wait no, there’s a heart etched onto the floor.)"
             scene black with fade
             MC "(Why would it be under the carpet though?)"
-            scene bedroomnight2 with fade
+            scene night with fade
+            show bm swpose
+            show window
             "..."
             #knock
             show bm swpose
@@ -1967,20 +1969,27 @@ label afternight1:
                 scene cg2 with fade
                 NO LET ME IN
     
-                Scene kitchenday with vpunch
+                scene kitchenday with vpunch
                 MC (!!!)
                 MC (No, no, no, nonono)
+                scene hallway with fade
+                pause 1
                 #run,doorslam
                 scene bedroomday with fade
                 MC (Is this really what these blades are for..?)
                 #minicg, bladenoise
+                show w blades
                 MC (Oh no..)
                 MC (They fit perfectly into the window sills. It’s like I was trying to deter someone from entering)
                 MC (Did I do this to Howard..?)
                 MC (But why..?)
+                hide w
                 …
                 MC (It’s no use, I can’t remember anything)
                 MC (I’ll have to search for more pieces of my memory)
+                scene hallway with fade
+                pause 1
+                scene kitchen with fade
 
             What’s in this little basket?
                 MC (How cute, it’s as if we’ll be going to a picnic.)
@@ -2625,6 +2634,8 @@ label afternight1:
                 BM I..I’ll try. I really want to.
                 BM I..need to see you every day to make my life mean something..
                 MC I’ll keep the window open for you.
+                BM "Really? You'd still do that for me?"
+                MC "Of course"
                 show bm explanation
                 BM Thank you..and.. goodbye [mc].
                 MC Goodbye Howard.
@@ -2660,7 +2671,9 @@ label afternight1:
         MC (?)
         BM H-hello? It’s me? Howard..? If you even remember me..?
         MC (Well I’ve got nothing better tonight)
-        scene bedroomnight2 with fade
+        scene night with fade
+        show bw bird
+        show window
         MC Give me a minute, I need to grab a few things.
         BM Oh! You do remember me..!
         BM Take your time, I can wait.
@@ -2689,10 +2702,10 @@ label afternight1:
         BM I don’t know!
         MC Maybe I should tie you up again, just in case.
         MC But I can’t really tie up a bird huh?
-        BM No problem! I can change into my human form.
         show bm bird:
                         linear 0.050 yoffset +10
                         linear 0.050 yoffset -10
+        BM No problem! I can change into my human form.
         BM C-can you close your eyes first?
         MC Don’t want to. What if you do something?
         show bm bird:
@@ -3159,10 +3172,11 @@ label ed1:
     MC Sorry?
     B (!)
     #door
-    show c 
+    show c sorry
     B [mc]? You’re awake?
     MC Yea. I know that you’re tired but I have something to say, can you please listen to me?
     MC I can come back later?
+    show c happy
     B No, I can talk now. I’ll always make time for you.
     MC (!)
     MC (She smiled.)
@@ -3170,33 +3184,48 @@ label ed1:
     MC (It’s as if all the fog surrounding them disappeared, leaving me with the bare truth.)
     MC (The person in front of me is my sister who’s trying to keep me out of danger in her own way, not a stranger keeping secrets)
     MC (She’s gotten more ragged recently, probably from all the worrying she’s done about me)
+    show c normal
     C Would you like to call Elizabeth as well?
     MC Absolutely.
+    scene hallwayday with fade
     #knock
     MC Lizzie! It’s me [mc]!
     #doorslam
+    scene hallwayday with vpunch
+    show e happy
     E Really?! You’re awake!
-    MC Yea I’m awake, I’d like to talk to you and Cathy. Is now a good time?
+    E "Now that I think about it, it's been a while since you've called me by name!"
+    show e smile
+    MC Yea It has, I’d like to talk to you and Cathy. Is now a good time?
+    show e happy
     E When is it {i}not{/i} a good time?
+    show e smile
     MC (Oh Lizzie, as energetic as ever.)
     MC (It’s been a while since I was able to look her in the eye like this.)
+    show e smile at left
+    show c normal at right
     C So, what would you like to say?
     E Yea, It’s been a while since we’ve spent time like this.
     MC I..
-    #cged1
     extend know what you’ve done.
+    show c sorry
     C It’s not-
     MC I know, you’re worried about me. But it’s okay, because I still love you guys and I’m not leaving.
     C R-really?
+    show c silent
     MC I know you stuck blades on the window to keep Howard away and I’m mad about it.
     MC But I’d like you to trust me a little on this, I’d like you to meet him someday.
     MC If he ever comes back that is.
-    Y So the monster has a name?
+    show e happy
+    E So the monster has a name?
+    show e sorry
     MC He’s not a monster!
     MC Or..maybe he is but I swear he’s really sweet!
     MC And I’d like you to meet him one day, if the opportunity ever came.
+    show c sorry
     C I see what you’re going for [mc] but honestly, I’m not quite sure he’ll ever come by again after what we’ve done to him.
-    Y I hate to say it but there sure was a lot of blood on the window.
+    show e sorry
+    E I hate to say it but there sure was a lot of blood on the window.
     MC I’m not sure if he’ll visit either, but he used to visit every night.
     MC So I’m holding out on the chance that he’ll come by again some day.
     MC I’m sorry I’ve been keeping secrets for so long but I didn’t think you’d be fine with me chatting the night away with a guy you don’t know.
@@ -3206,7 +3235,9 @@ label ed1:
     E I’m sorry too [mc]. It can’t bring him back but I hope you can forgive us..?
     MC Of course I do.
     MC I don’t know about Howard though.
+    show e happy
     E Tell you what [mc], if he doesn’t turn out to be evil. We’ll apologize a hundred times to him.
+    show c happy
     C We’ll welcome him with open arms.
     MC That’s the best outcome I can ask for at this moment.
     MC (I don’t know how things will go in the future)
@@ -3228,7 +3259,7 @@ label othereds:
     #fabricsfx
     MC (There we go, all warm.)
     #doorsfx
-    scene hallway with fade
+    scene hallwayday with fade
     pause 1s
     scene kitchen with fade
     MC (I should bring some food with me)
@@ -3236,38 +3267,67 @@ label othereds:
     scene kitchen with vpunch
     MC (!!!)
     MC (Crap, someone’s still awake!)
+    show d happy
     D [mc], are you leaving somewhere?
     MC No, I’m just going for a walk.
+    show d happy
     D [mc], I think we all know that you’re carrying too many things for it to just be a walk.
     D Are you perhaps thinking about seeking out the monster yourself?
+    show d normal
     MC Well..
     MC Yes I am. Is it that obvious?
+    show d happy
     D Indeed.
+    show d normal
     MC Are you going to stop me from leaving? I figured my sisters wouldn’t be very happy if they found out.
+    show d happy
     D Not at all. In fact, you should bring this loaf of bread for your journey.
+    show d normal
     MC You’re not mad?
+    show d happy
     D Of course not, I know you have good instincts. If you think that the monster wasn’t all that bad then you might be right.
+    show da smile
     At that moment, it was as if time had stopped and the fog that had covered my head slowly lifted itself. Not enough for it to fully clear, but enough for me to finally recognize the person in front of me.
     MC (That’s not just a bearded man who lives in the same house as me. He really is my dad.)
+    show da open
     DA Besides, it’s not like your sisters haven’t secretly snuck out before.
+    show da smile
     MC They have?
+    show da open
     DA Of course, something about visiting a witch? I’m not too sure about the specifics but I’ve chosen to trust all of you.
+    show da smile
+    show da open
     MC (So he knew about that too)
     DA You’re now an adult who’s ready to spread [player_possessive] wings.
+    show da smile
     MC Thanks Dad.
+    show da open
     DA Here, bring some food with you.
     DA Will your journey be long?
+    show da smile
     MC I don’t know.
+    show da open
     DA Stay safe [mc], we’ll still be here waiting for you.
+    show da smile:
+                parallel:
+                    ease .5 zoom 1.8
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
     #zoom
+    show da open
     DA Oh? You haven’t hugged me since you were a kid.
+    show da smile
     MC Thanks dad, I wouldn’t be able to do this without you.
+    show da open
     D Of course [mc].
     #zoomout
+    show da smile:
+
     MC See you again someday.
     D Good bye [mc].
 
-    scene sky with fade
+    scene kitchen with fade
     MC (I haven’t been outside for a while)
     #paper
     MC (“Witch Hut, head north into the forest until you see a house, it might move so call out to it”)
@@ -3290,21 +3350,63 @@ label othereds:
             repeat 2
     MC (The woods sure look scarier once you’ve actually entered them)
     #repeatcode&sfx
+        show forest:
+            parallel:
+                ease .5 zoom 1.3
+            parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.5 xalign 0.5
+            linear 0.050 xoffset -0
+            linear 0.050 xoffset +0
+            linear 0.050 yoffset -5
+            linear 0.050 yoffset +5
+            repeat 2
     …
     #rp
+        show forest:
+            parallel:
+                ease .5 zoom 1.4
+            parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.5 xalign 0.5
+            linear 0.050 xoffset -0
+            linear 0.050 xoffset +0
+            linear 0.050 yoffset -5
+            linear 0.050 yoffset +5
+            repeat 2
     …
     scene forest with fade
     MC (It’s gotten darker)
+    show rain1
+    show rain2
+    MC "(And now it's raining, {i}great{/i})"
     scene forest with fade
     MC (I really hope I’m heading in the right direction)
 
     scene hutoutside with fade
+    show rain1
+    show rain2
     #if we can figure out particles make it rain here
     MC (Is that..?)
     MC (I think that’s the witch hut. If nothing else, it really does have the fence made of flaming bones)
     #rpcode,zoom1.4, sfx
+        show hutouside:
+            parallel:
+                ease .5 zoom 1.4
+            parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.5 xalign 0.5
+            linear 0.050 xoffset -0
+            linear 0.050 xoffset +0
+            linear 0.050 yoffset -5
+            linear 0.050 yoffset +5
+            repeat 2
+    show rain1
+    show rain2
     pause 0.5s
     scene hutoutside with vpunch
+    show rain1
+    show rain2
     MC (!!!)
     MC ( The hut, it moved further away)
     #paper
@@ -3316,6 +3418,7 @@ label othereds:
     MC (I guess the witch hut can’t talk)
     MC Excuse me? If anyone resides in that house, may I enter?
     #door
+    scene witchhutoutside2
     MC (There’s someone inside!)
     WI What is someone like you doing at this time of night?
     MC I come to ask for help, if I may. I’m looking for someone and it seems that my sisters have wiped my memories of him.
@@ -3323,7 +3426,8 @@ label othereds:
     WI And who is this person that you seek out?
     MC He’s someone dear to me. If what remains of my memory of him are correct, he may have visited you? His name’s Howard.
     WI Howard..?
-    MC Yes. I’m not sure how secret this information is but he can transform into a bird?
+    MC "Yes."
+    MC "I’m not sure how secret this information is but he can transform into a bird?"
     WI I see, you must be [mc] then.
     MC You know me?
     WI Indeed, he has spoken favourably about you.
@@ -3337,7 +3441,8 @@ label othereds:
     WI I see your predicament, you may enter. The morning is wiser than the evening.
 
     scene hutinside with fade
-    MC Thankyou for letting me in.
+    MC "Thankyou for letting me in. Are you sure I can be here? I'm pretty dirty from the trip.."
+    show wi normal
     WI Don’t worry about such things. You may rest here for the night.
     MC What shall I address you as?
     WI Call me grandmother.
@@ -3345,6 +3450,7 @@ label othereds:
     MC How will I ever pay you back?
     WI Save Howard. That’s the only thing you can do.
     MC Save him? From what..?
+    show wi hand
     WI Given that I aided your sisters in sealing your memory, I shall now undo the effects.
     WI Now sleep, I can’t work my magic while you’re awake.
     MC Of course. Goodnight grandmother.
@@ -3354,26 +3460,41 @@ label othereds:
     #bgm: https://dova-s.jp/EN/bgm/play22027.html
 
     pause 0.5s
+    show b happy
     B [mc], before you head to sleep, would you like to drink with us?
+    show y happy at right
+    show b silent at left
     Y It’s just milk, it shouldn’t keep you awake at night.
+    show y smile
     MC I’m feeling really sleepy now, I don’t th-
+    show y happy
     Y Pleasee? We haven’t spent much time together recently.
+    show b happy
     B I’m inclined to agree. Can we have just ten minutes of your time to chat?
     Y We can add honey into the milk if you’d like?
+    show y smile
+    show b silent
     MC Fine, I guess you’re right.
     MC I do miss you guys..
     MC And you two haven’t been around the house much either.
+    show b happy
     B Exactly, we’ll be making up for lost time
     #clink
     MC Well, cheers.
+
     scene kitchen with fade
+    show y happy
     Y How’s the milk? Not enough honey?
     MC (My head feels kinda heavy..)
     MC It’s good. But I guess warm milk does make you kind of sleepy?
+    show y smile at right
+    show b happy at left
     B I understand the feeling, I think I’ll head to bed early.
+    show y happy
     Y Me too.
     MC I guess that makes all of us.
     MC Goodnight everyone. Sweet dreams.
+
     scene black with fade
     #wind
     MC (I can’t open my eyes)
@@ -3384,7 +3505,7 @@ label othereds:
     #brutal stabbing, layer w/ wood noise?
     BM LET ME IN!
     #rattling, window breaking, stabbing noise
-    #He starts crying here
+
     BM T-that’s a lot of blood..
     BM H-hey, did you get sick of me already..?
     MC (No, I haven’t!)
@@ -3403,54 +3524,71 @@ label othereds:
 
     scene insidehut with vpunch
     MC (!!!)
+    show wi normal
     WI You’re awake, how are you feeling?
     MC Like I’ve been kicked by a horse.
     WI Now that’s a new one, everyone seems to say different things when they wake up.
     WI I suppose you have many questions surrounding him?
     MC I do. May I?
+    show wi hand
     WI Go ahead dear. 
     MC So, what is Howard really?
+    show wi normal
     WI Who knows, at best I can only say that he is a magical creature.
+    show wi hand
     WI He may have been human at some point but those days are long gone.
     MC Just to make sure, he really is at the edge of the world right now?
     MC He told me to go to the edge of the world if I wanted to find him.
+    show wi hand
     WI Indeed, he currently resides with his betrothed in a castle at the edge of the world.
     MC {b}His betrothed?{/b}
+    show wi normal
     WI Yes.
+    show wi hand
     WI The creature he’s marrying, is cruel and has no care for the beings around it. It wants to steal his power and it has kept him locked in a cage for many decades.
     WI The moment he is wed to the creature, he will be bound to the castle for eternity.
     #ngeloop ampe kelar semua
     Menu:
-    MC Wait, if he’s locked in a cage, why could he visit me at night?
-    WI He snuck out. The creature sleeps at night so it’s an ideal time.
-    WI But no matter how careful he is, it’ll find out eventually.
-    MC Is that why the number of missing villagers started rising? Because it was trying to find
-    Howard?
-    MC I believe Howard has mentioned that they now work in the castle?
-    WI Indeed they do. The creature has sucked the life out of them to make itself stronger, they currently live as empty shells of their former lives.
-    Why hasn’t the creature done anything to him? Why wait decades?
-    WI It’s waiting for the right conditions. Soon enough, the moon will shine a brilliant blue.
-    WI Under that moon, the creature will finally be able to absorb Howard’s power.
-    MC And what is this creature?
-    WI I can’t speak its name, as it will hear me the moment I do.
-    MC (I guess that explains why Howard never went into details)
+        Wait, if he’s locked in a cage, why could he visit me at night?:
+            WI He snuck out. The creature sleeps at night so it’s an ideal time.
+            show wi normal
+            WI But no matter how careful he is, it’ll find out eventually.
+            MC Is that why the number of missing villagers started rising? Because it was trying to find Howard?
+            MC I believe Howard has mentioned that they now work in the castle?
+            WI Indeed they do. The creature has sucked the life out of them to make itself stronger, they currently live as empty shells of their former lives.
+        Why hasn’t the creature done anything to him? Why wait decades?:
+            show wi normal
+            WI It’s waiting for the right conditions. Soon enough, the moon will shine a brilliant blue.
+            WI Under that moon, the creature will finally be able to absorb Howard’s power.
+        MC And what is this creature?:
+            show wi normal
+            WI I can’t speak its name, as it will hear me the moment I do.
+            MC (I guess that explains why Howard never went into details)
 
-    WI In any case, I’d like it if you could rescue him from his fate. Marry him,  only then will he be free from its grasp.
+    WI In any case, I’d like it if you could rescue him from his fate. Marry him, only then will he be free from its grasp.
     MC I will.
+    show wi hand
     WI You better, I’d rather have him marry someone who has traveled months to see him.
+    show wi normal
     MC True that.
     MC (WAIT)
     scene inside hut with vpunch
     MC (MONTHS???)
+    show wi hand
     WI What’s the matter [mc]?
     MC I’ve been travelling for months??
+    show wi normal
     WI Of course you have. Given how confused you are I can tell you didn’t realize it had been that long.
     MC How much further is the edge of the world?
+    show wi hand
     WI You’re almost there. Just beyond these woods is the castle you seek.
     WI Now take this and heed my words. Once you enter the castle pretend to be a fellow servant, copy the blank stares and monotone movements.
+    show wi normal
     WI When the sun sets, approach the creature in the throne room and present these items as a trade.
     WI The moment it lays interest in the golden saucer and its diamond ball, demand one night with your beloved in exchange.
+    show wi hand
     WI Proceed with caution, as it will use magical items to give you a disadvantage.
+    show wi normal
     WI Do you understand [mc]?
     MC Yes, grandmother.
     WI Good, now hurry before they are actually wed.
@@ -3461,19 +3599,30 @@ label othereds:
     MC (The hut, it’s gone.)
     MC (I don’t have any more time to waste, I should hurry to the castle)
     #running sfx
-    Show bg forest
+        show forest:
+            parallel:
+                ease .5 zoom 1.4
+            parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.5 xalign 0.5
+            linear 0.050 xoffset -0
+            linear 0.050 xoffset +0
+            linear 0.050 yoffset -5
+            linear 0.050 yoffset +5
+            repeat 6
     #insert effect from earlier, repeat 6?
     MC (I’ll be there soon Howard, I swear)
-    scene castle with fade/ use forest?
-    #keep it simple
+    scene castlefront with fade
     MC (Is that..the castle?)
     MC (I guess grandmother did say it was just beyond these woods)
 
-    scene insidecastle with fade
+    scene castleinside with fade
     #gatesfx
     MC (This is it, I’m finally here)
     …
     MC (I know that there’s a lot people here but the silence prevails)
+    MC (Copy their movements [mc])
+    scene castleinside with vpunch
     #bump
     MC I’m sorry..!
     MC Wait, Mrs Jones?
@@ -3482,15 +3631,27 @@ label othereds:
     MC (It’s like she doesn’t recognize me anymore)
     MC (Is this what happens to all the missing people..?)
     #onscreeen, crowd silhouette, hide bm behind
+    show bm swpose
+    show crowd
     MC (Is that..?)
+    show crowd at offscreenright with easeoutright
     #crowd move, show bm
+    hide crowd
     MC (Howard..?)
     #zoom, steps sfx
     MC Howard! I’m-
     #stomp echoing
-    scene insidecastle with vpunch
+    scene castleinside with vpunch
     MC (!!!)
     MC (Nevermind, I need to hide)
+    scene castleinside with fade
+    show cr hand at left:
+                        parallel:
+                            zoom 0.8
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.0
+    show castle wall
     #blurry asset infront, bm behind
     #kalau bisa dia beda font
     NO You look displeased.
@@ -3512,8 +3673,20 @@ label othereds:
     MC (Damn it, I can’t see)
     #squeak.
     MC (CRAP)
+    show cr hand at left:
+                        parallel:
+                            zoom 1.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.0
     #creature sprite zoom closer
     MC (I need to get out of here)
+    show cr hand at left:
+                        parallel:
+                            zoom 1.3
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.0
     #zoom closer
     MC (NEVERMIND)
     NO …
@@ -3525,7 +3698,7 @@ label othereds:
     MC (But you can do this [mc])
     MC (Probably)
 
-    scene throne with fade
+    scene throne1 with fade
     #sfx
     Upon entering the lavish room, I noticed that it wasn’t the creature I previously saw that was sitting on the throne. Instead, there's a human-like figure in a gown sitting cross legged.
     It raises an eyebrow in my direction, whether it was because it thought I was rude or because I’m dirty, I’m not sure.
@@ -3540,7 +3713,15 @@ label othereds:
     NO You?
     extend Trade with me?
     NO How foolish. Do you not know who I am?
-    #kl sempet transition, creature steps out of skin suit
+    show throne1 with fade
+    pause 1
+    show throne2 with fade
+    pause 1
+    show throne3 with fade
+    pause 1
+    show throne4 with fade
+    pause 1
+
     MC You wouldn’t call it foolish once I show you what I have.
     NO Oh really?
     MC Really.
@@ -3555,20 +3736,21 @@ label othereds:
     MC I’d like a night with your betrothed.
     NO What?
     extend That’s it?
-    extend You’d like a night with that monster?
+    extend You’d like a night with {i}that{/i}?
     MC Indeed, I’d like to see him.
-    NO I can offer countless other treasures,money, status,  perhaps you’d even like power?
+    NO I can offer countless other treasures, money, status, perhaps you’d even like power?
     MC I want a night with your betrothed, Howard.
     NO So that’s what you're after?
     MC Yes.
     NO I now see that {i}you{/i} are the one that fool has been sneaking out to see.
+    NO "No wonder you smell like him, I almost mistook you for that fool."
     NO Well, a single night with him means nothing to me. He’s still mine after this is done.
     NO I accept your trade.
     MC So we have a deal?
     NO Indeed, don’t regret it.
     MC I won’t
 
-    scene cage with fade
+    scene cagecg1 with fade
     #stop bgm
     MC Howard?
     An uncomfortable silence fills the room, broken only by the sounds of my steps towards the cage.
@@ -3598,19 +3780,20 @@ label othereds:
     MC (What do I do now?)
     #loop ky milih sayur di tsm
     Menu:
-    Inspect the room for anything that can help.
-    Looking around the room, there’s not much to be found. The creature really did give him the bare minimum to survive.
-    He lives in a cage where he sleeps on the floor with a bucket to drink from.
-    There’s a clock in this room but honestly you can’t really see it in darkness like this.
-    It’s easy to see why he thought of himself as a monster if this is how he lived for decades.
-    Enter the cage with him.
-    jump label aftercage
-    Consider murdering the creature I made a deal with.
-    I rummage through whatever pockets I have for anything that can give me a leg up in battle.
-    MC (I have this dagger but is it enough? I doubt it)
+        Inspect the room for anything that can help.:
+            Looking around the room, there’s not much to be found. The creature really did give him the bare minimum to survive.
+            He lives in a cage where he sleeps on the floor with a bucket to drink from.
+            There’s a clock in this room but honestly you can’t really see it in darkness like this.
+            It’s easy to see why he thought of himself as a monster if this is how he lived for decades.
+        Enter the cage with him.:
+            jump label aftercage
+        Consider murdering the creature I made a deal with.:
+            I rummage through whatever pockets I have for anything that can give me a leg up in battle.
+            MC (I have this dagger but is it enough? I doubt it)
 
 
 label aftercage:
+    scene cage2cg with fade
     Given how large the gaps in his cage are, I easily slip inside.
     The gaps were definitely made while considering his ‘monster form’ as the only way he could leave was if he transformed into either a human or a small bird.
     MC Howard, wake up.
@@ -3620,17 +3803,24 @@ label aftercage:
     MC (He’s still breathing..That’s good)
     MC (But how do I get him to wake up? I don’t have magical powers like grandmother does)
 
-    scene witchhut with fade
+    scene witchhut with fade:
+            matrixcolor TintMatrix(color="#d9b6ec" )
     #use tint matrix??
+    show wi hand:
+            matrixcolor TintMatrix(color="#d9b6ec" )
     WI “Proceed with caution, as it will use magical items to give you a disadvantage.”
     scene insidecastle with fade
+    show bm swpose
+    show cr hand at left
+    show castlewall
+
     NO That’s too many words from someone like you. You will soon regret your insolence.
     NO Now, remember to wear this.
     BM Hm.
     MC (Wait, what did it give him? What did it make him wear?)
     MC (Damn it, I can’t see)
 
-    scene cage with vpunch
+    scene cage2cg with vpunch
     MC (That’s it!)
     MC (I need to find this thing that the creature made him wear.)
     MC (What is it though..?)
@@ -3639,120 +3829,164 @@ label aftercage:
     #ky td lg
     Menu:
     The mask.
-    MC (He wears this every time he visits so I doubt this was the magical item that the creature gave him but it doesn’t hurt to check)
-    MC (I mean, I’m glad I can see his bare face but it’s a shame that it has to happen in a circumstance like this)
-    I pick up the mask from the floor and run my fingers through every bump and crevice in an attempt to find anything that seems magical.
-    MC (It’s just a mask)
-    MC I never got to tell you this before, but I think your mask looks pretty cool. Did you make it yourself? 
-    MC I know you’re pretty crafty, so it’s not too far fetched right?
-    …
-    MC (I’ve heard of doctors who shove herbs in the beak portion of the mask but his is empty)
-    MC (Maybe it’s to accommodate for his actual beak?)
-    MC (Although, if I put it up to his face it doesn’t quite fit anymore)
-    MC (Maybe the mask isn’t the magical item?)
+        MC (He wears this every time he visits so I doubt this was the magical item that the creature gave him but it doesn’t hurt to check)
+        MC (I mean, I’m glad I can see his bare face but it’s a shame that it has to happen in a circumstance like this)
+        I pick up the mask from the floor and run my fingers through every bump and crevice in an attempt to find anything that seems magical.
+        MC (It’s just a mask)
+        MC I never got to tell you this before, but I think your mask looks pretty cool. Did you make it yourself? 
+        MC I know you’re pretty crafty, so it’s not too far fetched right?
+        …
+        MC (I’ve heard of doctors who shove herbs in the beak portion of the mask but his is empty)
+        MC (Maybe it’s to accommodate for his actual beak?)
+        MC (Although, if I put it up to his face it doesn’t quite fit anymore)
+        MC (Maybe the mask isn’t the magical item?)
     The Veil.
-    MC (It didn’t occur to me before but the veil does make him look like a bride)
-    MC (Was he forced to wear the veil? Or did he choose this on his own?)
-    MC (He looks beautiful but if it makes him unhappy I’d want him to remove it)
-    MC (Wait, did it always have this hairpin?)
-    MC (It’s gorgeous, I’ll give it that)
-    It seemed to glimmer even within the darkness of the room, without any light for it to reflect.
-    MC (Still, who sleeps with a hairpin on?)
-    MC Did you always sleep with a hairpin on? I’m sorry I never noticed but it looks good on you.
-    MC I am worried that it’ll stab you in your sleep though, does it hurt you?
-    BM…
-    MC I’ll put it next to your mask, okay?
-    Carefully, I took out the hairpin from the veil adorning his face and placed it next to his mask.
-    jump labelhairpinremove
+        MC (It didn’t occur to me before but the veil does make him look like a bride)
+        MC (Was he forced to wear the veil? Or did he choose this on his own?)
+        MC (He looks beautiful but if it makes him unhappy I’d want him to remove it)
+        MC (Wait, did it always have this hairpin?)
+        MC (It’s gorgeous, I’ll give it that)
+        It seemed to glimmer even within the darkness of the room, without any light for it to reflect.
+        MC (Still, who sleeps with a hairpin on?)
+        MC Did you always sleep with a hairpin on? I’m sorry I never noticed but it looks good on you.
+        MC I am worried that it’ll stab you in your sleep though, does it hurt you?
+        BM…
+        MC I’ll put it next to your mask, okay?
+        Carefully, I took out the hairpin from the veil adorning his face and placed it next to his mask.
+        jump labelhairpinremove
     The gloves
-    Given that he currently has wings instead of hands, his gloves are placed neatly next to his mask.
-    MC (I used to wonder why his gloves look pointy and sharp but looking at it now they just seems like normal gloves)
-    MC (I guess even in his human form he had claws..?)
-    MC If you ever wake up and forgive me, can I hold your hand? Now that things are like this I kinda regret never doing it.
-    BM…
-    MC I guess I can’t expect you to just wake up from my words alone, huh?
-    MC (Still, I don’t see anything on here that wasn’t normally there)
+        Given that he currently has wings {i}and{/i} massive claws, his gloves are placed neatly next to his mask.
+        MC (I used to wonder why his gloves look pointy and sharp but looking at it now they just seems like normal gloves)
+        MC (I guess even in his human form he had claws..?)
+        MC If you ever wake up and forgive me, can I hold your hand? Now that things are like this I kinda regret never doing it.
+        BM…
+        MC I guess I can’t expect you to just wake up from my words alone, huh?
+        MC (Still, I don’t see anything on here that wasn’t normally there)
     The cape.
-    Even with his current form, the cape remains on him, albeit with a different purpose.
-    It now drapes over him, acting as a blanket of sorts.
-    MC (I gotta be honest though, that cape doesn’t seem like it would do much to shield him from the cold)
-    Any pins or brooches that previously adorned it had been removed, leaving only the fabric and threads that form it.
-    MC (I don’t think anything was added to the cape, maybe it’s not here?)
+        Even with his current form, the cape remains on him, albeit with a different purpose.
+        It now drapes over him, acting as a blanket of sorts.
+        MC (I gotta be honest though, that cape doesn’t seem like it would do much to shield him from the cold)
+        Any pins or brooches that previously adorned it had been removed, leaving only the fabric and threads that form it.
+        MC (I don’t think anything was added to the cape, maybe it’s not here?)
 
 label hairpinremove:
-    scene cage with fade
+    scene cage2cg with fade
     …
     MC (Well at least he could sleep more comfortably?)
     MC (I still need to find the magical item though)
     scene black with fade
     MC (Where else am I supposed to look?)
     BM [mc]? Is..is that you?
-    scene cage with vpunch
+    scene cage3cg with vpunch
     #bgm : https://dova-s.jp/EN/bgm/play22621.html
     MC !!!
     MC Howard..? You’re awake.
+    scene cage3cg
     BM Yes? I..uh. Heard everything you said earlier.
     BM Y..you don’t mind that I look like this, do you?
+    scene cage4cg
     MC Not at all. I’m glad I can finally see you like this.
+    scene cage3cg
     BM Really..? You don’t regret travelling all the way here for..
     extend this, right?
+    scene cage4cg
+    MC "Howard, look at me. I haven't taken a bath in months"
+    MC "The real question is {i}you{/i} mind if I look like this.
+    scene cage3cg
+    BM "I don't mind at all! You went all they way here for me.."
+    BM "You really don't mind me, right..?"
+    scene cage4cg
     MC Howard. Stay still. Lower your head if possible.
+    scene cage3cg
     BM Y..yes?
+    scene cage4cg
     #If possible, i need you to make a noise that sounds like you were about to say something but got interrupted by a kiss.
 
     scene black with fade
     Without waiting for another second, my hands reached to pull us together as I connected my lips to his beak.
     In that little moment it almost seemed like all his worries were behind him as I could feel him placing his wing on my back to bring us closer than ever before.
     For once, there was no hesitation in him. It felt {i}right{/i}.
-    scene cage with fade
+    scene cage3cg with fade
     BM Well, I guess it would be foolish of me to doubt you any longer.
+    scene cage4cg
     MC It would.
+    scene cage3cg
     BM Thank you for coming all the way here for me.
     BM But..What now? I don’t know how we can escape that {i}thing{/i}.
+    scene cage4cg
     MC I’ve got an idea.
 
     MC We need to get married. Right now.
+    scene cage3cg
     BM What?
+    scene cage4cg
     MC Unless you don’t want to? 
+    scene cage3cg with vpunch
     BM NO I DO! Please..! You’ll really marry me..?!
+    scene cage4cg
     MC Obviously, that’s why I asked.
     MC Howard, will you marry me? 
+    scene cage3cg with vpunch
     BM YES. 
     BM B-but not here, we should get to the altar. There’s one nearby.
+    scene cage4cg
     MC Let’s go then.
-    scene cg1 with fade
+    scene cg1a with fade
     And so, we took off into the brilliant night sky, away from the castle, away from the creature, away from anything that could stop us at that moment.
     With me on his back, he flew us straight into a chapel, grander than any I’ve ever seen in my life.
+
     scene chapel with fade
     MC The moon..it’s blue.
+    show bm happy
     BM This is it..
     BM We’re really doing this..
+    show bm smile
     Menu:
-    You’re not in your other form anymore?
-    BM I don’t want to be, I can’t kiss you if I don’t have lips.
-    MC How exciting, I can finally taste your lips on mine.
-    BM [mc]..Don’t get me too excited here..
-    Don’t back down on me, okay?
-    BM I definitely won’t. I can’t live my life without you anymore.
-    MC So do I.
+        You’re not in your other form anymore?:
+           show bm happy
+            BM I don’t want to be, I can’t kiss you if I don’t have lips.
+            show bm smile
+            MC How exciting, I can finally taste your lips on mine.
+            show bm brhappy
+            BM [mc]..Don’t get me too excited here..
+        Don’t back down on me, okay?:
+           show bm happy
+            BM I definitely won’t. I can’t live my life without you anymore.
+            show bm smile
+            MC So do I.
     MC Now, shall we?
+    show bm happy
     BM Please, lead the way.
+    show bm smile
     Without a proper guide, we make up our own procedures as we go. I offered him my hand and we walked down the aisle together.
     Once we reached the edge, we stood there towards each other, hands not letting go even for a minute.
+    show bm smile:
+                parallel:
+                    ease .5 zoom 1.7
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
     MC I have to be honest, I don’t know how weddings are supposed to work.
+    show bm happy
     BM S-so do I. I haven’t had the opportunity to see one in decades.
     MC Shall we just say our vows and then kiss?
+    show bm happy
     BM That works for me.
+    show bm smile
     MC May..I?
+    show bm happy
     BM Go ahead.
+    show bm smile
     MC Howard, I don’t know how long it’s been since we’ve met but it sure felt like every second of my day has been consumed by you.
     MC You’ve intrigued me from the very moment we met and I can’t seem to get you out of my mind, no matter what form you may take.
     MC Even when I lost my memories, a mere glimpse from a remnant of you was enough for me to remember. No matter what happens in the future, I’ll keep a window open for you and if you don’t visit, I’ll seek you out myself. 
     MC Even if it takes me days, weeks, months, I’ll still be moving towards you.
     MC I love you Howard and I’m honored that you gave me this opportunity.
+    show bm chappy
     BM [mc]..give me a moment. I can’t stop crying..
     MC Take your time.
     BM Thank you..
+    show bm bhappy
     BM Well..
     BM I..don’t think I deserve you but I’m glad you looked past all the things that I hated about myself and found beauty in them.
     BM You’ve shown interest in me, listened to me and most importantly, you actually care about me.
@@ -3761,63 +3995,71 @@ label hairpinremove:
     BM I promise that I will always return to your side each night, no matter how far apart we were during the day.
     BM If you ever need me for anything at all, wave a feather of mine at your window and I’ll be at your side as soon as I can.
     BM I love you.. And I’ll never stop, now and forever.
+    show bm smile
     No more words were said between us but one look into his eyes gave me the final confirmation I needed before officially sealing the deal.
     scene black with fade
     When our lips finally collided, I felt his hands cupping my face as I wrapped mine around his shoulders, not wanting him to move away for even a second.
     As I hug him tighter, his hands move from my face to embrace me even further, holding me like I’ll leave if he doesn’t.
     scene chapel with fade
+    show bm chappy
     BM It’s official.
     MC Indeed it is.
-
+    show bm happy
     BM What now? Is there anything else that you wanted to do?
     Menu:
-    I want you to meet my family for real.
-    BM R-really? Don’t they hate me..?
-    BM I mean, your sisters did place knives on your window to deter me...
-    MC They won’t do anything like ever again. I’ll make sure they accept you with open arms.
-    BM What if they don’t?
-    MC Stop thinking negatively here, they won’t. Once they get to know you, I’m sure they’ll love you.
-    BM W-well, it’d be nice if they do.
-    BM Can I really have hope like this..?
-    MC Of course. You always deserve hope.
-    scene black with fade
-    Pause 1s
 
-    scene cg with fade
-    E Catherine, c’monnnn. Are you not gonna wear the flower crowns with us?
-    E Even Howard and dad are joining in!
-    C Lizzie, I’m not a child.
-    C Howard, take that off. I can’t have her use you as an excuse against me.
-    BM I’m sorry?
-    MC Hey, don’t make him apologize when he did nothing wrong.
-    MC Lizzie’s right y’know? You’re the only one not wearing them.
-    DA Catherine, why don’t you join us?
-    MC Please?
-    BM Um, please? Sister in law?
-    C I guess I can’t refuse when both my little [player_fm] and brother in law are asking so nicely, can I?
-    E Woo! I am so glad [mc] has good taste. Welcome to the family Howard.
-    C I know we’ve said this before, but let us say it again.
-    C We’re deeply sorry for what we’ve done to you. 
-    BM Oh it’s okay now! We’re.. family right?
-    BM {size=-5}Family..That’s an unfamiliar word{/size}
-    MC We’ll get you used to it.
-    BM Promise?
-    MC Promise.
-    BM In that case, I’m glad to be here.
-    Nothing warms my heart quite like seeing him happy. After decades of isolation, he’s finally found people who will welcome him with open arms.
-    It was hard at first, but as the missing villagers slowly returned, everyone soon realised that it wasn’t Howard who they should hate.
-    With the two of us together, surrounded by other people who love us to our core, I think we’ve finally reached our happily ever after.
-    Ending 2 : Reunited at last.
+    I want you to meet my family for real.
+        show bm basking
+        BM R-really? Don’t they hate me..?
+        show bm questioning
+        BM I mean, your sisters did place knives on your window to deter me...
+        MC They won’t do anything like ever again. I’ll make sure they accept you with open arms.
+        BM What if they don’t?
+        MC Stop thinking negatively here, they won’t. Once they get to know you, I’m sure they’ll love you.
+        show bm happy
+        BM W-well, it’d be nice if they do.
+        BM Can I really have hope like this..?
+        MC Of course. You always deserve hope.
+        scene black with fade
+        pause 1
+    
+        scene ed2cg with fade
+        E Catherine, c’monnnn. Are you not gonna wear the flower crowns with us?
+        E Even Howard and dad are joining in!
+        C Lizzie, I’m not a child.
+        C Howard, take that off. I can’t have her use you as an excuse against me.
+        BM I’m sorry?
+        MC Hey, don’t make him apologize when he did nothing wrong.
+        MC Lizzie’s right y’know? You’re the only one not wearing them.
+        DA Catherine, why don’t you join us?
+        MC Please?
+        BM Um, please? Sister in law?
+        C I guess I can’t refuse when both my little [player_fm] and brother in law are asking so nicely, can I?
+        E Woo! I am so glad [mc] has good taste. Welcome to the family Howard.
+        C I know we’ve said this before, but let us say it again.
+        C We’re deeply sorry for what we’ve done to you. 
+        BM Oh it’s okay now! We’re.. family right?
+        BM {size=-5}Family..That’s an unfamiliar word{/size}
+        MC We’ll get you used to it.
+        BM Promise?
+        MC Promise.
+        BM In that case, I’m glad to be here.
+        Nothing warms my heart quite like seeing him happy. After decades of isolation, he’s finally found people who will welcome him with open arms.
+        It was hard at first, but as the missing villagers slowly returned, everyone soon realised that it wasn’t Howard who they should hate.
+        With the two of us together, surrounded by other people who love us to our core, I think we’ve finally reached our happily ever after.
+        Ending 2 : Reunited at last.
 
 label ending3:
     Definitely, we need to kill that thing.
+    show bm questioning
     BM A-are you sure about this?
     MC When am I not sure?
+    show bm happy
     BM Alright then.
     scene black with fade
     centered As you wish.
-    pause 1s
-    scene cg with fade
+    pause 1
+    scene runcg with fade
     #think lightly jogging to freedom
     VA RUN..!
     VB WE’RE FREE!!
@@ -3827,7 +4069,7 @@ label ending3:
     VB Just run!
     VA Well, as long as those two are happy I guess.
 
-    scene cg with fade
+    scene ed3cg with fade
     #sfx
     BM Was this..enough [mc]?
     BM I don’t think even this {i}thing{/i} can recover when we’ve sliced it into this many pieces.
