@@ -1887,13 +1887,13 @@ label afternight1:
             MC "I wouldn’t say that I’m nice, in fact I’m sure I may have pushed you out of your comfort zone a few times."
             BM "W-well...I..I don’t hate it.."
             BM "The fact that I can’t ever win against you..."
-            MC "Really? Well.. I  like that but I’m also curious, why not? You’re strong enough to do it."
+            MC "Really? Well.. I like that but I’m also curious, why not? You’re strong enough to do it."
             BM "But what if you get hurt..? I really don’t want that.."
             MC "You’re not gonna hurt me, especially when you’re too scared to even touch me."
             MC "By this point, I don’t mind if you touch me y’know?"
             BM "I-i’m still scared.. What if I hurt you..?"
             show bm explanation
-            BM It almost feels easier for me if you just tie me up with that scarf again.
+            BM "It almost feels easier for me if you just tie me up with that scarf again."
             MC Like I did the first few nights you broke into my room?
             BM Y-yea..
             BM But if you put it that way I guess I did come off as someone up to no good.
@@ -1919,126 +1919,194 @@ label afternight1:
             BM N-no need.
             MC C’mon, use your words.
             BM W-well, I was about to ask if I could hug you but… I got scared. W-what if I scratch you?
-            MC Well in that case, I can hug you instead?
+            MC Well in that case, {i}I{/i} can hug you instead?
             show bm idia
             show fx blush
             BM You would do that..?!
             MC Of course.
             #zoom sprite
+            show bm swpose:
+                        parallel:
+                            zoom 1.9
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
             As I wrap my arms around him, his posture straightens at the sudden contact. Despite his initial reaction, he soon lets himself relax as he melts into my embrace, carefully placing the weight of his head onto my shoulder.
             scene black with fade
             BM Thank you..really, I can’t thank you enough..
 
             I might as well check the table.
-            #zoom
-            MC (I’ve eaten on this table multiple times but I haven’t really inspected it before)
-            (Too bad it just seems like a normal table)
-            MC (Is there anything underneath it though?)
-            #papersfx
-            MC (Oh, there’s something taped to the underside)
-            (It’s paper?)
-            “Witch Hut, head north into the forest until you see a house, it might move so call out to it”
-            MC (Witch hut? The house might move?)
-            MC (Who wrote this?)
-            “Once inside, speak politely to the witch, do her chores when asked, she’ll return the favor in the morning”
-            “Warning : Quite far, be patient, give proper excuse to father”
-            MC (“Father” huh? Sounds like my ‘eldest sister’ has been here.)
-            MC (I’ll keep this for now)
+                scene kitchen:
+                        parallel:
+                            zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.8 xalign 0.5
+                #zoom
+                MC (I’ve eaten on this table multiple times but I haven’t really inspected it before)
+                MC "(Too bad it just seems like a normal table)"
+                MC (Is there anything underneath it though?)
+                #papersfx
+                MC (Oh, there’s something taped to the underside)
+                show mc paper
+                (It’s paper?)
+                “Witch Hut, head north into the forest until you see a house, it might move so call out to it”
+                MC (Witch hut? The house might move?)
+                MC (Who wrote this?)
+                “Once inside, speak politely to the witch, do her chores when asked, she’ll return the favor in the morning”
+                “Warning : Quite far, be patient, give proper excuse to father”
+                MC (“Father” huh? Sounds like my ‘eldest sister’ has been here.)
+                hide mc
+                MC (I’ll keep this for now)
 
             The cupboards seem like they’re hiding something
-            MC (Let’s see what’s in here..)
-            MC (Plates, cutlery and..knives??)
-            MC (Maybe not {i}knives{/i}, more like a huge assortment of blades with sporadic sizing?)
-            MC (What could these be for?)
-            scene cg2 with fade
-            NO LET ME IN
-
-            Scene kitchenday with vpunch
-            MC (!!!)
-            MC (No, no, no, nonono)
-            #run,doorslam
-            scene bedroomday with fade
-            MC (Is this really what these blades are for..?)
-            #minicg, bladenoise
-            MC (Oh no..)
-            MC (They fit perfectly into the window sills. It’s like I was trying to deter someone from entering)
-            MC (Did I do this to Howard..?)
-            MC (But why..?)
-            …
-            MC (It’s no use, I can’t remember anything)
-            MC (I’ll have to search for more pieces of my memory)
+                MC (Let’s see what’s in here..)
+                MC (Plates, cutlery and..knives??)
+                MC (Maybe not {i}knives{/i}, more like a huge assortment of blades with sporadic sizing?)
+                MC (What could these be for?)
+                scene cg2 with fade
+                NO LET ME IN
+    
+                Scene kitchenday with vpunch
+                MC (!!!)
+                MC (No, no, no, nonono)
+                #run,doorslam
+                scene bedroomday with fade
+                MC (Is this really what these blades are for..?)
+                #minicg, bladenoise
+                MC (Oh no..)
+                MC (They fit perfectly into the window sills. It’s like I was trying to deter someone from entering)
+                MC (Did I do this to Howard..?)
+                MC (But why..?)
+                …
+                MC (It’s no use, I can’t remember anything)
+                MC (I’ll have to search for more pieces of my memory)
 
             What’s in this little basket?
-            MC (How cute, it’s as if we’ll be going to a picnic.)
-            MC (But is anything actually inside?)
-            MC (Nope not much, just a blanket)
-            #cling
-            MC (Wait, there’s something else)
-            #mini cg
-            MC (A key!)
-            MC (Although to where? I don’t know yet)
-            MC (I’ll be storing this for future use)
+                MC (How cute, it’s as if we’ll be going to a picnic.)
+                MC (But is anything actually inside?)
+                MC (Nope not much, just a blanket)
+                #cling
+                MC (Wait, there’s something else)
+                #mini cg
+                MC (A key!)
+                MC (Although to where? I don’t know yet)
+                MC (I’ll be storing this for future use)
 
 
     #Muncul pas pilihan lain udah
     I can’t think of anything else to check here.
+    show y happy
     Y [mc]! You’re still in the kitchen? I thought you’d be in your room
+    show y smile
     MC Yea, just looking for a new view.
+    show y happy
     Y Yea I get that, being stuck in bed like yesterday must suck huh?
+    show y smile
     MC It sure does.
     MC Do you need any help with anything?
+    show y happy
     Y Nah, you should rest. I handled all your chores.
+    show y smile
     MC (I’ll guess I’ll continue tonight)
 
 
     #door
+    scene kitchen with day
+    show d happy
     D We’re back.
+    show d normal
+    show y happy at left:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y Hi dad! What did you bring today?
+    show y smile
+    show b normal at right
     B Not much. We merely foraged for some mushrooms.
+    show b silent
     D Sorry, no more meat tonight.
+    show y happy
     Y It’s alright, we’ll reheat yesterday’s stew.
     Y Are you hungry [mc]?
+    show y smile
     MC I guess I am.
+    show y happy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y Sweet! It’s dinner time!
 
     scene kitchennight with fade
     #platesfx
     …
     MC (Today’s dinner is eerily quiet..)
-    MC (It doesn’t help that my sisters are stealing glances at me every few minutes..)
+    MC (It doesn’t help that my 'sisters' are stealing glances at me every few minutes..)
     MC (Are they even really my sisters?)
+    MC (Well, I live with them so maybe they are?)
+    show y happy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y I’m done eating!
+    show y smile
+    show b normal at left
     B The rest of us aren’t finished.
+    show b silent
+    show y grumpy
     Y Whatever, I’ll get ready for tonight's patrol.
+    show y at offscreenright with easeoutright
     MC Speaking of the night patrol, any updates on the monster?
+    hide y
+    show b normal
     B Don’t concern yourself with it.
+    show b silent
     MC I have a right to know.
+    show d happy at right
     D You do [mc].
+    show b normal
     B But fathe-
+    show b silent
     D We have plans to finish off the monster by the end of the week.
     D We have received a report of its last sighting where it was severely injured, which was 2 days ago.
     D The community has decided that we should try and end it while it’s injured.
+    show d normal
     MC (2 days ago? That was around when I lost my memory)
     MC But it wasn’t seen yesterday, was it?
+    show d happy
     D That’s right, we haven’t seen it since. A few members are planning on exploring nearby caves to see if it has taken refuge there.
     MC (I sure hope Howard’s not hiding in one of those caves then)
+    show b normal
     B Can I clear the table now? It seems that we’ve all finished eating.
+    show b silent
     D Oh yes, thank you.
+    show b normal
     B Now let us hurry, we mustn't be late.
+    show b silent
+    show y happy:
+        linear 0.050 yoffset +10
+        linear 0.050 yoffset -10
     Y Alright! I’ve been waiting for this!
     Y Take care of the house and be safe, okay [mc]?
+    show y smile
     MC Sure thing.
+    hide y
+    show d happy
     D See you in the morning [mc]
+    hide d
+    show b normal at center
     B Don’t let anyone in, understood?
+    show b silent
     MC Sure sure.
+    show b normal
     B I’m serious.
+    show b silent
     MC I got it, you don’t have to say it again.
+    show b happy
     B I sure hope you got it. Farewell [mc].
+    show b silent
     MC Byee.
     #doorsfx
 
     MC (Time to explore the rest of the house)
-    scene hallway with fade
+    scene hallwaynight with fade
     MC (I couldn’t go into any of the rooms earlier but I have this key now!)
     MC (Time to figure out where this key leads)
     #sfx
@@ -2049,8 +2117,30 @@ label afternight1:
     MC (And…no. Honestly, it’d be useful if this key could open up my sisters rooms)
     MC (What’s this door? Looks pretty dilapidated compared to the other ones)
     MC (It’s not a haunted room is it?)
-    scene attic with fade
+
+    show attic with fade
     show keyhole
+    show attic with fade:
+        parallel:
+                ease .5 zoom 1.0
+        parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.0 xalign 0.3
+    pause 2
+    show attic with fade:
+        parallel:
+                ease .5 zoom 1.0
+        parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.0 xalign 0.85
+    pause 2
+    show attic with fade:
+        parallel:
+                ease .5 zoom 1.0
+        parallel:
+                yalign 0.0
+                linear 0.0 yalign 0.0 xalign 0.5
+    pause 2
     #zoom,movebg left&right
     scene hallway with fade
     MC (Seems normal enough, I’ll give it a try)
@@ -2064,593 +2154,927 @@ label afternight1:
     MC (Now, where do I start?)
     #ini ky tadi jg
     Menu: 
-    The old wardrobe shows some promise.
-    MC (Let’s see what we have in here..)
-    MC (Wait, there’s a whole bunch of stuff in here! There’s coats, cloaks, extra boots?)
-    MC (If we had these all along, why couldn’t I have joined the night patrols?)
-    MC (Unless these don’t fit me?)
-    #fabricsfx
-    MC (Nope, they do fit.)
-    MC (So I do have proper clothing! They were just making excuses so I couldn’t tag along)
-    …
-    MC (How do I even have these?)
+        The old wardrobe shows some promise.
+            MC (Let’s see what we have in here..)
+            MC (Wait, there’s a whole bunch of stuff in here! There’s coats, cloaks, extra boots?)
+            MC (If we had these all along, why couldn’t I have joined the night patrols?)
+            MC (Unless these don’t fit me?)
+            #fabricsfx
+            MC (Nope, they do fit.)
+            MC (So I do have proper clothing! They were just making excuses so I couldn’t tag along)
+            …
+            MC (How do I even have these?)
+        
+            scene bedroomnight3 with fade
+            MC (And in 3..2..1)
+            #feathersfx
+            show bm swpose at center:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+            BM [mc], I’m here!
+            MC Nice to see that you got here safely.
+            MC You seem happier than normal, did something happen?
+            show bm swpose at center:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+            BM W-well, yes! How did you know? My mask is still on, right?
+            MC Of course it is. 
+            show bm idia at center:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+            BM Great!
+            show bm finger
+            BM Anyway, I..have something to give you..?
+            MC Really?
+            show bm explanation
+            BM So, you know how I’ve been molting for a few weeks and I have a lot of feathers in my room?
+            BM Well, I remembered that you told me about how you asked for a feather of mine instead of new clothes when your father was going to the fair.
+            BM And, since I had the opportunity to learn recently, I made a few things for you made out of my feathers..! 
+            BM Here’s the coat I made you along with some boots and a scarf.
+            show bm swpose
+            show fx sweat
+            BM Y-you don’t find that weird..do you? The fact that I made them with my feathers..?
+            BM {size=-10}Maybe I should’ve thought this through..{/size}
+            hide fx
+            MC You made me all this..?
+            show bm swpose at center:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+            BM Y..yes! If..you don’t mind that they’re made of my feathers..?
+            MC No, I don’t mind at all! But they didn’t hurt you, did they?
+            show bm swpose at center:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+            BM Oh not at all! I assure you that I wasn’t hurt in the slightest! I used the feathers that fell out!
+            Menu:
+                “Thank you! I appreciate you doing all this.”:
+                    show bm explanation
+                    BM Well, I’ve been a guest in your home every night so I thought I’d have to bring a gift to my host eventually?
+                    MC You really didn’t need to. Especially when I can’t give you anything back that’s this nice.
+                    MC Unless you’re willing to wait a few years..?
+                    show fx blush
+                    BM Well, I certainly don’t mind a gift from you. But you really shouldn’t have to give me something back.
+                    hide fx
+            
+                Tackle him into a hug:
+                    #zoom
+                    show bm surprised at center:
+                        parallel:
+                            ease .5 zoom 2.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    scene bedroomnight with fade
-    MC (And in 3..2..1)
-    #feathersfx
-    BM [mc], I’m here!
-    MC Nice to see that you got here safely.
-    MC You seem happier than normal, did something happen?
-    BM W-well, yes! How did you know? My mask is still on, right?
-    MC Of course it is. 
-    BM Great!
-    BM Anyway, I..have something to give you..?
-    MC Really?
-    BM So, you know how I’ve been molting for a few weeks and I have a lot of feathers in my room?
-    BM Well, I remembered that you told me about how you asked for a feather of mine instead of new clothes when your father was going to the fair.
-    BM And, since I had the opportunity to learn recently, I made a few things for you made out of my feathers..! 
-    BM Here’s the coat I made you along with some boots and a scarf.
-    BM Y-you don’t find that weird..do you? The fact that I made them with my feathers..?
-    BM {size=-10}Maybe I should’ve thought this through..{/size}
-    MC You made me all this..?
-    BM Y..yes! If..you don’t mind that they’re made of my feathers..?
-    MC No, I don’t mind at all! But they didn’t hurt you, did they?
-    BM Oh not at all! I assure you that I wasn’t hurt in the slightest! I used the feathers that fell out!
-    Menu:
-    “Thank you! I appreciate you doing all this.”
-    BM Well, I’ve been a guest in your home every night so I thought I’d have to bring a gift to my host eventually?
-    MC You really didn’t need to. Especially when I can’t give you anything back that’s this nice.
-    MC Unless you’re willing to wait a few years..?
-    BM Well, I certainly don’t mind a gift from you. But you really shouldn’t have to give me something back.
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
 
-    Tackle him into a hug
-    #zoom
-    BM (!!!)
-    BM [mc]..Y-you can’t just do things like this without warning..!
-    BM I thought my heart was going to leap through my chest for a moment..
-    MC Do you hate it though?
-    BM W-well..
-    extend Nevermind..
-    BM I-i don’t hate it.
-    MC I know.
-    BM Don’t let me go. You started this.
-    MC Sure sure. I’ll keep on going until you pull away.
-    BM You better..
-    extend Actually..
-    BM Wait!
-    MC Yea?
-    BM Can you try it on now?
-    MC Sure thing
-    #fabricsfx
-    scene bedroomnight with fade
-    BM So..
-    extend How is it?
-    BM I’m..well..a monster so these should be sturdier than average.
-    MC They feel great! I feel like royalty in these!
-    BM So you like them?
-    MC I love them! 
-    Menu: 
-    Like I love you!
-    BM L-love..?!! M-me..?!!
-    BM W-well, surely you jest..?
-    MC Not at all, I’m completely serious.
-    BM A-are you?
-    MC I am. And I’ll say it as many times as I need to get it through your head.
-    MC Or is your mask in the way?
-    BM NO..! The mask is not in the way!
-    BM I-i don’t need you to see how red I am..!
-    MC Sure sure.
-    It’s the best gift I’ve ever received.
-    BM I’m glad you think that way.
-    MC It kinda feels like a representation of you in a way. Like you’re right by my side even when you’re not.
-    BM T-that would be nice..
-    BM I want to make you more things now…
-    MC Well aren’t you just the sweetest?
+                    BM (!!!)
+                    show fx blush:
+                        parallel:
+                            zoom 2.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    scene attic with fade
-    MC (Right, that’s how I got these)
-    MC (They were from him..)
+                    BM [mc]..Y-you can’t just do things like this without warning..!
+                    BM I thought my heart was going to leap through my chest for a moment..
+                    MC Do you hate it though?
+                    show bm swpose
+                    BM W-well..
+                    extend "Nevermind.."
+                    BM I-i don’t hate it.
+                    MC I know.
+                    BM Don’t let me go. You started this.
+                    MC Sure sure. I’ll keep on going until you pull away.
+                    BM You better..
+                    ...
+                    BM "What if I don't want to pull away?
+                    MC "Fine by me"
+                    BM "I feel like I forgot something.."
+                    extend Can you pull away for a moment?
+                    MC Sure
+                    show bm sw pose
+                            parallel:
+                            ease .5 zoom 1.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+
+            BM Anyway,..
+            MC Yea?
+            BM Can you try it on now?
+            MC Sure thing
+            #fabricsfx
+            scene bedroomnight with fade
+            show bm swpose
+            BM So..
+            show bm explanation
+            extend How is it?
+            BM I’m..well..not exactly human so these should be sturdier than average.
+            MC They feel great! I feel like royalty in these!
+            BM So you like them?
+            MC I love them! 
+            Menu: 
+                Like I love you!:
+                    show bm surprised:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+                    BM L-love..?!! M-me..?!!
+                    show bm explanation
+                    BM W-well, surely you jest..?
+                    MC Not at all, I’m completely serious.
+                    show bm swpose
+                    BM A-are you?
+                    MC I am. And I’ll say it as many times as I need to get it through your head.
+                    MC Or is your mask in the way?
+                    show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                    BM NO..! The mask is not in the way!
+                    show fx blush
+                    BM I-i don’t need you to see how red I am..!
+                    MC Sure sure.
+
+                It’s the best gift I’ve ever received.:
+                    show bm swpose
+                    show fx blush
+                    BM I’m glad you think that way.
+                    MC It kinda feels like a representation of you in a way. Like you’re right by my side even when you’re not.
+                    BM T-that would be nice..
+                    BM I want to make you more things now…
+                    MC Well aren’t you just the sweetest?
+        
+            scene attic with fade
+            MC (Right, that’s how I got these)
+            MC (They were from him..)
 
     Time to open up some chests!
-    MC (Great, this one isn’t locked.)
-    MC (There’s a lot of paper and there’s something drawn on them)
-    MC (Did I draw all these?)
-    MC (They have residue on the back, I’m guessing these were what previously decorated my walls?)
-    MC (Oh? This is Howard as a bird. Shame I didn’t draw any portraits of his human form though.)
-    MC (Then again, I wouldn’t want my family to catch on)
+        MC (Great, this one isn’t locked.)
+        MC (There’s a lot of paper and there’s something drawn on them)
+        MC (Did I draw all these?)
+        MC (They have residue on the back, I’m guessing these were what previously decorated my walls?)
+        MC (Oh? This is Howard as a bird. Shame I didn’t draw any portraits of his human form though.)
+        MC (Then again, I wouldn’t want my family to catch on)
 
     The window! It’s always worth checking.
-    MC (Why did we barricade it?)
-    MC (I don’t remember those wooden planks being there..)
-    #woodnoise
-    MC (There! Now I can see the sky again.)
+        MC (Why did we barricade it?)
+        MC (I don’t remember those wooden planks being there..)
+        #woodnoise
+        MC (There! Now I can see the sky again.)
+    
+        scene hallwaynight with fade
+        MC (Man, these night patrols sure are convenient. Without my family around I don’t have to worry about them finding Howard)
+        MC (I should get back to my room before he gets here)
+        #steps, crash, feather
+        BM Ow… That arrow almost hit me..
+        MC (Is that him? He’s already here?)
+        BM [mc]! I’m here! 
+        BM Oh! I forgot I have to be quieter..
+        BM [mc]?
+        extend "I guess [player_gender] [player_sbn] here yet.."
+        MC (I kinda wanna know what he’ll do when I’m not around)
+        show bedroomnight with fade
+        show bm swpose
+        show mc keyhole
+        BM …
+        MC (He’s just waiting on my bed)
+        #humming soundbite
+        He sits on the edge as politely as I thought anyone ever could, his back seemingly straight as a ruler and his feet flat on the floor.
+        After a few brief glances at my pillow he forgoes his perfect posture and lies down, snuggling into the warmth of my blanket.
+        MC (He’s getting really comfortable there..It’s almost like it’s his room now)
+        MC (Then again, it might as well be with the way he’s visiting every night)
+    
+        #creak
+        MC (Woops)
+        scene hallwaynight with fade
+        show bm swpose
+        BM [mc]? 
+        MC (No use in hiding anymore)
+        scene bedroomnight with fade
+        MC Getting comfy on my bed?
+        show fx sweat2
+        BM N-no! I wasn’t..uhh..
+        show fx sweat
+        extend "Sorry, I was getting too comfortable."
+        hide fx
+        Giving him a small smile, I placed myself near him on my bed. 
+        show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    scene hallway with fade
-    MC (Man, these night patrols sure are convenient. Without my family around I don’t have to worry about them finding Howard)
-    MC (I should get back to my room before he gets here)
-    #steps, crash, feather
-    BM Ow… That arrow almost hit me..
-    MC (Is that him? He’s already here?)
-    BM [mc]! I’m here! 
-    BM Oh! I forgot I have to be quieter..
-    BM [mc]?
-    extend I guess [player_gender] [player_sbn] here yet..
-    MC (I kinda wanna know what he’ll do when I’m not around)
-    show bedroomnight with fade
-    show sprite
-    show keyhole
-    BM …
-    MC (He’s just waiting on my bed)
-    #humming soundbite
-    He sits on the edge as politely as I thought anyone ever could, his back seemingly straight as a ruler and his feet flat on the floor.
-    After a few brief glances at my pillow he forgoes his perfect posture and lies down, snuggling into the warmth of my blanket.
-    MC (He’s getting really comfortable there..It’s almost like it’s his room now)
-    MC (Then again, it might as well be with the way he’s visiting every night)
+        MC No worries, I don’t mind anymore.
+        show bm explanation
+        BM A-are you sure?
+        MC Yea? You basically live with me by this point.
+        BM Live with you..? W-well that sounds nice..
+        show bm swpose
+        BM …
+        BM Can I..get closer to you..?
+        MC Sure, scoot over.
+        BM Thank you.
+        show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.8
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+        #spritezoom
+        BM Can you hold me..?
+        MC Someone’s making a lot of requests today.
+        MC But of course I can.
+        show bm finger
+        BM Thank you, I really needed this tonight.
+        MC What’s up? You seem more on edge than usual.
+        show bm explanation
+        BM W-well, is it just me or has there been more hunters at night recently?
+        BM Even your family has gone on these ‘night patrols’ right?
+        BM The night used to be pretty safe for me, maybe one or two people wandering about.
+        show bm swpose
+        BM Like when I met you.
+        show bm explanation
+        BM But now.. There’s mobs going around looking for…something?
+        BM Is it me? The thing they were looking for?
+        MC Well, I’m not sure either. My family said they’re looking for a monster but it might not be you?
+        MC But to be honest, the amount of missing people has increased recently.
+        show bm idia
+        BM Really..?!
+        MC That’s what I read in the newspapers.
+        MC If you’re curious, you can read it?
+        show bm swpose
+        #paper
+        BM List of missing people…
+        MC A few of them have portraits, maybe you’ll recognize some of them?
+        BM Hmm..
+        show bm idia:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+        BM (!!)
+        MC What’s wrong?
+        show bm swpose
+        BM I feel like I recognize them..
+        MC You probably would if you lived in the village down the hill, is that where you’re from?
+        BM No, I live much further than that.
+        #papersfx
+        BM Hmm..
+        BM You’re saying that they went missing..?
+        MC That’s what I’ve been told.
+        BM They weren’t just looking for a new job?
+        MC No.
+        show bm explanation
+        BM This might sound a little strange to say but I think I have a theory..?
+        MC Go ahead.
+        BM "Do you think that they just moved to find jobs?"
+        BM After looking at the list, I noticed that everyone was pretty quiet? Or maybe they didn’t like talking to people much?
+        MC Quiet?
+        show bm swpose
+        BM As in, when I tried talking to them they ignored me..although I suppose they were busy?
+        MC "Busy?"
+        MC I feel like you have the wrong people, these are the friendliest folks I know.
+        MC Like Mr Hansen here, he’d always smile and wave whenever me and my family passed by.
+        BM But I know this face..and he never had anything other than a blank stare..
+        MC Well I’ve known him since I was a kid and he’d never do that!
+        BM What about her? As far as I know she always has this tired look to her, I’ve never seen her so..lively?
+        MC Well that’s what she’s like? Mrs Jones is always full of energy.
+        BM …
+        BM [mc], how long ago did they disappear?
+        MC Uhh, A month ago?
+        His movements froze for a moment, he stares at me dead in the eye as if he’s trying to say something but none of the words are coming out.
+        
+        show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.3
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    #creak
-    MC (Woops)
-    scene hallway with fade
-    BM [mc]? 
-    MC (No use in hiding anymore)
-    scene bedroomnight with fade
-    MC Getting comfy on my bed?
-    BM N-no! I wasn’t..uhh..
-    extend Sorry, I was getting too comfortable.
-    Giving him a small smile, I placed myself near him on my bed.  
-    MC No worries, I don’t mind anymore.
-    BM A-are you sure?
-    MC Yea? You basically live with me by this point.
-    BM Live with you..? W-well that sounds nice..
-    BM…
-    BM Can I..get closer to you..?
-    MC Sure, scoot over.
-    BM Thank you.
-    #spritezoom
-    BM Can you hold me..?
-    MC Someone’s making a lot of requests today.
-    MC But of course I can.
-    BM Thank you, I really needed this tonight.
-    MC What’s up? You seem more on edge than usual.
-    BM W-well, is it just me or has there been more hunters at night recently?
-    BM Even your family has gone on these ‘night patrols’ right?
-    BM The night used to be pretty safe for me, maybe one or two people wandering about.
-    BM Like when I met you.
-    BM But now.. There’s mobs going around looking for…something?
-    BM Is it me? The thing they were looking for?
-    MC Well, I’m not sure either. My family said they’re looking for a monster but it might not be you?
-    MC But to be honest, the amount of missing people has increased recently.
-    BM Really..?!
-    MC That’s what I read in the newspapers.
-    MC If you’re curious, you can read it?
-    #paper
-    BM List of missing people…
-    MC A few of them have portraits, maybe you’ll recognize some of them?
-    BM Hmm..
-    BM (!!)
-    MC What’s wrong?
-    BM I feel like I recognize them..
-    MC You probably would if you lived in the village down the hill, is that where you’re from?
-    BM No, I live much further than that.
-    #papersfx
-    BM Hmm..
-    BM You’re saying that they went missing..?
-    MC That’s what I’ve been told.
-    BM They weren’t just looking for a new job?
-    MC No.
-    BM This might sound a little strange to say but I think I have a theory..?
-    MC Go ahead.
-    BM After looking at the list, I noticed that everyone was pretty quiet? Or maybe they didn’t like talking to people much?
-    MC Quiet?
-    BM As in, when I tried talking to them they ignored me..although I suppose they were busy?
-    MC I feel like you have the wrong people, these are the friendliest folks I know.
-    MC Like Mr Hansen here, he’d always smile and wave whenever me and my family passed by.
-    BM But I know this face..and he never had anything other than a blank stare..
-    MC Well I’ve known him since I was a kid and he’d never do that!
-    BM What about her? As far as I know she always has this tired look to her, I’ve never seen her so..lively?
-    MC Well that’s what she’s like? Mrs Jones is always full of energy.
-    BM …
-    BM [mc], how long ago did they disappear?
-    MC Uhh, A month ago?
-    His movements froze for a moment, he stares at me dead in the eye as if he’s trying to say something but none of the words are coming out.
+        BM I..I think I know where they are...
+        MC Really?! Where? Maybe we-
+        show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    BM I..I think I know where they are...
-    MC Really?! Where? Maybe we-
-    BM Thecastletheyarestuckinthecastle.
-    MC What?
-    BM I can’t stay here any longer.
-    MC Wait, why not?
-    BM I have to go.
-    MC I said wait!
-    #tackle (reuse first cg?)
-    BM [mc], let me go!
-    MC Not before you tell me what’s going on!
-    BM I can’t!
-    MC Why not?
-    BM Because it’s all my fault!
-    MC Whatever it is no it’s not. You haven’t done anything wrong and I know it.
-    BM But they wouldn’t have gone missing if it weren’t for me..!!
-    MC Take a deep breath, and explain to me slowly. I’m right here for you.
-    MC What makes you think it’s your fault?
-    BM I-I’ve seen them. Recently.
-    BM They’re the new servants back where I came from.
-    BM I didn’t know.. That they were…
-    BM T-they were..
-    MC Servants? Why would th-
-    BM [mc], please let me go!
-    BM I really need to go back now..!
-    Menu:
-    Do you really have to leave?
-    BM I do.
-    MC Will you come back tomorrow?
-    BM I-I want to.
-    extend I really do.
-    BM I-i want to see you everyday if fate allows it.
-    MC Then come back tomorrow, I want to see you too.
-    BM N-no, you won’t want to see me again after this.
-    MC Why not?
-    BM I can’t tell you yet.
-    MC Will you explain it to me someday?
-    BM I..i will try.
-    MC Good enough for me.
-    scene bedroomnight with fade
-    MC I guess this is good bye for now?
-    BM Y..yea.
-    MC Before you leave, can I ask for one thing?
-    BM S-sure, what is it?
-    MC Close your eyes.
-    BM A-alright.
-    MC Now, hands behind your back.
-    BM [mc], w-what are you doing..?
-    MC Sorry, I just wanted to make sure you wouldn’t interrupt me.
-    BM W-what..? Before you continue, will this thing you’re asking for stop me from leaving?
-    MC It’d be nice if it does but I doubt it.
-    BM W-will it hurt?
-    MC It won’t and it’ll only take a second.
-    MC Do you trust me?
-    BM I..I.
-    extend I do.
-    #take off mask
-    BM [mc]..? What are you doing..?
-    MC Shh.
-    And with that, I pull him closer to give him a peck on his cheek.
-    MC There, all done.
-    BM D-did you just..?!
-    MC Sorry, did you hate it?
-    BM NO! I mean..no I didn’t hate it. 
-    BM I really liked it..!
-    BM Curses, you’re making it really hard for me to leave…
-    #put mask on
-    MC But you still have to leave, yea?
-    BM Y-yes.
-    MC I understand, I’ll keep the window open for you.  
-    MC Goodbye Howard.
-    BM Goodbye [mc].
-    scene black with fade
-    #feathersfx
-    No, not until you explain it to me.
-    BM [mc]..! PLEASE!
-    MC No!
-    #fabricrip
-    MC Howard..?
-    BM I..hurt you.. You’ll hate me..
-    MC It’s just a tear on my sleeve, I’m fine.
-    BM No, no, no, nonono..
-    MC Shh, Howard I’m fine.
-    BM DON’T COME NEAR ME..!
-    MC …
-    BM I…I.. I’m sorry!! I’ll leave!!
-    scene bedroomnight with fade
-    MC Wait! I’m not hurt!
-    BM I can’t be here anymore, I’ve done something to you…!
-    MC It’s just my shirt, I’m fine!
-    BM No, I-
-    MC Shut up.
-    #zoom
-    In a spur of the moment decision,  I grab him by the collar and place a brief kiss on where his mouth should be.
-    BM (!!!)
-    #zoom out a little
-    BM Y..you..kissed me..?
-    MC Well the mask but yes, that was the idea.
-    MC Howard, I’m not hurt and I don’t hate you.
-    MC Get that into your head before you leave me for the night.
-    BM I’m never washing this mask ever again..
-    MC That’s a bit extreme.
-    BM But really, [mc]..I..I.. 
-    extend nevermind.
-    MC Hey, you can’t do that! I want to know what you have to say.
-    BM [mc]..I really can’t.. I’ll die of embarrassment here..
-    MC Can I hear it tomorrow then? If you ever come back?
-    BM I..I’ll try. I really want to.
-    BM I..need to see you every day to make my life mean something..
-    MC I’ll keep the window open for you.
-    BM Thank you..and.. goodbye [mc].
-    MC Goodbye Howard.
-    scene black with fade
-    #sfx
+        BM Thecastletheyarestuckinthecastle.
+        MC What?
+        show bm explanation
+        BM I can’t stay here any longer.
+        MC Wait, why not?
+        BM I have to go.
+        MC I said wait!
+        #tackle (reuse first cg?)
+
+        scene tacklecg with vpunch
+        BM [mc], let me go!
+        MC Not before you tell me what’s going on!
+        scene tacklecg with vpunch
+        BM I can’t!
+        MC Why not?
+        BM Because it’s all my fault!
+        MC Whatever it is no it’s not. You haven’t done anything wrong and I know it.
+        BM But they wouldn’t have gone missing if it weren’t for me..!!
+        MC Take a deep breath, and explain to me slowly. I’m right here for you.
+        MC What makes you think it’s your fault?
+        BM I-I’ve seen them. Recently.
+        BM They’re the new servants back where I came from.
+        BM I didn’t know.. That they were…
+        BM T-they were..
+        MC Servants? Why would th-
+        BM [mc], please let me go!
+        BM I really need to go back now..!
+        Menu:
+            Do you really have to leave?
+                BM I do.
+                MC Will you come back tomorrow?
+                BM I-I want to.
+                extend I really do.
+                BM I-i want to see you everyday if fate allows it.
+                MC Then come back tomorrow, I want to see you too.
+                BM N-no, you won’t want to see me again after this.
+                MC Why not?
+                BM I can’t tell you yet.
+                MC Will you explain it to me someday?
+                BM I..i will try.
+                MC Good enough for me.
+
+                scene bedroomnight3 with fade
+                show bm swpose
+                MC I guess this is good bye for now?
+                BM Y..yea.
+                MC Before you leave, can I ask for one thing?
+                show bm explanation
+                BM S-sure, what is it?
+                MC Close your eyes.
+                BM A-alright.
+                MC Now, hands behind your back.
+                show bm swpose
+                BM [mc], w-what are you doing..?
+                MC Sorry, I just wanted to make sure you wouldn’t interrupt me.
+                show bm explanation
+                BM W-what..? Before you continue, will this thing you’re asking for stop me from leaving?
+                MC It’d be nice if it does but I doubt it.
+                show bm swpose
+                BM W-will it hurt?
+                MC It won’t and it’ll only take a second.
+                MC Do you trust me?
+                BM I..I.
+                extend I do.
+                #take off mask
+                show bm close
+                BM [mc]..? What are you doing..?
+                MC Shh.
+                scene black with fade
+                And with that, I pull him closer to give him a peck on his cheek.
+                scene bedroomnight3 with fade
+                MC There, all done.
+                show bm basking:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+                BM D-did you just..?!
+                MC Sorry, did you hate it?
+                show bm brhappy:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                BM NO! 
+                show bm happy
+                extend "I mean..no I didn’t hate it. "
+                BM I really liked it..!
+                show bm questioning
+                BM Curses, you’re making it really hard for me to leave…
+                show bm swpose
+                #put mask on
+                MC But you still have to leave, yea?
+                BM Y-yes.
+                MC I understand, I’ll keep the window open for you.  
+                BM "Promise?"
+                MC "Promise"
+                BM "I'll be back when I can, I swear."
+                MC Goodbye Howard.
+                BM Goodbye [mc].
+                scene black with fade
+                #feathersfx
+
+            No, not until you explain it to me.:
+                BM [mc]..! PLEASE!
+                MC No!
+                #fabricrip
+                MC Howard..?
+                BM I..hurt you.. You’ll hate me..
+                MC It’s just a tear on my sleeve, I’m fine.
+                BM No, no, no, nonono..
+                MC Shh, Howard I’m fine.
+                scene tacklecg with vpunch
+                BM DON’T COME NEAR ME..!
+                MC …
+                BM I…I.. I’m sorry!! I’ll leave!!
+                scene bedroomnight3 with fade
+                MC Wait! I’m not hurt!
+                show bm swpose:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+                        repeat 2
+                BM I can’t be here anymore, I’ve done something to you…!
+                MC It’s just my shirt, I’m fine!
+                show bm swpose:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                BM No, I-
+                MC Shut up.
+                show bm idia:
+                        parallel:
+                            ease .5 zoom 2.0
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+
+                #zoom
+                In a spur of the moment decision,  I grab him by the collar and place a brief kiss on where his mouth should be.
+                BM (!!!)
+                #zoom out a little
+                show bm swpose:
+                        parallel:
+                            ease .5 zoom 1.7
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
+
+                BM Y..you..kissed me..?
+                MC Well the mask but yes, that was the idea.
+                MC Howard, I’m not hurt and I don’t hate you.
+                MC Get that into your head before you leave me for the night.
+                BM I’m never washing this mask ever again..
+                MC That’s a bit extreme.
+                BM "But really, [mc]..I..I.. "
+                extend "nevermind."
+                MC Hey, you can’t do that! I want to know what you have to say.
+                show bm idia
+                BM [mc]..I really can’t.. I’ll die of embarrassment here..
+                MC Can I hear it tomorrow then? If you ever come back?
+                BM I..I’ll try. I really want to.
+                BM I..need to see you every day to make my life mean something..
+                MC I’ll keep the window open for you.
+                show bm explanation
+                BM Thank you..and.. goodbye [mc].
+                MC Goodbye Howard.
+                scene black with fade
+                #sfx
 
 
     Do we have a hidden trap door somewhere?
-    #zoom left to right
-    MC (Yea, I didn’t think so)
-    MC (Maybe I should clean a little so I can actually find something?)
-    MC (I can just use this rag)
-    MC (Wait, this isn’t a rag. 
-    extend It’s my scarf!)
+        scene attic:
+                        parallel:
+                            ease .5 zoom 1.3
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.85 xalign 0.5
 
-    scene bedroomnight with fade
-    pause 1s
-    scene black with fade
-    …
-    MC (I can’t sleep)
-    MC (It’s been 2 days since that bird man, Howard, has broken into my room)
-    MC (And also 2 days since he’s ruined my sleeping schedule, now I feel tired during the day but can’t sleep at night)
-    MC (This sucks)
-    #knock
-    MC (?)
-    BM H-hello? It’s me? Howard..? If you even remember me..?
-    MC (Well I’ve got nothing better tonight)
-    scene bedroomnight with fade
-    MC Give me a minute, I need to grab a few things.
-    BM Oh! You do remember me..!
-    BM Take your time, I can wait.
-    #openchest, knife
-    MC Hm.
-    #close
-    MC Alright, you can go in now.
-    BM Thank you for letting me in!
-    MC So you really are a bird.
-    BM Yea! Unless..you find that displeasing?
-    MC I don’t mind, talking to a bird is pretty cool. 
-    BM Don’t you find it scary..?
-    MC What’s the scary part?
-    BM I..I don’t quite understand the details but most people seem to either despise my existence or fear me..?
-    MC What did you do?
-    BM I don’t know!
-    MC Maybe I should tie you up again, just in case.
-    MC But I can’t really tie up a bird huh?
-    BM No problem! I can change into my human form.
-    BM C-can you close your eyes first?
-    MC Don’t want to. What if you do something?
-    BM I won’t!
-    #knife
-    MC Fine, but don’t make me regret it.
-    scene black with fade
-    BM Eek! That knife of yours always scares me…
-    MC Well? Get on with your transformation, my eyes are closed.
-    BM Right, sorry!
-    #sfx
-    BM I’m done. You can open your eyes again?
-    scene bedroomnight with fade
-    MC Are you ever gonna let me see you transform? It seems pretty cool.
-    BM Uhh n-no. It’s sort of grotesque actually.
-    Menu:
-    Even better.
-    BM B-better?!
-    MC Now I’m really curious.
-    BM Y-you can’t! P-please..?
-    BM I don’t think my heart is ready for that..!
-    MC {i}Really?{/i}
-    BM Yes really! Now can you please tie me up already?
-    MC You like being tied up that much?
-    BM Wh-what..?! No! Uhh..That’s not what I was trying to say..
-    MC So? What were you trying to say?
-    BM Uh..I..uh..
-    BM Nevermind..just do it already…
-    MC Sure sure.
+        #zoom left to right
+        MC (Yea, I didn’t think so)
+        scene attic with fade
+        MC (Maybe I should clean a little so I can actually find something?)
+        MC (I can just use this rag)
+        MC "(Wait, this isn’t a rag. "
+        extend "It’s my scarf!)"
 
-    Oh, got it. I won’t pry.
-    BM Really? You understand?
-    MC Yea. If you don’t want me to see then I won’t.
-    BM Why thank you! Y-you’re really sweet..
-    MC Sweet? I’m about to tie you up here.
-    BM G-go ahead! I know you won’t hurt me.
-    MC Are you sure about that?
-    BM Y-you won’t right?
-    MC Who knows?
-    BM W-well I guess you can hurt me a little..?
-    MC I’m just teasing. I won’t hurt you , or at least I’ll try.
+        scene bedroomnight with fade
+        pause 1
+        scene black with fade
+        …
+        MC (I can’t sleep)
+        MC (It’s been 2 days since that bird man, Howard, has broken into my room)
+        MC (And also 2 days since he’s ruined my sleeping schedule, now I feel tired during the day but can’t sleep at night)
+        MC (This sucks)
+        #knock
+        MC (?)
+        BM H-hello? It’s me? Howard..? If you even remember me..?
+        MC (Well I’ve got nothing better tonight)
+        scene bedroomnight2 with fade
+        MC Give me a minute, I need to grab a few things.
+        BM Oh! You do remember me..!
+        BM Take your time, I can wait.
+        #openchest, knife
+        MC Hm.
+        #close
+        MC Alright, you can go in now.
 
-    scene cg with fade
-    MC There, all done!
-    MC Is it too tight?
-    BM N-not at all! You’re very gentle with me.
-    MC If this is gentle, I don’t want to know what your daily life is like.
-    BM It’s not that bad..! I..think?
-    MC That’s a little concerning.
-    BM I-it’s not, really! You don’t need to be concerned about me.
-    BM But I suppose you have questions for me..?
-    MC I do.
-    BM W-well, what is it?
-    MC Would you say you’re more bird or human?
-    BM Umm..I’m not sure.
-    MC What’s the default?
-    BM W-well you haven’t seen it yet but during the day I tend to exist in another form.
-    BM A more monstrous, frightening form as one might say.
-    Menu:
-    Cool, can you visit me during the day?
-    BM P-pardon? You want to see that form..?
-    MC Definitely.
-    BM But aren’t humans normally frightened by monsters like me..?
-    MC I don’t know, I haven’t seen how scary you could be.
-    MC Especially when I can tie you up so easily.
-    BM Uhh..That might be a hard request..
-    BM Travelling here is much easier to do when the world is shrouded by darkness.
-    MC Right, I guess hunters might try and shoot you down if they ever saw you.
-    Are your transformations affected by daylight?
-    BM I’m not quite sure myself, but I do find that my human form is much easier to maintain once the sun goes down.
-    BM The same goes for that smaller bird-like form.
-    MC Interesting.
-    MC So, how do you search for food?
-    BM I don’t. I’m kept in a cage most of the time.
-    MC Whoa what?
-    BM (!)
-    BM Nevermind, forget I said anything..!
+        scene bedroomnight3 with fade
+        show bm bird:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+        BM Thank you for letting me in!
+        MC So you really are a bird.
+        BM Yea! Unless..you find that displeasing?
+        MC I don’t mind, talking to a bird is pretty cool.
+        BM Don’t you find it scary..?
+        MC What’s the scary part?
+        BM I..I don’t quite understand the details but most people seem to either despise my existence or fear me..?
+        MC What did you do?
+        show bm bird:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+                linear 0.050 xoffset +10
+                linear 0.050 xoffset -10
+        BM I don’t know!
+        MC Maybe I should tie you up again, just in case.
+        MC But I can’t really tie up a bird huh?
+        BM No problem! I can change into my human form.
+        show bm bird:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+        BM C-can you close your eyes first?
+        MC Don’t want to. What if you do something?
+        show bm bird:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+        BM I won’t!
+        #knife
+        show mc knife
+        MC Fine, but don’t make me regret it.
+        scene black with fade
+        BM Eek! That knife of yours always scares me…
+        MC Well? Get on with your transformation, my eyes are closed.
+        BM Right, sorry!
+        #sfx
+        BM I’m done. You can open your eyes again?
 
-    BM In any case, your place is actually much safer than any other place I’ve been to.
-    MC In what way?
-    BM Well, there’s not a lot of people here. So I can still stay hidden and no one will attack me, right?
-    MC I guess? 
-    MC Just don’t forget that I still have this knife.
-    BM But you won’t hurt me for no reason right? You’ll only use it if I attack you first?
-    MC That’s right.
-    BM And even if I am tied up, I should be able to break free fairly easily.
-    BM So it’s not too presumptuous of me to think that I’m safe, r-right?
-    MC Well if you put it that way, I guess you’re right?
-    scene black with fade
-    MC (I don’t how he normally goes through his life and honestly I’m too scared to ask at this point)
+        scene bedroomnight3 with fade
+        MC Are you ever gonna let me see you transform? It seems pretty cool.
+        show bm explanation
+        BM Uhh n-no. It’s sort of grotesque actually.
+        Menu:
+            Even better.:
+                show bm idia:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10
+                BM B-better?!
+                MC Now I’m really curious.
+                show bm swpose:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10
+                BM Y-you can’t! P-please..?
+                BM I don’t think my heart is ready for that..!
+                MC {i}Really?{/i}
+                show bm idia:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10        
+                BM Yes really! Now can you please tie me up already?
+                MC You like being tied up that much?
+                show bm idia:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10
+                    linear 0.050 xoffset +10
+                    linear 0.050 xoffset -10
+                    repeat 2
+                BM Wh-what..?! No! Uhh..That’s not what I was trying to say..
+                MC So? What were you trying to say?
+                show bm finger
+                BM Uh..I..uh..
+                BM Nevermind..just do it already…
+                MC Sure sure.
+        
+            Oh, got it. I won’t pry.:
+                show bm explanation
+                BM Really? You understand?
+                MC Yea. If you don’t want me to see then I won’t.
+                show bm explanation:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10
+                BM Why thank you! Y-you’re really sweet..
+                MC Sweet? I’m about to tie you up here.
+                show bm swpose:
+                    linear 0.050 yoffset +10
+                    linear 0.050 yoffset -10
+                BM G-go ahead! I know you won’t hurt me.
+                MC Are you sure about that?
+                show bm swpose
+                BM Y-you won’t right?
+                MC Who knows?
+                show bm explanation
+                BM W-well I guess you can hurt me a little..?
+                MC I’m just teasing. I won’t hurt you , or at least I’ll try?
+    
+        scene tiedupcg with fade
+        MC There, all done!
+        MC Is it too tight? I can loosen it a little if it is.
+        BM N-not at all! You’re very gentle with me.
+        MC If this is gentle, I don’t want to know what your daily life is like.
+        BM It’s not that bad..! I..think?
+        MC That’s a little concerning.
+        BM I-it’s not, really! You don’t need to be concerned about me.
+        MC "Okay then, I'm taking off your mask now."
+        BM "M-must you do it again? You already saw my face yesterday.."
+        MC "Our time was cut short, I want to see it again"
+        BM "Can I keep it on, please..?"
+        MC "How about this, I take off your mask tonight and I don't it for the rest of your visits?"
+        MC "Last time I'll see your face, I swear"
+        BM "I..suppose that would be fine..?
+        MC  "Alright, I'm taking it off"
+        BM "Do as you please"
+        scene tiedupinquirecg with fade
+        BM "So..?"
+        MC "Well you're definitely was less scary without the mask" 
+        BM "Anyway, I suppose you have questions for me..?"
+        MC I do.
+        BM W-well, what is it?
+        MC Would you say you’re more bird or human?
+        scene sdtiedupcg
+        BM Umm..I’m not sure.
+        MC What’s the default?
+        scene tiedupworrycg
+        BM W-well you haven’t seen it yet but during the day I tend to exist in another form.
+        BM A more monstrous, frightening form as one might say.
+        Menu:
+            Cool, can you visit me during the day?:
+                scene tiedupscaredcg
+                BM P-pardon? You want to see that form..?
+                MC Definitely.
+                scene sdtiedupcg
+                BM But aren’t humans normally frightened by monsters like me..?
+                MC I don’t know, I haven’t seen how scary you could be.
+                MC Especially when I can tie you up so easily.
+                BM Uhh..That might be a hard request..
+                scene tiedupworrycg
+                BM Travelling here is much easier to do when the world is shrouded by darkness.
+                MC Right, I guess hunters might try and shoot you down if they ever saw you.
+
+            Are your transformations affected by daylight?:
+                scene tiedupinquirecg
+                BM I’m not quite sure myself, but I do find that my human form is much easier to maintain once the sun goes down.
+                BM The same goes for that smaller bird-like form.
+                MC Interesting.
+                MC So, how do you search for food?
+                BM I don’t. I’m kept in a cage most of the time.
+                MC Whoa what?
+                scene tiedupsurprisedcg with vpunch
+                BM (!)
+                scene tiedupscaredcg
+                BM Nevermind, forget I said anything..!
+
+        scene tiedupinquirecg
+        BM In any case, your place is actually much safer than any other place I’ve been to.
+        MC In what way?
+        BM Well, there’s not a lot of people here. So I can still stay hidden and no one will attack me, right?
+        MC I guess? 
+        show mc knife
+        MC Just don’t forget that I still have this knife.
+        hide mc
+        BM But you won’t hurt me for no reason right? You’ll only use it if I attack you first?
+        MC That’s right.
+        BM And even if I am tied up, I should be able to break free fairly easily.
+        BM So it’s not too presumptuous of me to think that I’m safe, r-right?
+        MC Well if you put it that way, I guess you’re right?
+        scene black with fade
+        MC (I don’t how he normally goes through his life and honestly I’m too scared to ask at this point)
 
     What’s underneath those curtains?
-    #fabric
-    MC (Oh it’s like a secret hide out!)
-    MC (I guess that explains why this area has less dust)
-    MC (And one of his feathers.)
-    scene black with fade
-    pause 1s
-    scene bedroomnight with fade.
-    BM Hello,[mc] ?
-    MC BOO!
-    BM (!!)
-    #sfx
-    BM [mc[..? Is that you?
-    MC Woops sorry, are you hurt?
-    BM N-no, just a little spooked. What’s with the sheet over you?
-    MC I thought it’d fit today’s theme but I guess it was too much? Or was it too little? MC I’ve never been good at imitating ghosts.
-    BM No, it wasn’t too much. But what’s this about a theme?
-    MC It’s All Hallow’s Eve. Haven’t you heard of it?
-    BM I’m afraid not, is it famous around here?
-    MC It is! There’s normally a festival of sorts in the village but this year it was cancelled.
-    MC So, I figured I’d celebrate with you to make up for it. Unless you don’t want to?
-    BM Not at all..! It sounds fun. I’m happy you’ve decided to involve me in this.
-    MC Great, we’re going somewhere today.
-    BM W-what?!
-    BM I don’t want to go outside, what if someone sees me?
-    MC That’s why we’re not going outside. 
-    BM So, where are we going?
-    MC Just across the hall, in the attic.
-    BM Oh.! That’s exciting, I’ve never been there.
-    MC It’s not much but I did clean up a bit before you got here. Let’s go.
-    #sfx
-    scene hallway with fade
-    pause 1s
-    #sfx
-    scene attic with fade
-    MC Welcome to the attic.
-    BM …
-    MC Uhh, Howard? You okay?
-    BM I-I’m fine, it’s just..
-    extend I’ve never been in a room like this before.
-    MC You don’t have an attic?
-    BM If I did, I wouldn’t know. I don’t explore the place much.
-    MC That’s a shame. Anyway, let’s go over there.
-    BM Under those curtains..?
-    MC Yep. I promise I washed them a few days ago.
-    BM I see.
+        #fabric
+        MC (Oh it’s like a secret hide out!)
+        MC (If I took him here then I guess that explains why this area has less dust)
+        MC (And one of his feathers.)
+        scene black with fade
+        pause 1s
+        scene bedroomnight3 with fade.
+        show bm swpose
+        BM Hello,[mc] ?
+        show bm surprised:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+                linear 0.050 xoffset +10
+                linear 0.050 xoffset -10
+                repeat 3
+        MC BOO!
+        show bm idia
+        BM (!!)
+        #sfx
+        BM [mc]..? Is that you?
+        MC Woops sorry, are you hurt?
+        show bm swpose
+        BM N-no, just a little spooked. What’s with the sheet over you?
+        MC I thought it’d fit today’s theme but I guess it was too much? Or was it too little? MC I’ve never been good at imitating ghosts.
+        show bm explanation
+        BM No, it wasn’t too much. But what’s this about a theme?
+        MC It’s All Hallow’s Eve. Haven’t you heard of it?
+        BM I’m afraid not, is it famous around here?
+        MC It is! There’s normally a festival of sorts in the village but this year it was cancelled.
+        MC So, I figured I’d celebrate with you to make up for it. Unless you don’t want to?
+        show bm swpose:
+                linear 0.050 yoffset +10
+                linear 0.050 yoffset -10
+        BM Not at all..! It sounds fun. I’m happy you’ve decided to involve me in this.
+        MC Great, we’re going somewhere today.
+        show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+        BM W-what?!
+        BM I don’t want to go outside, what if someone sees me?
+        MC That’s why we’re not going outside. 
+        show bm explanation
+        BM So, where are we going?
+        MC Just across the hall, in the attic.
+        BM Oh.! That’s exciting, I’ve never been there.
+        MC It’s not much but I did clean up a bit before you got here. Let’s go.
+        #sfx
+        scene hallwaynight with fade
+        pause 1.5
+        #sfx
+        scene attic with fade
+        MC Welcome to the attic.
+        show bm swpose
+        BM …
+        MC Uhh, Howard? You okay?
+        BM I-I’m fine, it’s just..
+        show bm explanation
+        extend "I’ve never been in a room like this before."
+        BM "Or at least, I haven't see one in a long time"
+        MC You don’t have an attic?
+        show bm swpose
+        BM If I did, I wouldn’t know. I don’t explore the place much.
+        MC That’s a shame. Anyway, let’s go over there.
+        show bm explanation
+        BM Under those curtains..?
+        MC Yep. I promise I washed them a few days ago.
+        BM I see.
+    
+        scene curtains with fade
+        show bm swpose:
+                parallel:
+                    ease .5 zoom 1.5
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
 
-    scene curtain with fade
-    MC I hope you’re not too scared of the dark? I only have this candle for lighting.
-    BM I’m used to it.
-    BM So, enlighten me. What does one do on All Hallow’s Eve?
-    MC Well normally I’d visit the festival with my family and we’ll dress up as ghosts like I’m doing right now.
-    MC But since this year that was cancelled, I figured we can swap scary stories?
-    BM Scary stories..?
-    MC Yea, do you have any?
-    BM I suppose I can share a few details about my life..?
-    Menu:
-    Is your life that scary?
-    BM Well..
-    BM …
-    BM I suppose I can tell a made-up story?
-    MC Yea, that works!
-    scene curtain with fade
-    BM Ever since then, the villagers say that they were never seen again…
-    MC Spooky. Ready for my turn?
-    BM Go ahead.
-    I was expecting local legends and myths. 
-    BM I..I don’t know any.
-    MC Want me to go first?
-    BM Yes please!
-    scene curtain with fade
-    MC And so, they would be cursed to spend their lives wandering aimlessly through the woods..
-    BM It’s not a real story, is it [mc]?
-    MC Well I sure hope not. 
-    BM Can I tell mine now ?
-    MC Go ahead!
+        MC I hope you’re not too scared of the dark? I only have this candle for lighting.
+        BM I’m used to it.
+        show bm explanation
+        BM So, enlighten me. What does one do on All Hallow’s Eve?
+        MC Well normally I’d visit the festival with my family and we’ll dress up as ghosts like I’m doing right now.
+        MC But since this year that was cancelled, I figured we can swap scary stories?
+        show bm swpose
+        BM Scary stories..?
+        MC Yea, do you have any?
+        show bm explanation
+        BM I suppose I can share a few details about my life..?
+        Menu:
+            Is your life that scary?:
+                show bm swpose
+                BM Well..
+                BM …
+                show bmexplanation
+                BM I suppose I can tell a made-up story?
+                MC Yea, that works!
+                scene curtain with fade
+                show bm explanation:
+                        parallel:
+                            zoom 1.5
+                        parallel:
+                            yalign 0.0
+                            linear 0.0 yalign 0.0 xalign 0.5
 
-    scene black with fade
-    pause1s
-    scene attic with fade
-    MC I think I’m out of stories now.
-    BM I may have one final tale, may I?
-    MC Sure.
-    BM It’s not really a tale, more like an anecdote?
-    MC Okay?
-    BM Whenever I fly to your place, I would always pass the woods. They stretch for quite a bit so it’s inevitable that I’d occasionally need to catch my breath.
-    BM Once in a while, I’d land near a house in the woods. Its gates were made of bones which were lit on fire, and the house itself will move whenever you approach.
-    MC How?
-    BM I wish I knew.
-    BM But luckily, there lives a sweet old lady in the house! Her appearance does seem to shift ever so slightly from visit to visit but she’s not fond of talking about herself so I can’t confirm.
-    MC A sweet old lady who lives in a house with flaming bones around it?
-    MC Are you sure she’s sweet?
-    BM Well she hasn’t hurt me and she hasn’t ignored me either, so she seems… nice?
-    MC I see. What else?
-    BM That’s it really, I simply wanted to tell you but haven’t had the chance.
-    MC In that case, thanks for telling me.
-    BM The pleasure is all mine.
-    BM May I move closer to you..?
-    MC Of course.
-    #sfx, zoomsprite
-    MC So what’s up?
-    BM Nothing much, but I do have a few things to tell you..and also a question..
-    BM Hopefully, I get more than one this time..?
-    MC Sure, ask away.
-    BM So..umm..when I said I came here because I was desperate for any kind of positive interaction..
-    BM There were..other reasons I didn’t tell you.
-    MC Like what? You ran from home or something?
-    BM You knew?!
-    MC I was joking! I didn’t think you were actually on the run!
-    BM Well..I am or at least I try to, but..I still have to go back in the morning before it gets suspicious..
-    MC Who is ‘it’?
-    BM I-I..I’m not at liberty to say..
-    BM But I wanted to tell you that my freedom ends in a few months month and I won’t be able to visit anymore.
-    MC Why?
-    BM I can’t tell you..
-    MC Would telling me put your life at risk?
-    BM Maybe..? But honestly, it’s more likely to put {i}you{/i} at risk..
-    extend and I really don’t want that.
-    MC How would it put me at risk?
-    BM As I said, I can’t tell you.
-    BM And..I know it’s unreasonable of me to ask this, but if I am in trouble..
-    BM Would you mind visiting my home?
-    Menu:
-    Of course I’d visit.
-    BM R..really? Even if it’s quite far..?
-    MC I’d go to the edge of the world to see you.
-    BM (!!!)
-    BM [mc], are you sure about this?
-    MC Of course I am.
-    How far is your house?
-    MC I mean, you visit me every night so it can’t be that bad but how far is it?
-    BM I..it’s much further away than here.
-    MC Oh.
-    MC Then again, you did say that this is in case you were in trouble.
-    MC I guess I’ll try.
-    BM Y-you will..?!
-    MC I’ll try, even if you live at the edge of the world.
-    BM (!!!)
-
-    scene black with fade
-    centered [mc], I-I love you..!
-    scene attic with vpunch
-    MC (!!)
-    MC (That was unexpected..)
-    MC ( But also, what happened next? )
-    MC (Curse my lack of memories and whoever caused it!)
+                BM Ever since then, the villagers say that they were never seen again…
+                MC Spooky. Ready for my turn?
+                BM Go ahead.
+            I was expecting local legends and myths. :
+                show bm swpose
+                BM I..I don’t know any.
+                MC Want me to go first?
+                show bm swpose:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                BM Yes please!
+                scene curtain with fade
+                MC And so, they would be cursed to spend their lives wandering aimlessly through the woods..
+                show bm finger
+                BM It’s not a real story, is it [mc]?
+                MC Well I sure hope not. I made it up just now.
+                show bm explanation
+                BM Can I tell mine now ?
+                MC Go ahead!
+    
+        scene black with fade
+        pause1s
+        scene curtains with fade
+        show bm swpose:
+                parallel:
+                    ease .5 zoom 1.5
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
+        MC I think I’m out of stories now.
+        show bm explanation
+        BM I may have one final tale, may I?
+        MC Sure.
+        BM It’s not really a tale, more like an anecdote?
+        MC Okay?
+        BM Whenever I fly to your place, I would always pass the woods. They stretch for quite a bit so it’s inevitable that I’d occasionally need to catch my breath.
+        BM Once in a while, I’d land near a house in the woods. Its gates were made of bones which were lit on fire, and the house itself will move whenever you approach.
+        MC How?
+        BM I wish I knew.
+        BM But luckily, there lives a sweet old lady in the house! Her appearance does seem to shift ever so slightly from visit to visit but she’s not fond of talking about herself so I can’t confirm.
+        MC A sweet old lady who lives in a house with flaming bones around it?
+        MC Are you sure she’s sweet?
+        show bm swpose
+        BM Well she hasn’t hurt me and she hasn’t ignored me either, so she seems… nice?
+        MC I see. What else?
+        BM That’s it really, I simply wanted to tell you but haven’t had the chance.
+        MC In that case, thanks for telling me.
+        BM The pleasure is all mine.
+        show bm finger
+        BM May I move closer to you..?
+        MC Of course.
+        show bm swpose:
+                parallel:
+                    ease .5 zoom 1.5
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
+        #sfx, zoomsprite
+        MC So what’s up?
+        BM Nothing much, but I do have a few things to tell you..and also a question..
+        BM Hopefully, I get more than one this time..?
+        MC Sure, ask away.
+        BM So..umm..when I said I came here because I was desperate for any kind of positive interaction..
+        BM There were..other reasons I didn’t tell you.
+        MC Like what? You ran from home or something?
+        show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+        BM You knew?!
+        MC I was joking! I didn’t think you were actually on the run!
+        show bm swpose
+        BM Well..I am or at least I try to, but..it finds me everytime..
+        MC Who is ‘it’?
+        BM I-I..I’m not at liberty to say..
+        BM But I wanted to tell you that my freedom ends in a few months month and I won’t be able to visit anymore.
+        MC Why?
+        BM I can’t tell you..
+        MC Would telling me put your life at risk?
+        BM Maybe..? But honestly, it’s more likely to put {i}you{/i} at risk..
+        extend "and I really don’t want that."
+        MC How would it put me at risk?
+        BM As I said, I can’t tell you.
+        show bm explanation
+        BM And..I know it’s unreasonable of me to ask this, but if I am in trouble..
+        BM Would you mind visiting my home?
+        Menu:
+            Of course I’d visit.
+                show bm finger
+                BM R..really? Even if it’s quite far..?
+                MC I’d go to the edge of the world to see you.
+                show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 xoffset +10
+                        linear 0.050 xoffset -10
+                BM (!!!)
+                BM [mc], are you sure about this?
+                MC Of course I am.
+            How far is your house?
+                MC I mean, you visit me every night so it can’t be that bad but how far is it?
+                show bm explanation
+                BM I..it’s much further away than here.
+                MC Oh.
+                MC Then again, you did say that this is in case you were in trouble.
+                MC I guess I’ll try.
+                show bm swpose:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                BM Y-you will..?!
+                MC I’ll try, even if you live at the edge of the world.
+                show bm idia:
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                        linear 0.050 yoffset +10
+                        linear 0.050 yoffset -10
+                BM (!!!)
+    
+        scene black with fade
+        #add voice line
+        centered [mc], I-I love you..!
+        scene attic with vpunch
+        MC (!!)
+        MC (That was unexpected..)
+        MC ( But also, what happened next? )
+        MC (Curse my lack of memories and whoever caused it!)
 
     I’m done with the attic.
 
     MC (I should go to sleep before my family returns)
     #sfx(door/steps)
-    scene hallway with fade
+    scene hallwaynight with fade
     #sfx
     scene bedroomnight with fade
     #sfx(fabric/pillow)
@@ -2690,7 +3114,7 @@ label afternight1:
     …
     MC (Did they leave?)
     scene bedroomday with fade
-    B{size=-10}tired…later..{/size}
+    B {size=-10}tired…later..{/size}
     #doorclosesfx
     MC (I think they went into their room)
     MC ( I can’t be too sure though)
@@ -2715,10 +3139,10 @@ label afternight1:
     MC (Or I can stay home with my sisters like I always have..?)
     MC (I’d like to think Howard is as sweet as I remember him but without all my memories I can’t be sure)
     Menu:
-    I’ll stay home until I recover the rest of my memories, I can’t put all my faith in him.
-    jump label ed1
-    I can’t stay here any longer, I {b}need{/b} to see Howard again.
-    jump label othereds
+        I’ll stay home until I recover the rest of my memories, I can’t put all my faith in him.
+            jump label ed1
+        I can’t stay here any longer, I {b}need{/b} to see Howard again.
+            jump label othereds
 
 label ed1:
     MC (Even I know that falling in love with a shape shifting bird man isn’t the most rational decision)
@@ -2726,7 +3150,7 @@ label ed1:
     MC (Like I’ve always done)
     MC (But..
     extend I need to talk to my sisters first)
-    scene hallway with fade
+    scene hallwayday with fade
     MC (Which one’s their room again?)
     #steps
     MC (I think..It’s this one)
@@ -2735,6 +3159,7 @@ label ed1:
     MC Sorry?
     B (!)
     #door
+    show c 
     B [mc]? You’re awake?
     MC Yea. I know that you’re tired but I have something to say, can you please listen to me?
     MC I can come back later?
