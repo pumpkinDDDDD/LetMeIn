@@ -168,37 +168,37 @@ label start:
     #op lines
     #footsteps
     play sound "audio/sfx knock.mp3"
-    play voice "audio/VL1.mp3"
+    play audio "audio/VL1.mp3"
     NO "H-hello? I know I haven’t been here for a while but I’m back?"
     #knock on window
     play sound "audio/sfx knock.mp3"
-    play voice "audio/VL2.mp3"
+    play audio "audio/VL2.mp3"
     NO "Can you please open the window? I’m here."
-    play voice "audio/VL3.mp3"
+    play audio "audio/VL3.mp3"
     NO "Please?"
     "..."
-    play voice "audio/VL4.mp3"
+    play audio "audio/VL4.mp3"
     NO "You’re awfully silent today.. Can I assume you’ve given me permission to enter?"
     "..."
-    play voice "audio/VL5.mp3"
+    play audio "audio/VL5.mp3"
     NO "Alright, I’m coming in."
     play sound "audio/sfx knife.mp3"
-    play voice "audio/Eek.mp3"
+    play audio "audio/Eek.mp3"
     #creak then stab
     NO "Ah!"
-    play voice "audio/VL6.mp3"
+    play audio "audio/VL6.mp3"
     NO "That’s new..Are these pointy things on your window a new form of decoration?"
     #stab
     play sound "audio/sfx knife.mp3"
-    play voice "audio/VL7.mp3"
+    play audio "audio/VL7.mp3"
     NO "Ack! {size=-5} I sure hope you remove them soon, it’s starting to hurt..{/size}"
     #stab
 
     scene cg2 with fade
-    play voice "audio/VL8.mp3"
+    play audio "audio/VL8.mp3"
     NO "Let me in."
     scene cg2 with vpunch
-    play voice "audio/VL9.mp3"
+    play audio "audio/VL9.mp3"
     play sound "audio/sfx cg2.mp3"
     #brutal stabbing, layer w/ wood noise?
     NO "LET ME IN!"
@@ -207,17 +207,17 @@ label start:
     pause 1.5
     #rattling, window breaking, stabbing noise
     #He starts crying here
-    play voice "audio/VL10.mp3"
+    play audio "audio/VL10.mp3"
     NO "T-that’s a lot of blood.."
-    play voice "audio/VL11.mp3"
+    play audio "audio/VL11.mp3"
     NO "H-hey, did you get sick of me already..?"
-    play voice "audio/VL11.5.mp3"
+    play audio "audio/VL11.5.mp3"
     NO "I..I thought y-you wouldn’t do that to me.."
-    play voice "audio/VL12.mp3"
+    play audio "audio/VL12.mp3"
     NO "D..do you really not care anymore? P-please..tell me.."
-    play voice "audio/VL13.mp3"
+    play audio "audio/VL13.mp3"
     NO "Why won’t you wake up..?! Pl–please help me.."
-    play voice "audio/VL14.mp3"
+    play audio "audio/VL14.mp3"
     #if possible edit blurred voices
     "..."
     stop music fadeout 2.0
@@ -1648,12 +1648,12 @@ label bwindow:
                     MC "(Wait, did I?)"
                     scene cg2 with fade
                     play sound "audio/sfx cg2.mp3"
-                    play voice "audio/VL8.mp3"
+                    play audio "audio/VL8.mp3"
                     #sfx
                     NO "Let me in."
                     play sound "audio/sfx cg2.mp3"
                     #sfx
-                    play voice "audio/VL9.mp3"
+                    play audio "audio/VL9.mp3"
                     NO "LET ME IN"
                     scene bedroomnight with vpunch
                     play sound "audio/sfx tackle.mp3"
