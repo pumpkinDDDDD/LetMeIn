@@ -13,7 +13,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("All-In-One GUI Template")
+define config.name = _("LETMEIN")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -168,7 +168,7 @@ define config.default_voice_volume = 0.7
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "AIOGUITemplate-1658355779"
+define config.save_directory = "LETMEIN"
 
 
 ## Icon ########################################################################

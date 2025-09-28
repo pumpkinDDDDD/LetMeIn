@@ -39,6 +39,27 @@ define VB= Character ("Villager B")
 define WI= Character ("Witch")
 define Q = Character (" ")
 
+#bedroom
+default visited_bbed = False
+default visited_bwardrobe = False
+default visited_bchest  = False
+default visited_bcarpet = False
+default visited_bwall = False
+default visited_bwindow  = False
+
+#kitchen
+default visited_kcupboard = False
+default visited_kshelf = False
+default visited_kbasket  = False
+default visited_ktable = False
+
+#attic
+default visited_achest = False
+default visited_acurtain = False
+default visited_atrap  = False
+default visited_awardrobe = False
+default visited_awindow = False
+
 ## Splashscreen ############################################################
 ## A portion of the game that plays at launch, before the main menu is shown.
 ## https://www.renpy.org/doc/html/splashscreen_presplash.html
@@ -114,7 +135,7 @@ label splashscreen:
 
 label start:
     #bgm: https://dova-s.jp/EN/bgm/play17718.html
-    play music bgm cg1 fadein 1.0
+    play music "audio/bgm cg1.mp3" fadein 1.0
     scene black with fade
     pause 0.5
     scene bedroomnight with fade
@@ -125,7 +146,7 @@ label start:
     "(What’s that?)"
     "(A..bird?)"
     "(It’s staring right at me, I guess I might as well give it a smile?)"
-    play sound sfx feather
+    play sound "audio/sfx feather.mp3"
     #feather drops here
     scene cg1a with fade
     pause 2
@@ -143,78 +164,78 @@ label start:
 
     scene black with fade
     #bgm : https://dova-s.jp/EN/bgm/play22607.html
-    play music bgm cg2 fadein 2.0
+    play music "audio/bgm cg2.mp3" fadein 2.0
     #op lines
     #footsteps
-    play sound sfx knock
-    play voice VL1
+    play sound "audio/sfx knock.mp3"
+    play voice "audio/VL1.mp3"
     NO "H-hello? I know I haven’t been here for a while but I’m back?"
     #knock on window
-    play sound sfx knock
-    play voice VL2
+    play sound "audio/sfx knock.mp3"
+    play voice "audio/VL2.mp3"
     NO "Can you please open the window? I’m here."
-    play voice VL3
+    play voice "audio/VL3.mp3"
     NO "Please?"
     "..."
-    play voice VL4
+    play voice "audio/VL4.mp3"
     NO "You’re awfully silent today.. Can I assume you’ve given me permission to enter?"
     "..."
-    play voice VL5
+    play voice "audio/VL5.mp3"
     NO "Alright, I’m coming in."
-    play sound sfx knife
-    play voice Eek
+    play sound "audio/sfx knife.mp3"
+    play voice "audio/Eek.mp3"
     #creak then stab
     NO "Ah!"
-    play voice VL6
+    play voice "audio/VL6.mp3"
     NO "That’s new..Are these pointy things on your window a new form of decoration?"
     #stab
-    play sound sfx knife
-    play voice VL7
+    play sound "audio/sfx knife.mp3"
+    play voice "audio/VL7.mp3"
     NO "Ack! {size=-5} I sure hope you remove them soon, it’s starting to hurt..{/size}"
     #stab
 
     scene cg2 with fade
-    play voice VL8
+    play voice "audio/VL8.mp3"
     NO "Let me in."
     scene cg2 with vpunch
-    play voice VL9
-    play sound sfx cg2
+    play voice "audio/VL9.mp3"
+    play sound "audio/sfx cg2.mp3"
     #brutal stabbing, layer w/ wood noise?
     NO "LET ME IN!"
     scene cg2 with vpunch
-    play sound sfx cg2
+    play sound "audio/sfx cg2.mp3"
     pause 1.5
     #rattling, window breaking, stabbing noise
     #He starts crying here
-    play voice VL10
+    play voice "audio/VL10.mp3"
     NO "T-that’s a lot of blood.."
-    play voice VL11
+    play voice "audio/VL11.mp3"
     NO "H-hey, did you get sick of me already..?"
-    play voice VL11.5
+    play voice "audio/VL11.5.mp3"
     NO "I..I thought y-you wouldn’t do that to me.."
-    play voice VL12
+    play voice "audio/VL12.mp3"
     NO "D..do you really not care anymore? P-please..tell me.."
-    play voice VL13
+    play voice "audio/VL13.mp3"
     NO "Why won’t you wake up..?! Pl–please help me.."
-    play voice VL14
+    play voice "audio/VL14.mp3"
     #if possible edit blurred voices
     "..."
     stop music fadeout 2.0
 
     scene bedroomday with fade
     #bgm: https://dova-s.jp/EN/bgm/play22000.html
-    play music bgm day fadein 2.0
-    play sound sfx bird
+    play music "audio/bgm day.mp3" fadein 2.0
+    play sound "audio/sfx bird.mp3"
 
     #bird sfx
     "..."
     "(That was strange..)"
     "(Why does my head hurt so much?)"
-    play sound sfx creak
+    play sound "audio/sfx creak.mp3"
     #wood sfx
     "I stumble out of bed, squinting and frowning at the bright sun shining right in my face. While I never expected to wake up feeling refreshed, things like this make mornings feel worse."
     "(I should get some curtains)"
-    play sound sfx barge
+    play sound "audio/sfx barge.mp3"
     #door sfx
     show y happy
     Y "Morning sleepyhead! You up yet?"
@@ -420,8 +441,9 @@ label next1:
                 D "Chipper as always I see."
             "Good morning.":
                 D "Oh? Taking after your older sister today?"
-            "(HELP.)":
+            "(HELP)":
                 #B closer
+                scene kitchen
                 scene b happy:
                     parallel:
                         ease .5 zoom 1.7
@@ -448,7 +470,7 @@ label next1:
     show d happy
     D "Yes, we’ll bring back some meat."
     show d normal
-    show y happy:
+    show y happy at right:
                 linear 0.050 yoffset +10
                 linear 0.050 yoffset -10
 
@@ -492,7 +514,7 @@ label next1:
     MC "Sure?"
 
     scene kitchen with fade
-    play sound sfx sink
+    play sound "audio/sfx sink.mp3"
     #water sfx
     MC "So, what was the fair like?"
     show b silent
@@ -606,7 +628,7 @@ label next2:
     D "Well, if that’s what you want then I’ll try my best."
 
     scene bedroomday with vpunch
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     #fallonwood sfx
     MC "(!!!)"
     MC "(Was that...my memory?)"
@@ -625,10 +647,10 @@ label next2:
             linear 0.0 yalign 0.0 xalign 0.5
 
     #thump, zoom bg
-    play sound sfx creak
+    play sound "audio/sfx creak.mp3"
     MC "(Oh? That’s strange. There’s already a hook for me to hang it.)"
     MC "(I guess I don’t change much.)"
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     #door
     show b normal
     B "[mc]?!"
@@ -639,7 +661,7 @@ label next2:
     show b normal
     B "[mc], get down from there. What if you fall?"
     MC "Sorry?"
-    play sound sfx creak
+    play sound "audio/sfx creak.mp3"
     B "For goodness sake, this is the second floor. What were you even doing?"
     show b silent
     MC "Sorry, I just wanted to decorate my window."
@@ -685,7 +707,7 @@ label next2:
     B "You should rest."
     MC "I’m not tired."
     B "{b}Rest.{/b}"
-    play sound sfx fabric
+    play sound "audio/sfx fabric.mp3"
     "Swiftly, she tucks me into bed, closes the window and places her hand onto my forehead."
     B "You don’t have a fever, do you?"
     MC "Not that I know of?"
@@ -698,22 +720,22 @@ label next2:
     stop music fadeout 2.0
 
     scene black with fade
-    play sound sfx fabric
+    play sound "audio/sfx fabric.mp3"
     B "That’s right, rest your eyes. Take a nap."
     MC "(Don’t..wanna...)"
     B "Rest well, [mc].."
     MC "(Rest...?)"
     "..."
     "..."
-    play sound sfx wind
+    play sound "audio/sfx wind.mp3"
     #wind blows
     MC "(It’s quiet all of of a sudden.)"
-    play sound sfx creak
+    play sound "audio/sfx creak.mp3"
     #creak
     MC "(What was that?)"
     scene bedroomnight3 with fade
     MC "Hello? Who’s there?"
-    play sound sfx swoosh
+    play sound "audio/sfx swoosh.mp3"
     scene bedroomnight3:
         parallel:
             ease .5 zoom 2.0
@@ -731,19 +753,19 @@ label next2:
     scene bedroomnight3 with fade
 
     #bg moves left to right before back to normal
-    play sound sfx feather
-    play audio swoosh
+    play sound "audio/sfx feather.mp3"
+    play audio "audio/swoosh.mp3"
     #swoosh
     MC "(Where is that noise coming from?)"
-    play audio swoosh
-    play sound sfx creak
+    play audio "audio/swoosh.mp3"
+    play sound "audio/sfx creak.mp3"
     #swooshcreak
     MC "(There!)"
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     #tackle
     scene surprisedtacklecg with vpunch
     #bgm: https://dova-s.jp/EN/bgm/play19295.html
-    play music bgm night
+    play music "audio/bgm night.mp3"
 
     NO "Ack! Mercy! Mercy!"
     scene tacklecg
@@ -772,12 +794,12 @@ label next2:
     BM "I’m not telling!"
     MC "Is that so?"
     show mc knife
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     #Sfx, knife asset
     MC "How about now?"
     scene surprisedtacklecg with vpunch
     BM "Eek!! Alright, alright I’ll talk!!"
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     hide mc knife
     #put away
     BM "Can I..ask you something first..?"
@@ -809,10 +831,10 @@ label next2:
     BM "Umm..Maybe?"
     #knife asset, sfx
     scene surprisedtacklecg with vpunch
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     show mc knife
     BM "Ack! I’m sorry! I won’t do that again!"
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     scene tacklecg
     BM "But also.."
     BM "What if I tell you that those feathers come from a monster? Would you still think they're pretty?"
@@ -846,7 +868,7 @@ label next2:
     BM "Well it wasn’t that hard to-"
     #knife
     scene surprisedtacklecg with vpunch
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     show mc knife
     BM "Alright, alright! I’m sorry for breaking in!" 
     scene tacklecg
@@ -857,7 +879,7 @@ label next2:
     BM "I..I..also wanted to meet the person behind the decorations."
 
     hide mc
-    play sound sfx knife
+    play sound "audio/sfx knife.mp3"
     MC "Me?"
     BM "Y..yea.."
     #knock
@@ -867,7 +889,7 @@ label next2:
     MC "Now! Hurry!"
 
     scene bedroomnight3 with fade
-    play sound sfx feather
+    play sound "audio/sfx feather.mp3"
     #feather, window sfx
     MC "Yes? What’s wrong?"
     B "I heard a noise coming from your room. Is everything alright?"
@@ -878,7 +900,7 @@ label next2:
     MC "Stop worrying, I’m fine."
     B "If you say so. Goodnight, [mc]."
     MC "Yea good night."
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     #door close
     "..."
     MC "She’s gone, you can come out now."
@@ -899,8 +921,8 @@ label next2:
 
     #zooming back to reality, door slam
     scene bedroomnight with vpunch
-    play music bgm day fadein 1.0
-    play sound sfx barge
+    play music "audio/bgm day.mp3" fadein 1.0
+    play sound "audio/sfx barge.mp3"
     show y happy
     Y "[mc]! We’re back!"
     MC "(???)"
@@ -927,16 +949,16 @@ label next2:
     scene kitchen with fade
     show y happy
     Y "Time for dinner everyone! [mc]’s up!"
-    play sound sfx plate
+    play sound "audio/sfx plate.mp3"
     #plate sfx.
     show d happy at right
     show y smile at left
     D "Are you feeling alright [mc]? I was told you slept the whole day."
     show d normal at center
     MC "I’m fine. Although, a certain{i}someone{/i} insisted that I rest."
-    show b silent 
+    show b silent at right
     "She returns my glare and pointed tone, unimpressed that I singled her out during dinner."
-    show b normal
+    show b normal at right
     B "It’s for your own good, [mc]."
     menu:
             "I appreciate it.":
@@ -967,7 +989,7 @@ label next2:
     show b silent
     show y grumpy
     Y "Stop lying, [player_gender] can’t go because [player_possessive] boots are all torn and [player_possessive] coat isn’t thick enough."
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     #stomp
     show y grumpy:
         linear 0.050 yoffset +10
@@ -1018,7 +1040,7 @@ label next2:
     show y grumpy
     Y "Hey, you can’t make [player_object] rest all day. Physical movement is necessary to help [player_object] remember things."
     #stomp
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     show y grumpy:
         linear 0.050 yoffset +10
         linear 0.050 yoffset -10
@@ -1045,17 +1067,17 @@ label next2:
     MC "(My bedroom seems to be the entry point for that masked man to enter the house)"
     MC "(Maybe if I find more feathers I’d remember more..?)"
     MC "(Where do I start?)"
-    jump bedroomsearch
 
-label bedroomsearch:
+ #BEDROOM
     scene bedroomnight with fade
-    play music bgm night fadein 1.0
+    play music "audio/bgm night.mp3" fadein 1.0
+    call screen mapscreen1
     #pokoknya ini nge-loop kyk pas milih sayur di rute tsm atau kita tes yg bg bisa diklik
     # kalau bisa yg diklik yg diklik aja
 
-    menu: 
+label bbed:
             #menu 1
-            "The bed, it’s gotta be there. It’s closest to the window.":
+                MC "(The bed, it’s gotta be there. It’s closest to the window.)"
                 scene bedroomnight:
                     parallel:
                         ease .5 zoom 2.0
@@ -1064,27 +1086,27 @@ label bedroomsearch:
                         linear 0.0 yalign 0.5 xalign 0.5
                 #zoom
                 MC "(I checked under the covers earlier, what about under the pillow though?)"
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 #sfx
                 MC "(Ah! There is one!)"
                 MC "(Why would it be here though?)"
 
                 scene black with fade
                 "..."
-                play sound sfx knock
+                play sound "audio/sfx knock.mp3"
                 #window sfx, knock
                 BM "Hello? "
                 BM "It’s me... Howard? If you even remember me..?"
                 BM "Psst, can you open the window? "
-                play sound sfx knock
+                play sound "audio/sfx knock.mp3"
                 #knock
                 scene night with fade
                 show bm surprised:
                     linear 0.050 yoffset +10
                     linear 0.050 yoffset -10
-                show window
+                show windown
                 MC "You!"
-                show bm idia
+                show bm idia at center
                 MC "The one from yesterday!"
                 BM "Umm...I’m sorry about that?"
                 BM "But also.. You shouldn’t be too loud. I thought you didn't want that woman from yesterday to find out, right [mc]?"
@@ -1129,7 +1151,7 @@ label bedroomsearch:
                 BM "I won’t!"
                 MC "Alright, don’t make me regret this."
                 #window open, thump
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
                 scene bedroomnight3 with fade
                 show bm swpose
                 BM "Thank you for letting me in."
@@ -1142,7 +1164,7 @@ label bedroomsearch:
                 MC "If you don’t want to, you can always get out of my room? The window’s still open."
                 BM "I’ll do it."
                 scene black with fade
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 pause 2.5
 
                 scene tiedupcg with fade
@@ -1161,15 +1183,15 @@ label bedroomsearch:
                 MC "Speak."
                 BM "I-I wanted to see you."
                 MC "Why? Did you like being held at knife point?"
-                BM "Y-ye..
+                BM "Y-ye.."
                 scene tiedupcg with vpunch
-                extend I mean NO! NO I don’t!"
+                extend "I mean NO! NO I don’t!"
                 BM "I-I wanted to ask for your opinions on the monster?"
                 MC "Again, why?"
                 BM "Please? Just tell me?"
                 MC "I’m taking off your mask. I need to see who I’m dealing with."
                 BM "N-no please? Please let me keep it on..!"
-                play sound sfx rip
+                play sound "audio/sfx rip.mp3"
                 #rip
                 BM "Wai-"
                 BM "Oh.."
@@ -1181,11 +1203,11 @@ label bedroomsearch:
                             MC "You really shouldn’t thank me for the bare minimum."
                             BM "But still, you’re much nicer than everyone else I’ve met."
                             MC "I’m sorry to hear that."
-                        " A bit too late for that.":
+                        "A bit too late for that.":
                             BM "[mc].."
                             MC "Relax, I’m not gonna heckle you or anything."
                             MC "I’m not much of a looker myself."
-                            BM T"hat’s not true.."
+                            BM "That’s not true.."
                         #maskoffcg
                 scene tiedupscaredcg with fade
                 MC "..."
@@ -1213,7 +1235,7 @@ label bedroomsearch:
                 BM "Both?"
                 MC "Can I assume that you’re cursed to become a monster of some kind?"
                 scene sdtiedupcg
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 BM "{size=-10}Already am one{/size}"
                 MC "Hey, don’t hide your face! If you keep moving you might tear my scarf and I’ll have to fix it."
                 scene tiedupscaredcg
@@ -1259,18 +1281,18 @@ label bedroomsearch:
                             BM "Nothing!"
                             BM "I’m just saying it would never kill anyone, or not on purpose at least.."
                 MC "You sure know a lot about this monster. Is it your friend or something?"
-                play sound sfx steps
+                play sound "audio/sfx steps.mp3"
                 #footsteps
                 MC "Someone’s coming, I’ll let you go now!"
                 scene tiedupscaredcg
                 BM "W-who?"
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 MC "Under the covers, now!"
                 BM "W-wait! I have a better way."
                 MC "What?"
                 BM "Close your eyes"
                 scene black with fade
-                play sound sfx feather
+                play sound "audio/sfx feather.mp3"
                 #sfx
                 scene bedroomnight with fade
                 MC "Howard?"
@@ -1285,10 +1307,10 @@ label bedroomsearch:
                 hide fx
                 MC "You’re a bird?!"
                 BM "Monster but-"
-                play sound sfx steps
+                play sound "audio/sfx steps.mp3"
                 #footsteps
                 MC "Woops, no time for that! Hurry!"
-                play sound sfx feather
+                play sound "audio/sfx feather.mp3"
                 show bm bird:
                     linear 0.050 yoffset +10
                     linear 0.050 yoffset -10
@@ -1300,12 +1322,14 @@ label bedroomsearch:
                     linear 0.050 yoffset +10
                     linear 0.050 yoffset -10
                 BM "I will!"
-                play sound sfx feather
+                play sound "audio/sfx feather.mp3"
                 scene black with fade
                 "And with that, he flew into the darkness of the night."
+                jump middle1
 
+label bwardrobe:
             #menu 2
-            "My wardrobe has to have something, right?":
+                MC "(My wardrobe has to have something, right?)"
                 scene bedroomnight:
                             parallel:
                                 ease .5 zoom 1.3
@@ -1313,13 +1337,13 @@ label bedroomsearch:
                                 yalign 0.0
                                 linear 0.0 yalign 0.0 xalign 0.3
                 #sfx
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
                 MC "(I don’t have a lot of clothes in here do I?)"
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 #fabric
                 MC "(I’ve got one set for daily wear and another for night)"
                 MC "(I can’t say I’m well equipped to go out. I don’t even have a cloak.)"
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 #fabric
                 MC "(Do I even have a hat?)"
                 MC "(?)"
@@ -1338,13 +1362,13 @@ label bedroomsearch:
                 hide y
                 MC "Bye!"
                 MC "(They’re gone.)"
-                play sound sfx steps
+                play sound "audio/sfx steps.mp3"
                 #stepssfx
                 scene bedroomnight3 with fade
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
                 MC "You can come out now."
                 MC "Howard?"
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
                 #wardrobeopensfx
                 show bm explanation
                 BM "Here!"
@@ -1413,24 +1437,29 @@ label bedroomsearch:
                 show bm swpose
                 BM "Please don’t come closer..!! Seriously, you’ll give me a heart attack..."
                 MC "Sorry."
-            
+                hide bm
+                jump middle1
+
+label bchest: 
             #menu 3
-            "That chest over there, what did I store in it?":
+                MC "(That chest over there, what did I store in it?)"
                 scene bedroomnight:
                         parallel:
                             ease .5 zoom 1.75
                         parallel:
                             yalign 0.0
                             linear 0.0 yalign 0.8 xalign 0.2
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
             #zoom, chestsfx
                 MC "(I have a lot crafting supplies, I guess that’s to be expected.)"
                 MC "(I wasn’t expecting this many sharp objects though. Scissors, dagger, needles, you name it.)"
                 MC "(I suppose I needed the supplies to make those decorations somehow.)"
                 MC "(But, where are those decorations? It’s not at the window.)"
+                jump middle1
 
+label bcarpet:
             #menu 4
-            "There’s usually something under the carpet, I gotta look.":
+                MC "There’s usually something under the carpet, I gotta look.)"
                 scene bedroomnight:
                     parallel:
                         ease .5 zoom 1.75
@@ -1438,7 +1467,7 @@ label bedroomsearch:
                         yalign 0.0
                         linear 0.0 yalign 0.8 xalign 0.5
                 #carpet sfx
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 MC "(Here we go! There’s...)"
                 extend "nothing?"
                 MC "(Wait no, there’s a heart etched onto the floor.)"
@@ -1446,22 +1475,22 @@ label bedroomsearch:
                 MC "(Why would it be under the carpet though?)"
                 scene night with fade
                 show bm swpose
-                show window
+                show windown
                 "..."
-                play sound sfx knock
+                play sound "audio/sfx knock.mp3"
                 #knock
                 show bm swpose
                 BM "Hello? Are you here?"
                 "..."
                 BM "Did [player_gender] leave?"
                 MC "Boo!"
-                play sound sfx tackle
+                play sound "audio/sfx tackle.mp3"
                 #stumblesfx
                 show bm surprised with vpunch
                 BM "Ack!"
                 MC "Sorry! I’ll open the window for you."
                 scene bedroomnight3 with fade
-                play sound sfx tackle
+                play sound "audio/sfx tackle.mp3"
                 #sfx
                 show bm finger
                 BM "[mc].. Don’t scare me like that, what if I fell off?"
@@ -1566,8 +1595,8 @@ label bedroomsearch:
                 MC "Here’s my blanket, if we turn it horizontally it’ll be enough to cover both of us."
                 BM "Thank you."
                 scene bedroomnight3 with fade
-                play sound sfx fabric
-                play audio sfx tackle
+                play sound "audio/sfx fabric.mp3"
+                play sound "audio/sfx tackle.mp3"
                 #thump,fabric
                 MC "So, any thoughts so far?"
                 show bm swpose:
@@ -1583,9 +1612,11 @@ label bedroomsearch:
                 BM "Goodnight, [mc]."
                 scene black with fade
                 MC "Goodnight Howard."
-                
+                jump middle1
+
+label bwall:
                 #menu 5
-            "It feels weird to see the walls being barren, it’s like there should be something there.":
+                    MC "(It feels weird to see the walls being barren, it’s like there should be something there.)"
                     scene bedroomnight:
                             parallel:
                                 ease .5 zoom 1.5
@@ -1597,9 +1628,12 @@ label bedroomsearch:
                     "Looking closer at the walls I notice the residue of something sticky, perhaps adhesives."
                     MC "(So there should be something hanging on my walls, but they’re not here.)"
                     MC "(Did I tear them off?)"
+                    jump middle1
 
+label bwindow:
                 #menu 6
-            "The window! Will he show up tonight?":
+                    MC "(The window! Will he show up tonight?)"
+                    hide bm
                     show tsm nsdnormal:
                         parallel:
                             ease .5 zoom 1.5
@@ -1613,24 +1647,30 @@ label bedroomsearch:
                     MC "(Honestly, it’s more like if I placed knives on my window to deter intruders.)"
                     MC "(Wait, did I?)"
                     scene cg2 with fade
-                    play sound sfx cg2
-                    play voice VL8
+                    play sound "audio/sfx cg2.mp3"
+                    play voice "audio/VL8.mp3"
                     #sfx
                     NO "Let me in."
-                    play sound sfx cg2
+                    play sound "audio/sfx cg2.mp3"
                     #sfx
-                    play voice VL9
+                    play voice "audio/VL9.mp3"
                     NO "LET ME IN"
                     scene bedroomnight with vpunch
-                    play sound sfx tackle
+                    play sound "audio/sfx tackle.mp3"
                     #stumblesfx
                     MC "(!!!)"
                     MC "(Ow, my head really hurts)"
                     MC "(I wouldn’t do that, would I?)"
                     MC "(Maybe I would..)"
+                    jump middle1
                 #gw ga ngerti teknis, tp pilihan kelar abis milih semua choice
+label middle1:
+    "..."
+    call screen mapscreen1
+
+label bend1:
                 #menu 7
-            "I think that’s it.":
+                    MC "(I think that’s it.)"
                     MC "(I can’t think of anything else to search in this room and it’s nearing day time.)"
                     #distantdoorsfx
                     Y "{size=-10} [mc]! We’re back!{/size}"
@@ -1638,13 +1678,13 @@ label bedroomsearch:
                     jump afternight1
 
 label afternight1:
-    stop music with fadeout 1.0
+    stop music fadeout 1.0
     scene black with fade
     pause 1
-    play sound sfx knock
+    play sound "audio/sfx knock.mp3"
     # knock
     B "[mc]? Are you in here?"
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     B "Oh, it seems that you are."
     Y "Fast asleep?"
     B "Seems so."
@@ -1653,16 +1693,16 @@ label afternight1:
     B "All because of that monster.."
     B "{size=-10}Anyway, don’t be too loud. We don’t want to wake [player_object] up. {/size}"
     Y "Whatever."
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     #door
     MC "(THEY KNOW ABOUT HOWARD.) "
     MC "(And more importantly, they don’t like him very much.)"
     MC "(I wonder why..)"
-    play music bgm day
+    play music "audio/bgm day.mp3"
     #pause,changebgm
     "..."
     #doorslam
-    play sound sfx barge
+    play sound "audio/sfx barge.mp3"
     Y "Wakey wakey [mc]! You feeling good today?"
     scene bedroomday with fade
     show y smile
@@ -1749,7 +1789,7 @@ label afternight1:
     D "In any case, if we ever manage to hunt him down, I'll make sure to take some of its feathers for you."
 
     show d normal with vpunch
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     MC "NO DON’T"
     MC "(PLEASE DON’T KILL HIM.)"
     show d happy
@@ -1779,7 +1819,7 @@ label afternight1:
             linear 0.050 yoffset +10
             linear 0.050 yoffset -10
     #stomp
-    play sound sfx tackle
+    play sound "audio/sfx tackle.mp3"
     Y "Ow!"
     show b normal:
                         parallel:
@@ -1823,7 +1863,7 @@ label afternight1:
     MC "Good bye."
     show d happy
     D "See you at dinner."
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     #footsteps, doorclose
     scene kitchen with fade
     show y happy
@@ -1876,23 +1916,27 @@ label afternight1:
     MC "(In any case, she’s unlikely to hang around me for now. Seems like a good time to re-familiarize myself with the layout of my own house.)"
     MC "(Starting..here.)"
     scene hallwayday
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
     "Given that I haven’t spent much time outside my room and the kitchen, I figured that going through each room one by one would be a great idea."
     "But reality seems to disagree."
     #sfx
-    play sound sfx locked door
+    play sound "audio/sfx locked door.mp3"
     MC "(None of these doors open.)"
     MC "(Why is my room the only one without a lock? This isn’t fair..)"
-    play sound sfx locked door
+    play sound "audio/sfx locked door.mp3"
     #sfx
     MC "(This one doesn’t open either.)"
     MC "(I think I’ll go back to the kitchen.)"
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
+
+#KITCHEN
     scene kitchen with fade
+    call screen mapscreen2
     #kyk td
-    menu: 
+
+label kshelf:
             #menu1
-            "Maybe our shelf has something useful?":
+                MC "(Maybe our shelf has something useful?)"
                 #zoom
                 MC "(Then again, we don’t have a lot of things here.)"
                 MC "(Maybe the few books we do have can help..?)"
@@ -1900,14 +1944,14 @@ label afternight1:
                 MC "(Wait, this last one seems familiar.)"
 
                 scene bedroomnight2 with fade
-                play music bgm night
+                play music "audio/bgm night.mp3"
                 "..."
                 MC "(It’s getting late. Is he not showing up tonight?)"
                 MC "(I guess he can’t show up {i}every{/i} night, I should try and sleep for once.)"
                 scene bedroomnight3
                 MC "(I’ll open the windows, just in case.)"
                 scene black with fade
-                play sound sfx feather
+                play sound "audio/sfx feather.mp3"
                 #feathers,cough
                 BM "[mc]...I’m here"
                 BM "Curses, am I too late?"
@@ -1989,124 +2033,128 @@ label afternight1:
                         BM "P-please be gentle, alright?"
                         MC "I will."
 
-                        scene kitchennight with fade
-                        MC "There we go, all done! Does it hurt?"
-                        show bm swpose:
-                                    parallel:
-                                        ease .5 zoom 1.5
-                                    parallel:
-                                        yalign 0.0
-                                        linear 0.0 yalign 0.0 xalign 0.5
+                scene kitchennight with fade
+                MC "There we go, all done! Does it hurt?"
+                show bm swpose:
+                            parallel:
+                                ease .5 zoom 1.5
+                            parallel:
+                                yalign 0.0
+                                linear 0.0 yalign 0.0 xalign 0.5
 
-                        BM "No.. I guess not."
-                        show bm explanation
-                        BM "Honestly, I was expecting you to knock me out first."
-                        MC "Why would I do that?"
-                        BM "Is that not how typical medical procedures go?"
-                        MC "Uhh no? I’m not a healer but I don’t think that’s how it works. Is that how it works where you came from?"
-                        show fx sweat
-                        BM "Umm..In a way, yes?"
-                        hide fx
-                        MC "Whatever healer you’ve been visiting, you need to stop seeing them immediately."
-                        BM "I’ll keep that in mind."
-                        show bm swpose
-                        BM "Thank you. You’re.. really nice to me"
-                        MC "I wouldn’t say that I’m nice, in fact I’m sure I may have pushed you out of your comfort zone a few times."
-                        BM "W-well...I..I don’t hate it.."
-                        BM "The fact that I can’t ever win against you..."
-                        MC "Really? Well.. I like that but I’m also curious, why not? You’re strong enough to do it."
-                        BM "But what if you get hurt..? I really don’t want that.."
-                        MC "You’re not gonna hurt me, especially when you’re too scared to even touch me."
-                        MC "By this point, I don’t mind if you touch me y’know?"
-                        BM "I-i’m still scared.. What if I hurt you..?"
-                        show bm explanation
-                        BM "It almost feels easier for me if you just tie me up with that scarf again."
-                        MC "Like I did the first few nights you broke into my room?"
-                        BM "Y-yea.."
-                        BM "But if you put it that way I guess I did come off as someone up to no good."
-                        show bm swpose
-                        BM "I’m sorry, I was just.."
-                        extend "really desperate for any sort of positive interaction."
-                        BM "And I thought that someone who likes my feathers might also take an interest in me..?"
-                        MC "Sweetie, by this point I’m more than just interested in you." 
-                        MC "I like getting to know you and I definitely enjoy having you around."
-                        show fx blush:
-                                    parallel:
-                                        zoom 1.5
-                                    parallel:
-                                        yalign 0.0
-                                        linear 0.0 yalign 0.0 xalign 0.5
-                        BM "Promise you’re not lying to me?"
-                        MC "I promise. "
-                        show bm explanation
-                        BM "Are you sure?  I don’t think I’ve ever met someone who liked having me around before."
-                        show bm sw pose
-                        BM "I..I..uh..nevermind."
-                        MC "Whoa, don’t stop there! Now I’m curious."
-                        BM "N-no need."
-                        MC "C’mon, use your words."
-                        BM "W-well, I was about to ask if I could hug you but... I got scared. W-what if I scratch you?"
-                        MC "Well in that case, {i}I{/i} can hug you instead?"
-                        show bm idia
-                        show fx blush
-                        BM "You would do that..?!"
-                        MC "Of course."
-                        #zoom sprite
-                        show bm swpose:
-                                    parallel:
-                                        zoom 1.9
-                                    parallel:
-                                        yalign 0.0
-                                        linear 0.0 yalign 0.0 xalign 0.5
-                        "As I wrap my arms around him, his posture straightens at the sudden contact. Despite his initial reaction, he soon lets himself relax as he melts into my embrace, carefully placing the weight of his head onto my shoulder."
-                        scene black with fade
-                        BM "Thank you..really, I can’t thank you enough.."
+                BM "No.. I guess not."
+                show bm explanation
+                BM "Honestly, I was expecting you to knock me out first."
+                MC "Why would I do that?"
+                BM "Is that not how typical medical procedures go?"
+                MC "Uhh no? I’m not a healer but I don’t think that’s how it works. Is that how it works where you came from?"
+                show fx sweat
+                BM "Umm..In a way, yes?"
+                hide fx
+                MC "Whatever healer you’ve been visiting, you need to stop seeing them immediately."
+                BM "I’ll keep that in mind."
+                show bm swpose
+                BM "Thank you. You’re.. really nice to me"
+                MC "I wouldn’t say that I’m nice, in fact I’m sure I may have pushed you out of your comfort zone a few times."
+                BM "W-well...I..I don’t hate it.."
+                BM "The fact that I can’t ever win against you..."
+                MC "Really? Well.. I like that but I’m also curious, why not? You’re strong enough to do it."
+                BM "But what if you get hurt..? I really don’t want that.."
+                MC "You’re not gonna hurt me, especially when you’re too scared to even touch me."
+                MC "By this point, I don’t mind if you touch me y’know?"
+                BM "I-i’m still scared.. What if I hurt you..?"
+                show bm explanation
+                BM "It almost feels easier for me if you just tie me up with that scarf again."
+                MC "Like I did the first few nights you broke into my room?"
+                BM "Y-yea.."
+                BM "But if you put it that way I guess I did come off as someone up to no good."
+                show bm swpose
+                BM "I’m sorry, I was just.."
+                extend "really desperate for any sort of positive interaction."
+                BM "And I thought that someone who likes my feathers might also take an interest in me..?"
+                MC "Sweetie, by this point I’m more than just interested in you." 
+                MC "I like getting to know you and I definitely enjoy having you around."
+                show fx blush:
+                            parallel:
+                                zoom 1.5
+                            parallel:
+                                yalign 0.0
+                                linear 0.0 yalign 0.0 xalign 0.5
+                BM "Promise you’re not lying to me?"
+                MC "I promise. "
+                show bm explanation
+                BM "Are you sure?  I don’t think I’ve ever met someone who liked having me around before."
+                show bm sw pose
+                BM "I..I..uh..nevermind."
+                MC "Whoa, don’t stop there! Now I’m curious."
+                BM "N-no need."
+                MC "C’mon, use your words."
+                BM "W-well, I was about to ask if I could hug you but... I got scared. W-what if I scratch you?"
+                MC "Well in that case, {i}I{/i} can hug you instead?"
+                show bm idia
+                show fx blush
+                BM "You would do that..?!"
+                MC "Of course."
+                #zoom sprite
+                show bm swpose:
+                            parallel:
+                                zoom 1.9
+                            parallel:
+                                yalign 0.0
+                                linear 0.0 yalign 0.0 xalign 0.5
+                "As I wrap my arms around him, his posture straightens at the sudden contact. Despite his initial reaction, he soon lets himself relax as he melts into my embrace, carefully placing the weight of his head onto my shoulder."
+                scene black with fade
+                BM "Thank you..really, I can’t thank you enough.."
+                jump middle2
 
-                    "I might as well check the table.":
-                    play music bgm day
-                            scene kitchen:
-                                    parallel:
-                                        zoom 1.5
-                                    parallel:
-                                        yalign 0.0
-                                        linear 0.0 yalign 0.8 xalign 0.5
-                            #zoom
-                            MC "(I’ve eaten on this table multiple times but I haven’t really inspected it before.)"
-                            MC "(Too bad it just seems like a normal table.)"
-                            MC "(Is there anything underneath it though?)"
-                            #papersfx
-                            play sound sfx paper
-                            MC "(Oh, there’s something taped to the underside.)"
-                            show mc paper
-                            MC "(It’s paper?)"
-                            "“Witch Hut, head north into the forest until you see a house, it might move so call out to it”"
-                            MC "(Witch hut? The house might move?)"
-                            MC "(Who wrote this?)"
-                            "“Once inside, speak politely to the witch, do her chores when asked, she’ll return the favor in the morning”"
-                            "“Warning : Quite far, be patient, give proper excuse to father”"
-                            MC "(“Father” huh? Sounds like my ‘eldest sister’ has been here.)"
-                            play sound sfx paper
-                            hide mc
-                            MC "(I’ll keep this for now.)"
+label ktable:
+                        MC "(I might as well check the table.)"
+                        play music "audio/bgm day.mp3"
+                        scene kitchen:
+                                parallel:
+                                    zoom 1.5
+                                parallel:
+                                    yalign 0.0
+                                    linear 0.0 yalign 0.8 xalign 0.5
+                        #zoom
+                        MC "(I’ve eaten on this table multiple times but I haven’t really inspected it before.)"
+                        MC "(Too bad it just seems like a normal table.)"
+                        MC "(Is there anything underneath it though?)"
+                        #papersfx
+                        play sound "audio/sfx paper.mp3"
+                        MC "(Oh, there’s something taped to the underside.)"
+                        show mc paper
+                        MC "(It’s paper?)"
+                        "“Witch Hut, head north into the forest until you see a house, it might move so call out to it”"
+                        MC "(Witch hut? The house might move?)"
+                        MC "(Who wrote this?)"
+                        "“Once inside, speak politely to the witch, do her chores when asked, she’ll return the favor in the morning”"
+                        "“Warning : Quite far, be patient, give proper excuse to father”"
+                        MC "(“Father” huh? Sounds like my ‘eldest sister’ has been here.)"
+                        play sound "audio/sfx paper.mp3"
+                        hide mc
+                        MC "(I’ll keep this for now.)"
+                        jump middle2
 
-                    "The cupboards seem like they’re hiding something.":
+label kcupboard:
+                            MC "(The cupboards seem like they’re hiding something.)"
                             MC "(Let’s see what’s in here..)"
-                            play sound sfx plate
+                            play sound "audio/sfx plate.mp3"
                             MC "(Plates, cutlery and..knives??)"
                             MC "(Maybe not {i}knives{/i}, more like a huge assortment of blades with sporadic sizing?)"
                             MC "(What could these be for?)"
                             scene cg2 with fade
-                            play sound sfx cg2
+                            play sound "audio/sfx cg2.mp3"
                             NO "LET ME IN"
                 
                             scene kitchen with vpunch
-                            play sound sfx tackle
+                            play sound "audio/sfx tackle.mp3"
                             MC "(!!!)"
                             MC "(No, no, no, nonono)"
                             scene hallway with fade
                             pause 1
                             #run,doorslam
-                            play sound sfx barge
+                            play sound "audio/sfx barge.mp3"
                             scene bedroomday with fade
                             MC "(Is this really what these blades are for..?)"
                             #minicg, bladenoise
@@ -2122,9 +2170,11 @@ label afternight1:
                             scene hallway with fade
                             pause 1
                             scene kitchen with fade
+                            jump middle2
 
-                    "What’s in this little basket?":
-                            play music bgm day
+label kbasket:
+                            MC "(What’s in this little basket?)"
+                            play music "audio/bgm day.mp3"
                             MC "(How cute, it’s as if we’ll be going to a picnic.)"
                             MC "(But is anything actually inside?)"
                             MC "(Nope not much, just a blanket.)"
@@ -2134,11 +2184,16 @@ label afternight1:
                             MC "(A key!)"
                             MC "(Although to where? I don’t know yet.)"
                             MC "(I’ll be storing this for future use)"
+                            jump middle2
 
+label middle2:
+    "..."
+    call screen mapscreen2
 
+label bend2:
     #Muncul pas pilihan lain udah
-                    "I can’t think of anything else to check here.":
-                            play music bgm day
+                            MC "(I can’t think of anything else to check here.)"
+                            play music "audio/bgm day.mp3"
                             show y happy
                             Y "[mc]! You’re still in the kitchen? I thought you’d be in your room."
                             show y smile
@@ -2157,7 +2212,7 @@ label afternight1:
 label afterchoice2:
     #door
     scene kitchen with day
-    play sound sfx door
+    play sound "audio/sfx door.mp3"
     show d happy
     D "We’re back."
     show d normal
@@ -2181,14 +2236,14 @@ label afterchoice2:
     Y "Sweet! It’s dinner time!"
 
     scene kitchennight with fade
-    play sound sfx plate
+    play sound "audio/sfx plate.mp3"
     #platesfx
     "..."
     MC "(Today’s dinner is eerily quiet..)"
     MC "(It doesn’t help that my 'sisters' are stealing glances at me every few minutes..)"
     MC "(Are they even really my sisters?)"
     MC "(Well, I live with them so maybe they are?)"
-    play sound sfx plate
+    play sound "audio/sfx plate.mp3"
     show y happy:
         linear 0.050 yoffset +10
         linear 0.050 yoffset -10
@@ -2234,11 +2289,11 @@ label afterchoice2:
     Y "Take care of the house and be safe, okay [mc]?"
     show y smile
     MC "Sure thing."
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
     hide y
     show d happy
     D "See you in the morning, [mc]."
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
     hide d
     show b normal at center
     B "Don’t let anyone in, understood?"
@@ -2251,22 +2306,22 @@ label afterchoice2:
     show b happy
     B "I sure hope you got it. Farewell, [mc]."
     show b silent
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
     MC "Byee."
     #doorsfx
 
     MC "(Time to explore the rest of the house.)"
-    play sound sfx steps
+    play sound "audio/sfx steps.mp3"
     scene hallwaynight with fade
     MC "(I couldn’t go into any of the rooms earlier but I have this key now!)"
     MC "(Time to figure out where this key leads.)"
-    play sound sfx locked door
+    play sound "audio/sfx locked door.mp3"
     #sfx
     MC "(Nope.)"
-    play sound sfx locked door
+    play sound "audio/sfx locked door.mp3"
     #sfx
     MC "(Not this one too.)"
-    play sound sfx locked door
+    play sound "audio/sfx locked door.mp3"
     #sfx
     MC "(And...no. Honestly, it’d be useful if this key could open up my sisters rooms.)"
     MC "(What’s this door? Looks pretty dilapidated compared to the other ones.)"
@@ -2298,26 +2353,28 @@ label afterchoice2:
     #zoom,movebg left&right
     scene hallway with fade
     MC "(Seems normal enough, I’ll give it a try.)"
-    play sound sfxdoor
+    play sound "audio/sfx door.mp3"
 
     #sfx
     MC "(AH! It opened!)"
 
     scene attic with fade
-    play music bgm night fadein 2.0
-    play sound sfx creak
+    play music "audio/bgm night.mp3" fadein 2.0
+    play sound "audio/sfx creak.mp3"
     MC "(So this is the attic..)"
     MC "(Feels like I’ve been here a bunch of times.)"
     MC "(Now, where do I start?)"
+    call screen mapscreen3
     #ini ky tadi jg
-    menu: 
-            "The old wardrobe shows some promise.":
+    
+label awardrobe:
+                MC "(The old wardrobe shows some promise.)"
                 MC "(Let’s see what we have in here..)"
-                play sound sfx door
+                play sound "audio/sfx door.mp3"
                 MC "(Wait, there’s a whole bunch of stuff in here! There’s coats, cloaks, extra boots?)"
                 MC "(If we had these all along, why couldn’t I have joined the night patrols?)"
                 MC "(Unless these don’t fit me?)"
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 #fabricsfx
                 MC "(Nope, they do fit.)"
                 MC "(So I do have proper clothing! They were just making excuses so I couldn’t tag along.)"
@@ -2326,7 +2383,7 @@ label afterchoice2:
             
                 scene bedroomnight3 with fade
                 MC "(And in 3..2..1)"
-                play sound sfx feather
+                play sound "audio/sfx feather.mp3"
                 #feathersfx
                 show bm swpose at center:
                             linear 0.050 yoffset +10
@@ -2426,7 +2483,7 @@ label afterchoice2:
                 MC "Yea?"
                 BM "Can you try it on now?"
                 MC "Sure thing."
-                play sound sfx fabric
+                play sound "audio/sfx fabric.mp3"
                 #fabricsfx
                 scene bedroomnight with fade
                 show bm swpose
@@ -2469,21 +2526,25 @@ label afterchoice2:
                             BM "I want to make you more things now..."
                             MC "Well aren’t you just the sweetest?"
                 
-                            scene attic with fade
-                            MC "(Right, that’s how I got these.)"
-                            MC "(They were from him..)"
+                scene attic with fade
+                MC "(Right, that’s how I got these.)"
+                MC "(They were from him..)"
+                jump middle3
 
-                    "Time to open up some chests!":
-                        play sound sfx door
-                        MC "(Great, this one isn’t locked.)"
-                        play sound sfx paper
-                        MC "(There’s a lot of paper and there’s something drawn on them.)"
-                        MC "(Did I draw all these?)"
-                        MC "(They have residue on the back, I’m guessing these were what previously decorated my walls?)"
-                        MC "(Oh? This is Howard as a bird. Shame I didn’t draw any portraits of his human form though.)"
-                        MC "(Then again, I wouldn’t want my family to catch on.)"
+label achest:
+                            MC "(Time to open up some chests!)"
+                            play sound "audio/sfx door.mp3"
+                            MC "(Great, this one isn’t locked.)"
+                            play sound "audio/sfx paper.mp3"
+                            MC "(There’s a lot of paper and there’s something drawn on them.)"
+                            MC "(Did I draw all these?)"
+                            MC "(They have residue on the back, I’m guessing these were what previously decorated my walls?)"
+                            MC "(Oh? This is Howard as a bird. Shame I didn’t draw any portraits of his human form though.)"
+                            MC "(Then again, I wouldn’t want my family to catch on.)"
+                            jump middle3
 
-                        "The window! It’s always worth checking.":
+label awindow:
+                            MC "(The window! It’s always worth checking.)"
                             MC "(Hmmmm..)"
                             MC "(I don’t see anything special about it)"
                             #woodnoise
@@ -2795,9 +2856,10 @@ label afterchoice2:
                                         MC "Goodbye Howard."
                                         scene black with fade
                                         #sfx
+                                        jump middle3
 
-
-                        "Do we have a hidden trap door somewhere?":
+label atrap:
+                                MC "(Do we have a hidden trap door somewhere?)"
                                 scene attic:
                                                 parallel:
                                                     ease .5 zoom 1.3
@@ -3004,8 +3066,10 @@ label afterchoice2:
                                 MC "Well if you put it that way, I guess you’re right?"
                                 scene black with fade
                                 MC "(I don’t how he normally goes through his life and honestly I’m too scared to ask at this point.)"
+                                jump middle3
 
-                        "What’s underneath those curtains?":
+label acurtain:
+                                MC "(What’s underneath those curtains?)"
                                 #fabric
                                 MC "(Oh it’s like a secret hide out!)"
                                 MC "(If I took him here then I guess that explains why this area has less dust.)"
@@ -3236,9 +3300,15 @@ label afterchoice2:
                                 MC "(That was unexpected..)"
                                 MC "(But also, what happened next?)"
                                 MC "(Curse my lack of memories and whoever caused it!)"
+                                jump middle3
+label middle3:
+    "..."
+    call screen mapscreen3
 
-                        "I’m done with the attic.":
-                            jump afterattic
+label bend3:
+                        MC "(I’m done with the attic.)"
+                        jump afterattic
+
 label afterattic:
     MC "(I should go to sleep before my family returns.)"
     #sfx(door/steps)
@@ -3400,6 +3470,7 @@ label ed1:
     MC "(In fact, I’m not sure if he’s still alive.)"
     MC "(But I won’t lose hope because I still have my family with me and I know they’ll love me no matter what.)"
     "ENDING 1 : Maybe Someday He’ll Return"
+    jump credits
 
 label othereds:
     MC "(I’ll definitely see him again, I’ll go to him no matter where he is.)"
@@ -4206,7 +4277,8 @@ label hairpinremove:
             "Nothing warms my heart quite like seeing him happy. After decades of isolation, he’s finally found people who will welcome him with open arms."
             "It was hard at first, but as the missing villagers slowly returned, everyone soon realised that it wasn’t Howard who they should hate."
             "With the two of us together, surrounded by other people who love us to our core, I think we’ve finally reached our happily ever after."
-            "Ending 2 : Reunited at last"
+            "ENDING 2 : Reunited at last"
+            jump credits
 
         "Definitely, we need to kill that thing.":
             show bm questioning
@@ -4241,7 +4313,8 @@ label hairpinremove:
             "Under the moonlight, there’s nothing more captivating than the sight of him smiling at me while stained with blood."
             "With the creature gone, he can finally be free, completely unchained. He’s left his cage for good and I couldn’t be happier."
             "As far as I’m concerned, the two of us have reached our very own happy ever after."
-            "Ending 3: Stained with blood"
+            "ENDING 3: Stained with blood"
+            jump credits
 
 
 
