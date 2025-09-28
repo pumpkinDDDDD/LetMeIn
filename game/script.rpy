@@ -766,6 +766,7 @@ label next2:
     scene surprisedtacklecg with vpunch
     #bgm: https://dova-s.jp/EN/bgm/play19295.html
     play music "audio/bgm night.mp3"
+    play audio "audio/Eek.mp3"
 
     NO "Ack! Mercy! Mercy!"
     scene tacklecg
@@ -776,11 +777,13 @@ label next2:
     NO "I’m not a strange person I swear!"
     MC "What are you doing in my room? How did you get in?"
     scene surprisedtacklecg
+    play audio "audio/Eek.mp3"
     NO "Ow! C-can you remove your hands first..?"
     scene tacklecg
     MC "{b}No{/b}"
     NO "A-alright! I understand. I’ll explain myself.."
     MC "So, who are you?"
+    play audio "audio/Ohrs.mp3"
     BM "Oh! Um…You can call me Howard. If you don’t mind?"
     BM "N-not that you would mind over something as trivial as this but..uh.."
     BM "Nevermind.."
@@ -798,23 +801,28 @@ label next2:
     #Sfx, knife asset
     MC "How about now?"
     scene surprisedtacklecg with vpunch
+    play audio "audio/Eek.mp3"
     BM "Eek!! Alright, alright I’ll talk!!"
     play sound "audio/sfx knife.mp3"
     hide mc knife
     #put away
+    play audio "audio/U uh.mp3"
     BM "Can I..ask you something first..?"
     menu:
             "Sure. Ask away.":
                 BM "Thank you."
             "No. I’m doing all the asking here.":
+                play audio "audio/Please.mp3"
                 BM "Please? My answer will depend on this."
                 MC "Hmm.."
+                play audio "audio/Please.mp3"
                 BM "Please..? I swear I won’t ask about anything else after this.."
                 MC "Somehow I doubt that."
                 BM "No I’m serious! Really!"
                 MC "Hmm..Fine. Just one."
                 BM "Thank you!"
 
+    play audio "audio/Uhhh.mp3"
     BM "So umm..why did you hang those feathers on your window?"
     BM "Don’t get me wrong, I think you did a wonderful job decorating!"
     #extend I-i just…wanted to know why you used those feathers specifically.
@@ -824,15 +832,18 @@ label next2:
     BM "I wasn’t gonna do anything! I just wanted to see!"
     MC "Well, I kinda get it. Those feathers are really pretty aren’t they?"
     scene btacklecg
+    play audio "audio/Ohgn.mp3"
     BM "You think they’re pretty?"
     MC "Well obviously, I have eyes and good taste."
     BM "So you really think they’re pretty?"
     MC "Yes I do. Do I need to repeat myself again?"
+    play audio "audio/U uh.mp3"
     BM "Umm..Maybe?"
     #knife asset, sfx
     scene surprisedtacklecg with vpunch
     play sound "audio/sfx knife.mp3"
     show mc knife
+    play audio "audio/Eek.mp3"
     BM "Ack! I’m sorry! I won’t do that again!"
     play sound "audio/sfx knife.mp3"
     scene tacklecg
@@ -845,31 +856,38 @@ label next2:
                 BM "I’m serious!"
                 MC "Go on then."
                 extend "What does it look like?"
+                play audio "audio/VL24.mp3"
                 BM "Well..."
 
             "Do they? Tell me more.":
                 BM "It’s been a local legend for.."
+                play audio "audio/U uh.mp3"
                 extend "umm.."
                 BM "I’m not actually sure, but it sure has been a while."
                 BM "But haven’t you heard about it?"
 
+    play audio "audio/U uh.mp3"
     BM "It looks like a bird but with hands..? Kinda like a bat if it has feathers?"
     MC "Interesting, I’ve never heard of it."
     BM "It has claws and stuff..? Really sharp ones."
     MC "And..where is this monster? I want to meet it."
     BM "{size=-10} You’re on top of it..{/size}"
     MC "What was that? Speak up."
+    play audio "audio/Ah.mp3"
     BM "Nothing!"
+    play audio "audio/U uh.mp3"
     BM "It..umm..lives at the edge of the world… in a cage."
     MC "Cool, I’ve decided that you’re a total weirdo."
     BM "I’m not! I swear!"
     MC "You admitted to me that you broke into my room just to see the window decorations."
     MC "You’re insane. I live on the second floor."
+    play audio "audio/VL24.mp3"
     BM "Well it wasn’t that hard to-"
     #knife
     scene surprisedtacklecg with vpunch
     play sound "audio/sfx knife.mp3"
     show mc knife
+    play audio "audio/Eek.mp3"
     BM "Alright, alright! I’m sorry for breaking in!" 
     scene tacklecg
     show mc knife
@@ -1097,6 +1115,7 @@ label bbed:
                 play sound "audio/sfx knock.mp3"
                 #window sfx, knock
                 BM "Hello? "
+                play audio "audio/U uh.mp3"
                 BM "It’s me... Howard? If you even remember me..?"
                 BM "Psst, can you open the window? "
                 play sound "audio/sfx knock.mp3"
@@ -1109,6 +1128,7 @@ label bbed:
                 MC "You!"
                 show bm idia at center
                 MC "The one from yesterday!"
+                play audio "audio/U uh.mp3"
                 BM "Umm...I’m sorry about that?"
                 BM "But also.. You shouldn’t be too loud. I thought you didn't want that woman from yesterday to find out, right [mc]?"
                 MC "I didn’t tell you my name."
@@ -1117,10 +1137,12 @@ label bbed:
                 MC "Right, my sister."
                 MC "How did you disappear so quickly yesterday?"
                 show bm finger
+                play audio "audio/VL3.mp3"
                 BM "Can you please let me in now?"
                 MC "No."
                 show bm idia
                 show fx sweat
+                play audio "audio/Please.mp3"
                 BM "Please? Talking to you would be much nicer if I’m not perching on the side of a roof?"
                 hide fx
                 MC "You’re a suspicious stranger. How do I know you won’t do anything?"
@@ -1134,6 +1156,7 @@ label bbed:
                 MC "I’ve got an idea."
                 play sound "audio/sfx knife.mp3"
                 show mc knife
+                play audio "audio/Eek.mp3"
                 show bm surprised:
                     linear 0.050 yoffset +10
                     linear 0.050 yoffset -10
@@ -1143,10 +1166,12 @@ label bbed:
                 BM "W-what are you gonna do?"
                 MC "Why do you seem even more scared than I am? {i}You’re{/i} the intruder here."
                 show bm finger
+                play audio "audio/U uh.mp3"
                 BM "Your knife looks very sharp."
                 MC "Your gloves look really sharp and you’re not putting them away. Are you in any position to complain about this little thing?"
                 show bm swpose
                 BM "Very well, do as you please."
+                play audio "audio/Please.mp3"
                 BM "J-just..don’t hurt me, please?"
                 MC "Depends, will you attack me?"
                 show bm idia
@@ -1161,9 +1186,11 @@ label bbed:
                 BM "Pardon?"
                 MC "Stick your hands up, I’m gonna tie them to the bed post with my scarf."
                 show fx sweat2
+                play audio "audio/Uhhh.mp3"
                 BM "I-is this really necessary..?"
                 hide fx
                 MC "If you don’t want to, you can always get out of my room? The window’s still open."
+                play audio "audio/Hm.mp3"
                 BM "I’ll do it."
                 scene black with fade
                 play sound "audio/sfx fabric.mp3"
@@ -1181,17 +1208,22 @@ label bbed:
                 BM "I won’t do that.."
                 MC "Well I can’t be sure of that yet."
                 MC "Anyway, state your business! Why are you here again?"
+                play audio "audio/U uh.mp3"
                 BM "I-I uh.."
                 MC "Speak."
                 BM "I-I wanted to see you."
                 MC "Why? Did you like being held at knife point?"
+                play audio "audio/Y yes.mp3"
                 BM "Y-ye.."
                 scene tiedupcg with vpunch
+                play audio "audio/Eek.mp3"
                 extend "I mean NO! NO I don’t!"
                 BM "I-I wanted to ask for your opinions on the monster?"
                 MC "Again, why?"
+                play audio "audio/Please.mp3"
                 BM "Please? Just tell me?"
                 MC "I’m taking off your mask. I need to see who I’m dealing with."
+                play audio "audio/VL3.mp3"
                 BM "N-no please? Please let me keep it on..!"
                 play sound "audio/sfx rip.mp3"
                 #rip
@@ -1213,6 +1245,7 @@ label bbed:
                         #maskoffcg
                 scene tiedupscaredcg with fade
                 MC "..."
+                play audio "audio/U uh.mp3"
                 BM "[mc], w-why are you quiet? Please don’t stare at me too much."
                 MC "Honestly, I don’t see the issue."
                 scene sdtiedupcg 
@@ -1228,6 +1261,7 @@ label bbed:
                 BM "How did you know?!"
                 MC "I was joking. You really think you’re cursed?"
                 scene tiedupinquirecg
+                play audio "audio/Y yes.mp3"
                 BM "Y-yes?"
                 MC "Okay, so what’s the curse about?"
                 scene sdtiedupcg
@@ -1241,6 +1275,7 @@ label bbed:
                 BM "{size=-10}Already am one{/size}"
                 MC "Hey, don’t hide your face! If you keep moving you might tear my scarf and I’ll have to fix it."
                 scene tiedupscaredcg
+                play audio "audio/Eek.mp3"
                 BM "Sorry!"
                 BM "I-I just feel antsy without that mask.."
                 scene tiedupinquirecg
@@ -1269,6 +1304,7 @@ label bbed:
                             scene tiedupsurprisedcg with vpunch
                             BM "(!!)"
                             scene tiedupscaredcg
+                            play audio "audio/SB1.mp3"
                             BM "H-hey..You can’t just say things like that.."
                             MC "Why not?"
                             BM "W-what if it does anything to you?"
@@ -1299,7 +1335,8 @@ label bbed:
                 scene bedroomnight with fade
                 MC "Howard?"
                 show bm bird
-                BM "Yea?"
+                play audio "audio/Y yes.mp3"
+                BM "Yes?"
                 scene bedroomnight with vpunch
                 MC "(!!!)"
                 MC "(The bird can talk!!!)"
@@ -1373,6 +1410,7 @@ label bwardrobe:
                 play sound "audio/sfx door.mp3"
                 #wardrobeopensfx
                 show bm explanation
+                play audio "audio/Giggle.mp3"
                 BM "Here!"
                 BM "You don’t have a lot of clothes in there do you?"
                 BM "I can’t even find a coat."
@@ -1381,13 +1419,13 @@ label bwardrobe:
                 BM "Me?! What did I do?"
                 MC "If I wasn’t so entranced by those feathers of yours I would’ve asked my dad for clothes instead."
                 show bm swpose
+                play audio "audio/SB1.mp3"
                 BM "How is that my fault?"
                 menu: 
                         "You’re too beautiful. You’ve led my decision making astray.":
                             show fx blush
                             MC "What are you gonna do about it?"
                             BM "I-I don’t know… What do you want me to do..? Buy you a coat?"
-                            
                             BM "I-I can’t really do much.."
                             MC "I was thinking you could take responsibility and marry me but that works too."
                             hide fx
@@ -1397,6 +1435,7 @@ label bwardrobe:
                             BM "M-m-marry you??"
                             show fx blush
                             show bm swpose
+                            play audio "audio/U uh.mp3"
                             BM "I-uh..I.."
                             MC "Don’t want to?" 
                             show bm idia
@@ -1411,6 +1450,7 @@ label bwardrobe:
                             BM "Lot’s of people. Me included."
                             MC "Well they have horrific taste,"
                             extend "you included."
+                            play audio "audio/SB1.mp3"
                             BM "[mc]..."
                             MC "I think you’re lovely."
 
@@ -1418,12 +1458,15 @@ label bwardrobe:
                 MC "But really, you have to stop coming here. They’re gonna find out eventually."
                 show bm finger
                 show fx huffy
+                play audio "audio/Hmph.mp3"
                 BM "But [mc]..."
                 MC "Really Howard?"
                 MC "If you’re making a pitiful expression, just know that I can’t see it under the mask."
                 show bm explanation
+                play audio "audio/SB1.mp3"
                 BM "Curses."
                 MC "If you want to pout at me all you like, you’ll have to take off your mask so I can actually see it."
+                play audio "audio/Hmph.mp3"
                 BM "Hmph."
                 hide fx
                 show bm swpose
