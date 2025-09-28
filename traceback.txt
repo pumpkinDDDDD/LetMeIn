@@ -1,28 +1,40 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1196, in script
-    MC "I’m not much of a looker myself."
-Exception: Say has image attributes ('T',), but there's no image tag associated with the speaking character.
+  File "renpy/common/00start.rpy", line 219, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 551, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 551, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 565, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1196, in script
-    MC "I’m not much of a looker myself."
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\ast.py", line 2586, in execute
-    Say.execute(self)
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\ast.py", line 623, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\exports\sayexports.py", line 132, in say
-    who(what, *args, **kwargs)
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\character.py", line 1407, in __call__
-    old_attr_state = self.handle_say_attributes(False, interact)
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\character.py", line 1223, in handle_say_attributes
-    if self.resolve_say_attributes(predicting, attrs):
-  File "D:\RENPY\renpy-8.3.4-sdk\renpy\character.py", line 1149, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes ('T',), but there's no image tag associated with the speaking character.
+  File "renpy/common/00start.rpy", line 219, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 551, in script
+    python hide:
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 551, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 565, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\loadsave.py", line 838, in load
+    log.unfreeze(roots, label="_after_load")
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\rollback.py", line 1134, in unfreeze
+    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\rollback.py", line 930, in rollback
+    self.load_failed()
+  File "D:\RENPY\renpy-8.3.4-sdk\renpy\rollback.py", line 848, in load_failed
+    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.7.25031702

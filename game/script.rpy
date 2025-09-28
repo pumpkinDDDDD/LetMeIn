@@ -1075,8 +1075,6 @@ label next2:
     scene bedroomnight with fade
     play music "audio/bgm night.mp3" fadein 1.0
     call screen mapscreen1
-    #pokoknya ini nge-loop kyk pas milih sayur di rute tsm atau kita tes yg bg bisa diklik
-    # kalau bisa yg diklik yg diklik aja
 
 label bbed:
             #menu 1
@@ -3856,23 +3854,44 @@ label othereds:
     WI "The creature he’s marrying, is cruel and has no care for the beings around it. It wants to steal his power and it has kept him locked in a cage for many decades."
     WI "The moment he is wed to the creature, he will be bound to the castle for eternity."
     #ngeloop ampe kelar semua
-    menu:
-            "Wait, if he’s locked in a cage, why could he visit me at night?":
-                WI "He snuck out. The creature sleeps at night so it’s an ideal time."
-                show wi normal
-                WI "But no matter how careful he is, it’ll find out eventually."
-                MC "Is that why the number of missing villagers started rising? Because it was trying to find Howard?"
-                MC "I believe Howard has mentioned that they now work in the castle?"
-                WI "Indeed they do. The creature has sucked the life out of them to make itself stronger, they currently live as empty shells of their former lives."
-            "Why hasn’t the creature done anything to him? Why wait decades?":
-                show wi normal
-                WI "It’s waiting for the right conditions. Soon enough, the moon will shine a brilliant blue."
-                WI "Under that moon, the creature will finally be able to absorb Howard’s power."
-            "And what is this creature?":
-                show wi normal
-                WI "I can’t speak its name, as it will hear me the moment I do."
-                MC "(I guess that explains why Howard never went into details.)"
 
+label witch:
+    $ Spinach = False
+    $ Carrots = False
+    $ Apples = False
+
+label choosewitch:
+
+    if Spinach and Carrots and Apples:
+        jump afterwitch
+
+    menu:
+
+        "Wait, if he’s locked in a cage, why could he visit me at night?" if not Spinach:
+            WI "He snuck out. The creature sleeps at night so it’s an ideal time."
+            show wi normal
+            WI "But no matter how careful he is, it’ll find out eventually."
+            MC "Is that why the number of missing villagers started rising? Because it was trying to find Howard?"
+            MC "I believe Howard has mentioned that they now work in the castle?"
+            WI "Indeed they do. The creature has sucked the life out of them to make itself stronger, they currently live as empty shells of their former lives."
+            $ Spinach = True
+            jump choosewitch
+
+        "Why hasn’t the creature done anything to him? Why wait decades?" if not Carrots:
+            show wi normal
+            WI "It’s waiting for the right conditions. Soon enough, the moon will shine a brilliant blue."
+            WI "Under that moon, the creature will finally be able to absorb Howard’s power."
+            $ Carrots = True
+            jump choosewitch
+
+        "And what is this creature?" if not Apples:
+            show wi normal
+            WI "I can’t speak its name, as it will hear me the moment I do."
+            MC "(I guess that explains why Howard never went into details.)"
+            $ Apples = True
+            jump choosewitch
+
+label afterwitch:
     WI "In any case, I’d like it if you could rescue him from his fate. Marry him, only then will he be free from its grasp."
     MC "I will."
     show wi hand
@@ -4114,18 +4133,36 @@ label othereds:
     MC "(I said a fraction of what I wanted to say but it might be meaningless if he doesn’t acknowledge me.)"
     MC "(What do I do now?)"
     #loop ky milih sayur di tsm
-    menu:
-            "Inspect the room for anything that can help.":
-                "Looking around the room, there’s not much to be found. The creature really did give him the bare minimum to survive."
-                "He lives in a cage where he sleeps on the floor with a bucket to drink from."
-                "There’s a clock in this room but honestly you can’t really see it in darkness like this."
-                "It’s easy to see why he thought of himself as a monster if this is how he lived for decades."
-            "Enter the cage with him.":
-                jump aftercage
-            "Consider murdering the creature I made a deal with.":
-                "I rummage through whatever pockets I have for anything that can give me a leg up in battle."
-                MC "(I have this dagger but is it enough? I doubt it.)"
 
+label cage:
+    $ Onions = False
+    $ Tomato = False
+    $ Oranges = False
+
+label choosecage:
+
+    if Onions and Tomato and Oranges:
+        jump aftercage
+
+    menu:
+
+        "Inspect the room for anything that can help." if not Onions:
+            "Looking around the room, there’s not much to be found. The creature really did give him the bare minimum to survive."
+            "He lives in a cage where he sleeps on the floor with a bucket to drink from."
+            "There’s a clock in this room but honestly you can’t really see it in darkness like this."
+            "It’s easy to see why he thought of himself as a monster if this is how he lived for decades."
+            $ Onions = True
+            jump choosecage
+
+        "Enter the cage with him." if not Tomato:
+            $ Tomato = True
+            jump aftercage
+
+        "Consider murdering the creature I made a deal with." if not Oranges:
+            "I rummage through whatever pockets I have for anything that can give me a leg up in battle."
+            MC "(I have this dagger but is it enough? I doubt it.)"
+            $ Oranges = True
+            jump choosecage
 
 label aftercage:
     scene cage2cg with fade
