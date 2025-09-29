@@ -1470,6 +1470,7 @@ label bwardrobe:
                 BM "Hmph."
                 hide fx
                 show bm swpose
+                play audio "audio/SB1.mp3"
                 BM "I don’t want to leave."
                 MC "Why? Did you fall in love with me?"
                 show bm idia:
@@ -1532,6 +1533,7 @@ label bcarpet:
                 play sound "audio/sfx tackle.mp3"
                 #stumblesfx
                 show bm surprised with vpunch
+                play audio "audio/Eek.mp3"
                 BM "Ack!"
                 MC "Sorry! I’ll open the window for you."
                 scene bedroomnight3 with fade
@@ -2056,7 +2058,7 @@ label kshelf:
                                 yalign 0.0
                                 linear 0.0 yalign 0.0 xalign 0.5
                         show bm idia
-                        BM "Eek! [mc]! P-please put me down!"
+                        BM "Eek! [mc]!Please put me down!"
                         MC "I wouldn’t have to do this if you agreed to let me take care of you."
                         show bm finger
                         show fx blush:
