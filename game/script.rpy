@@ -442,9 +442,10 @@ label next1:
             "Good morning.":
                 D "Oh? Taking after your older sister today?"
             "(HELP)":
+                scene kitchen with fade
                 #B closer
-                scene kitchen
-                scene b happy:
+                
+                show b happy:
                     parallel:
                         ease .5 zoom 1.7
                     parallel:
@@ -453,7 +454,7 @@ label next1:
                 B "{size=-10} Stay calm, just greet him as cheerfully as you can{/size}"
                 MC "{size=-10} Alright{/size}"
                 #sprite back
-                scene b silent:
+                show b silent:
                     parallel:
                         ease .5 zoom 1.0
                     parallel:
@@ -1855,9 +1856,9 @@ label afternight1:
     MC "I mean..I don’t need them anymore."
     D "Really? Why the sudden change of mind?"
     D "Then again, I noticed that your window decorations disappeared. Did something happen?"
-    show d silent
+    show d normal
     MC "(Yea, I lost my memory. But also.."
-    extend "Good question, where did they go??)"
+    extend " Good question, where did they go??)"
     MC "Nothing dad, to be honest, I don’t know where they went either."
     show y smile:
             linear 0.050 yoffset +10
@@ -1940,7 +1941,7 @@ label afternight1:
             "Can I talk to you?":
                 show y happy
                 Y "Uhh, sure?? About what?"
-                show y smeile
+                show y smile
                 MC "The monster. The missing window decorations, my sudden memory loss. There’s a lot."
                 show y happy
                 Y "Sorry! Can’t tell you! I promised her I wou-"
@@ -2151,7 +2152,7 @@ label kshelf:
                 MC "I promise. "
                 show bm explanation
                 BM "Are you sure?  I don’t think I’ve ever met someone who liked having me around before."
-                show bm sw pose
+                show bm swpose
                 play audio "audio/U uh.mp3"
                 BM "I..I..uh..nevermind."
                 MC "Whoa, don’t stop there! Now I’m curious."
@@ -2221,7 +2222,7 @@ label kcupboard:
                             play sound "audio/sfx tackle.mp3"
                             MC "(!!!)"
                             MC "(No, no, no, nonono)"
-                            scene hallway with fade
+                            scene hallwayday with fade
                             pause 1
                             #run,doorslam
                             play sound "audio/sfx barge.mp3"
@@ -2238,7 +2239,7 @@ label kcupboard:
                             "..."
                             MC "(It’s no use, I can’t remember anything.)"
                             MC "(I’ll have to search for more pieces of my memory.)"
-                            scene hallway with fade
+                            scene hallwayday with fade
                             pause 1
                             scene kitchen with fade
                             jump middle2
@@ -2262,7 +2263,8 @@ label middle2:
     call screen mapscreen2
 
 label bend2:
-    #Muncul pas pilihan lain udah
+    #Muncul pas pilihan lain udah 
+                            scene kitchen with fade
                             MC "(I can’t think of anything else to check here.)"
                             play music "audio/bgm day.mp3"
                             show y happy
@@ -2282,7 +2284,7 @@ label bend2:
 
 label afterchoice2:
     #door
-    scene kitchen with day
+    scene kitchen with fade
     play sound "audio/sfx door.mp3"
     show d happy
     D "We’re back."
@@ -2319,7 +2321,7 @@ label afterchoice2:
         linear 0.050 yoffset +10
         linear 0.050 yoffset -10
     Y "I’m done eating!"
-    show y smile
+    show y smile at center
     show b normal at left
     B "The rest of us aren’t finished."
     show b silent
@@ -2354,7 +2356,7 @@ label afterchoice2:
     show b normal
     B "Now let us hurry, we mustn't be late."
     show b silent
-    show y happy:
+    show y happy at center:
         linear 0.050 yoffset +10
         linear 0.050 yoffset -10
     Y "Alright! I’ve been waiting for this!"
@@ -2400,7 +2402,7 @@ label afterchoice2:
     MC "(It’s not a haunted room is it?)"
 
     show attic with fade
-    show keyhole
+    show mc keyhole
     show attic with fade:
         parallel:
                 ease .5 zoom 1.0
@@ -2423,7 +2425,7 @@ label afterchoice2:
                 linear 0.0 yalign 0.0 xalign 0.5
     pause 2
     #zoom,movebg left&right
-    scene hallway with fade
+    scene hallwaynight with fade
     MC "(Seems normal enough, I’ll give it a try.)"
     play sound "audio/sfx door.mp3"
 
@@ -2544,7 +2546,7 @@ label awardrobe:
                             BM "I feel like I forgot something.."
                             extend "Can you pull away for a moment?"
                             MC "Sure"
-                            show bm sw pose:
+                            show bm swpose:
                                 parallel:
                                     ease .5 zoom 1.0
                                 parallel:
@@ -2973,8 +2975,8 @@ label atrap:
                                 BM "H-hello? It’s me? Howard..? If you even remember me..?"
                                 MC "(Well I’ve got nothing better tonight.)"
                                 scene night with fade
-                                show bw bird at center
-                                show window
+                                show bm bird at center
+                                show windown
                                 MC "Give me a minute, I need to grab a few things."
                                 BM "Oh! You do remember me..!"
                                 BM "Take your time, I can wait."
@@ -3261,10 +3263,10 @@ label acurtain:
                                             show bm swpose
                                             BM "Well.."
                                             BM "..."
-                                            show bmexplanation
+                                            show bm explanation
                                             BM "I suppose I can tell a made-up story?"
                                             MC "Yea, that works!"
-                                            scene curtain with fade
+                                            scene curtains with fade
                                             show bm explanation:
                                                     parallel:
                                                         zoom 1.5
@@ -3283,7 +3285,7 @@ label acurtain:
                                                     linear 0.050 yoffset +10
                                                     linear 0.050 yoffset -10
                                             BM "Yes, please!"
-                                            scene curtain with fade
+                                            scene curtains with fade
                                             MC "And so, they would be cursed to spend their lives wandering aimlessly through the woods.."
                                             show bm finger
                                             BM "It’s not a real story, is it, [mc]?"
@@ -3500,7 +3502,7 @@ label ed1:
     MC "(If he really loved me he’ll come back and I’ll leave the window open for him.)"
     MC "(Like I’ve always done.)"
     MC "(But..)"
-    extend "I need to talk to my sisters first."
+    extend "(I need to talk to my sisters first.)"
     scene hallwayday with fade
     MC "(Which one’s their room again?)"
     play sound "audio/sfx steps.mp3"
@@ -3592,7 +3594,7 @@ label ed1:
 label othereds:
     MC "(I’ll definitely see him again, I’ll go to him no matter where he is.)"
     stop music fadeout 3.0
-    scene hallway with fade
+    scene hallwayday with fade
     play sound "audio/sfx door.mp3"
     "..."
     MC "(It’s quiet.)"
@@ -3634,6 +3636,7 @@ label othereds:
     MC "You’re not mad?"
     play music "audio/sfx bgm night.mp3" fadein 3.0
     show d happy
+    hide d
     D "Of course not, I know you have good instincts. If you think that the monster wasn’t all that bad then you might be right."
     show da smile
     "At that moment, it was as if time had stopped and the fog that had covered my head slowly lifted itself. Not enough for it to fully clear, but enough for me to finally recognize the person in front of me."
@@ -3652,10 +3655,11 @@ label othereds:
     MC "Thanks Dad."
     show da open
     DA "Here, bring some food with you."
-    DA W"ill your journey be long?"
+    DA "Will your journey be long?"
     show da smile
     MC "I don’t know."
     show da open
+    hide d smile
     DA "Stay safe [mc], we’ll still be here waiting for you."
     show da smile:
                 parallel:
@@ -3664,7 +3668,9 @@ label othereds:
                     yalign 0.0
                     linear 0.0 yalign 0.0 xalign 0.5
     #zoom
+    
     show da open
+    #zoom
     DA "Oh? You haven’t hugged me since you were a kid."
     show da smile
     MC "Thanks dad, I wouldn’t be able to do this without you."
@@ -3672,11 +3678,11 @@ label othereds:
     D "Of course, [mc]."
     #zoomout
     show da smile:
-        parallel:
-            ease .5 zoom 1.0  
-        parallel:
-            yalign 0.0
-            linear 0.0 xalign 0.5 yalign 0.5
+                parallel:
+                    ease .5 zoom 1.0
+                parallel:
+                    yalign 0.0
+                    linear 0.0 yalign 0.0 xalign 0.5
 
     MC "See you again someday."
     D "Good bye, [mc]."
@@ -4048,13 +4054,13 @@ label afterwitch:
     MC "(Nevermind, I need to hide.)"
     play sound "audio/sfx steps.mp3"
     scene castleinside with fade
-    show cr hand at left:
+    show cr_hand at left:
                         parallel:
                             zoom 0.8
                         parallel:
                             yalign 0.0
                             linear 0.0 yalign 0.0 xalign 0.0
-    show castle wall
+    show castlewall
     #blurry asset infront, bm behind
     #kalau bisa dia beda font
     NO "You look displeased."
@@ -4079,7 +4085,7 @@ label afterwitch:
     #squeak.
     MC "(CRAP.)"
     play sound "audio/sfx swoosh.mp3"
-    show cr hand at left:
+    show cr_hand at left:
                         parallel:
                             zoom 1.0
                         parallel:
@@ -4088,7 +4094,7 @@ label afterwitch:
     #creature sprite zoom closer
     MC "(I need to get out of here.)"
     play sound "audio/sfx swoosh.mp3"
-    show cr hand at left:
+    show cr_hand at left:
                         parallel:
                             zoom 1.3
                         parallel:
@@ -4099,7 +4105,7 @@ label afterwitch:
     NO "..."
     MC "(...)"
     NO "..."
-    hide cr
+    hide cr_hand
     play sound "audio/sfx swoosh.mp3"
     #leave screen
     MC "(I think I’m safe, for now.)"
@@ -4119,9 +4125,9 @@ label afterwitch:
     NO "State your purpose."
     MC "I came from far away to propose a trade with you."
     NO "HA"
-    Extend "HAHAHA"
+    extend "HAHAHA"
     NO "You?"
-    extend "Trade with me?"
+    extend " Trade with me?"
     NO "How foolish. Do you not know who I am?"
     play sound "audio/sfx gore.mp3"
     show throne1 with fade
@@ -4151,8 +4157,8 @@ label afterwitch:
     MC "(Here goes nothing..)"
     MC "I’d like a night with your betrothed."
     NO "What?"
-    extend "That’s it?"
-    extend "You’d like a night with {i}that{/i}?"
+    extend " That’s it?"
+    extend " You’d like a night with {i}that{/i}?"
     MC "Indeed, I’d like to see him."
     NO "I can offer countless other treasures, money, status, perhaps you’d even like power?"
     MC "I want a night with your betrothed, Howard."
@@ -4191,7 +4197,7 @@ label afterwitch:
     MC "(In any case, I could hear what he said despite my state so I can only hope that he can hear me too.)"
     MC "Howard.."
     MC "I know that you’re not responding to me."
-    extend "But please hear me out."
+    extend " But please hear me out."
     MC "I’m really sorry that you had to suffer like that the last time you visited me. I swear I wasn’t the one who stuck the blades on the window, I was under a sleeping potion and I couldn’t wake up no matter how badly I wanted to."
     MC "My sisters, they placed them there because they thought you were a monster. And I know in my heart that they were wrong."
     MC "No matter how many forms you have, no matter how sharp your claws are, no matter what you think about yourself. I don’t think you’re a monster and I never will."
@@ -4232,7 +4238,7 @@ label choosecage:
             jump choosecage
 
 label aftercage:
-    scene cage2cg with fade
+    scene cagecg2 with fade
     play sound "audio/sfx steps.mp3"
     "Given how large the gaps in his cage are, I easily slip inside."
     "The gaps were definitely made while considering his ‘monster form’ as the only way he could leave was if he transformed into either a human or a small bird."
@@ -4244,15 +4250,15 @@ label aftercage:
     MC "(He’s still breathing..That’s good.)"
     MC "(But how do I get him to wake up? I don’t have magical powers like grandmother does.)"
 
-    scene witchhut with fade:
+    scene witchhutinside with fade:
             matrixcolor TintMatrix(color="#d9b6ec" )
     #use tint matrix??
     show wi hand:
             matrixcolor TintMatrix(color="#d9b6ec" )
     WI "“Proceed with caution, as it will use magical items to give you a disadvantage.”"
-    scene insidecastle with fade
+    scene castleinside with fade
     show bm swpose
-    show cr hand at left
+    show cr_hand at left
     show castlewall
 
     NO "That’s too many words from someone like you. You will soon regret your insolence."
@@ -4261,15 +4267,26 @@ label aftercage:
     MC "(Wait, what did it give him? What did it make him wear?)"
     MC "(Damn it, I can’t see.)"
 
-    scene cage2cg with vpunch
+    scene cagecg2 with vpunch
     MC "(That’s it!)"
     MC "(I need to find this thing that the creature made him wear.)"
     MC "(What is it though..?)"
     MC "(What do I check?)"
 
-    #ky td lg
+label fruit:
+        $ Peanut = False
+        $ Grape = False
+        $ Durian = False
+        $ Banana = False
+
+label chooseitem:
+
+    if Peanut and Grape and Durian and Banana:
+        jump hairpinremove
+
     menu:
-            "The mask.":
+
+            "The mask." if not Peanut:
                 MC "(He wears this every time he visits so I doubt this was the magical item that the creature gave him but it doesn’t hurt to check.)"
                 MC "(I mean, I’m glad I can see his bare face but it’s a shame that it has to happen in a circumstance like this.)"
                 "I pick up the mask from the floor and run my fingers through every bump and crevice in an attempt to find anything that seems magical."
@@ -4281,7 +4298,10 @@ label aftercage:
                 MC "(Maybe it’s to accommodate for his actual beak?)"
                 MC "(Although, if I put it up to his face it doesn’t quite fit anymore)"
                 MC "(Maybe the mask isn’t the magical item?)"
-            "The Veil.":
+                $ Peanut = True
+                jump chooseitem
+
+            "The Veil." if not Grape:
                 MC "(It didn’t occur to me before but the veil does make him look like a bride.)"
                 MC "(Was he forced to wear the veil? Or did he choose this on his own?)"
                 MC "(He looks beautiful but if it makes him unhappy I’d want him to remove it.)"
@@ -4296,8 +4316,10 @@ label aftercage:
                 MC "I’ll put it next to your mask, okay?"
                 play sound "audio/sfx knife.mp3"
                 "Carefully, I took out the hairpin from the veil adorning his face and placed it next to his mask."
-                jump labelhairpinremove
-            "The gloves.":
+                $ Grape = True
+                jump hairpinremove
+
+            "The gloves." if not Durian:
                 "Given that he currently has wings {i}and{/i} massive claws, his gloves are placed neatly next to his mask."
                 MC "(I used to wonder why his gloves look pointy and sharp but looking at it now they just seems like normal gloves.)"
                 MC "(I guess even in his human form he had claws..?)"
@@ -4306,15 +4328,21 @@ label aftercage:
                 BM "..."
                 MC "I guess I can’t expect you to just wake up from my words alone, huh?"
                 MC "(Still, I don’t see anything on here that wasn’t normally there.)"
-            "The cape.":
+                $ Durian = True
+                jump chooseitem
+
+            "The cape." if not Banana:
                 "Even with his current form, the cape remains on him, albeit with a different purpose."
                 "It now drapes over him, acting as a blanket of sorts."
                 MC "(I gotta be honest though, that cape doesn’t seem like it would do much to shield him from the cold.)"
                 "Any pins or brooches that previously adorned it had been removed, leaving only the fabric and threads that form it."
                 MC "(I don’t think anything was added to the cape, maybe it’s not here?)"
+                $ Banana = True
+                jump chooseitem
+
 
 label hairpinremove:
-    scene cage2cg with fade
+    scene cagecg2 with fade
     play sound "audio/sfx wind.mp3"
     "..."
     MC "(Well at least he could sleep more comfortably?)"
@@ -4322,30 +4350,30 @@ label hairpinremove:
     scene black with fade
     MC "(Where else am I supposed to look?)"
     BM "[mc]? Is..is that you?"
-    scene cage3cg with vpunch
+    scene cagecg3 with vpunch
     play music "audio/bgm marriage.mp3"
     #bgm : https://dova-s.jp/EN/bgm/play22621.html
     MC "(!!!)"
     MC "Howard..? You’re awake."
-    scene cage3cg
+    scene cagecg3
     BM "Yes? I..uh. Heard everything you said earlier."
     BM "Y..you don’t mind that I look like this, do you?"
-    scene cage4cg
+    scene cagecg4
     MC "Not at all. I’m glad I can finally see you like this."
-    scene cage3cg
+    scene cagecg3
     BM "Really..? You don’t regret travelling all the way here for.."
     extend "this, right?"
-    scene cage4cg
+    scene cagecg4
     MC "Howard, look at me. I haven't taken a bath in months."
     MC "The real question is {i}you{/i} mind if I look like this."
-    scene cage3cg
+    scene cagecg3
     BM "I don't mind at all! You went all they way here for me.."
     BM "You really don't mind me, right..?"
-    scene cage4cg
+    scene cagecg4
     MC "Howard. Stay still. Lower your head if possible."
-    scene cage3cg
+    scene cagecg3
     BM "Y..yes?"
-    scene cage4cg
+    scene cagecg4
     #If possible, i need you to make a noise that sounds like you were about to say something but got interrupted by a kiss.
 
     scene black with fade
@@ -4353,30 +4381,30 @@ label hairpinremove:
     "Without waiting for another second, my hands reached to pull us together as I connected my lips to his beak."
     "In that little moment it almost seemed like all his worries were behind him as I could feel him placing his wing on my back to bring us closer than ever before."
     "For once, there was no hesitation in him. It felt {i}right{/i}."
-    scene cage3cg with fade
+    scene cagecg3 with fade
     BM "Well, I guess it would be foolish of me to doubt you any longer."
-    scene cage4cg
+    scene cagecg4
     MC "It would."
-    scene cage3cg
+    scene cagecg3
     BM "Thank you for coming all the way here for me."
     BM "But..What now? I don’t know how we can escape that {i}thing{/i}."
-    scene cage4cg
+    scene cagecg4
     MC "I’ve got an idea."
 
     MC "We need to get married. Right now."
-    scene cage3cg
+    scene cagecg3
     BM "What?"
-    scene cage4cg
+    scene cagecg4
     MC "Unless you don’t want to? "
-    scene cage3cg with vpunch
+    scene cagecg3 with vpunch
     BM "NO I DO! Please..! You’ll really marry me..?!"
-    scene cage4cg
+    scene cagecg4
     MC "Obviously, that’s why I asked."
     MC "Howard, will you marry me?"
-    scene cage3cg with vpunch
+    scene cagecg3 with vpunch
     BM 'YES.'
     BM "B-but not here, we should get to the altar. There’s one nearby."
-    scene cage4cg
+    scene cagecg4
     MC "Let’s go then."
     scene cg1a with fade
     play sound "audio/sfx feather.mp3"
