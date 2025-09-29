@@ -3598,22 +3598,18 @@ label ed1:
     MC "I..."
     extend "know what you’ve done."
     show c sorry
+    scene ed1cg1 with fade
     C "It’s not-"
     MC "I know, you’re worried about me. But it’s okay, because I still love you guys and I’m not leaving."
     C "R-really?"
-    show c silent
     MC "I know you stuck blades on the window to keep Howard away and I’m mad about it."
     MC "But I’d like you to trust me a little on this, I’d like you to meet him someday."
     MC "If he ever comes back that is."
-    show e happy
     E "So the monster has a name?"
-    show e sorry
     MC "He’s not a monster!"
     MC "Or..maybe he is but I swear he’s really sweet!"
     MC "And I’d like you to meet him one day, if the opportunity ever came."
-    show c sorry
     C "I see what you’re going for, [mc]. But honestly, I’m not quite sure he’ll ever come by again after what we’ve done to him."
-    show e sorry
     E "I hate to say it but there sure was a lot of blood on the window."
     MC "I’m not sure if he’ll visit either, but he used to visit every night."
     MC "So I’m holding out on the chance that he’ll come by again some day."
@@ -3622,11 +3618,10 @@ label ed1:
     C "[mc]..I’m really sorry too. I’ve done things that might be unforgivable, I visited a witch to make you lose your memories, I’ve lied about a lot of things, and I never quite considered your feelings throughout all of it."
     E "Don’t fully place the blame on yourself! I was in it too.."
     E "I’m sorry too [mc]. It can’t bring him back but I hope you can forgive us..?"
-    MC "Of course I do."
-    MC "I don’t know about Howard though."
-    show e happy
+    MC "Of course I do. But..."
+    MC "I don’t know about Howard though. He's the one you should be apologizing to"
+    scene ed1cg2
     E "Tell you what [mc], if he doesn’t turn out to be evil. We’ll apologize a hundred times to him."
-    show c happy
     C "We’ll welcome him with open arms."
     MC "That’s the best outcome I can ask for at this moment."
     MC "(I don’t know how things will go in the future.)"
@@ -4700,6 +4695,38 @@ label credits:
 
             ## Due to the way that $ percent() works, we need to make this a text displayable
             ## or else it'll try to count it too.
+            # sumpah gw gatau ini bisa atau enggak tapi intinya, kalau yg main udah kelar semua bakal nongol cerita extra gitu buat bonus
+            # kalau g bisa tambahin hashtag aja depan label semuakelar
+            label semuakelar:
+                
+                scene completecg with fade
+                pause
+                scene black with fade
+                pause 1
+                scene completecg with fade
+                BM "Hey [mc]?
+                BM "Wake up, everyone else already left the lecture hall."
+                MC "?"
+                BM "Cmon, don't look at me like that"
+                BM "As your boyfriend, I'm here to wake you up"
+                MC "Boyfriend..?"
+                BM "[mc]..Don't tell me you forgot about me..?!"
+                MC "Nah, I just thought we were married"
+                scene completecg with vpunch
+                BM "(!!!)"
+                BM "C'mon.. You can't just say things like that out of nowhere..! You know I turn all red when you do"
+                MC "Isn't that what the mask is for?"
+                BM "I guess.."
+                BM "Oh! And here's an energy drink in case you want one."
+                BM "Sorry for keeping you up last night, I swear time just flies when I'm on the phone with you."
+                BM "I just missed you a whole lot since we've been busy."
+                MC "I guess I feel the same."
+                MC "I had a dream about you."
+                BM "Really?"
+                MC "Yea, want me to tell you?"
+                BM "Of course! I still have time."
+                scene black with fade
+                centered "I always do."
             show text "{size=60}{color=#ffffff}You've unlocked a special message.\nAccess it through the Extras Menu.{/color}{/s}":
                 xalign 0.5 yalign 0.5 alpha 0.0
                 linear 1.0 alpha 1.0
