@@ -23,7 +23,7 @@ screen content_warning():
 
             label _("Content Warning") xalign 0.5
 
-            text _("This is just a GUI template for projects, but if you have sensitive content that may not be suitable for all audience, this is a screen to alert players ahead of time.") text_align 0.5 xalign 0.5
+            text _("While I did try to avoid anything too graphic, I am aware that the game might still have content that may not be suitable for all audiences. And so, here's a warning screen before we begin.") text_align 0.5 xalign 0.5
 
             null height 20
 
