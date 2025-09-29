@@ -27,7 +27,7 @@ screen content_warning():
 
             null height 20
 
-            text _("List your content warnings here!") text_align 0.5 xalign 0.5
+            text _("This game contains depictions of blood, murder, emotional abuse (not by or to the player), and shaking screens. ") text_align 0.5 xalign 0.5
 
             null height 40
 
@@ -467,12 +467,12 @@ screen dev_notes():
                 text "[gui.dev_notes!t]\n"
 
 ## Type your special message here.
-define gui.dev_notes = _p("""Hello, this is BáiYù of tofurocks here. I want to thank you for downloading this All-In-One GUI template to use in your own game, though it's been a while since I last updated this, hasn't it? Somehow when I updated Eileen's sprite with the latest version of Mannequin, Ren'Py wouldn't recognize her new Happy face layer... I hope that it's okay though.
-    \n
-    While the code provided here is almost a straight copy from the official documentation for the most part, I purposely kept it very bare-bones so that you can customize the GUI yourself. I hope that by sharing this with others, the overall quality of all Ren'Py games will improve.
-    \n
-    Thank you for taking the time to read this, and I wish you the best on your
-    development adventures to come.""")
+#define gui.dev_notes = _p("""Hello, this is BáiYù of tofurocks here. I want to thank you for downloading this All-In-One GUI template to use in your own game, though it's been a while since I last updated this, hasn't it? Somehow when I updated Eileen's sprite with the latest version of Mannequin, Ren'Py wouldn't recognize her new Happy face layer... I hope that it's okay though.
+   # \n
+    #While the code provided here is almost a straight copy from the official documentation for the most part, I purposely kept it very bare-bones so that you can customize the GUI yourself. I hope that by sharing this with others, the overall quality of all Ren'Py games will improve.
+    #\n
+    #Thank you for taking the time to read this, and I wish you the best on your
+   # development adventures to come.""")
 
 ## Achievements screen ######################################
 ##
@@ -489,27 +489,25 @@ define credits_string = _p("""
 \n\n
 {size=+75}Programming{/size}
 \n
-BáiYù
+Dhidhiand
 \n
-bobcgames
-\n
-npckc
-\n
-TheoMinute
-\n\n
+#bobcgames
+#\n
+#npckc
+#\n
+#TheoMinute
+#\n\n
 {size=+75}Art{/size}
 \n
-Sprites - Mannequin by HelloAR14
-\n
-Backgrounds - Uncle Mugen
+Sprites & BG - Whatdoinamemyself
 \n\n
 {size=+75}Soundtrack{/size}
 \n
-Eric Matyas
+Dovasyndrome
 \n\n
-{size=+75}Special Thanks{/size}
+{size=+75}Sound Effects{/size}
 \n
-Renall
+Pixabay
 \n\n\n\n\n\n\n\n
 {size=+100}Made with{/size}
 \n
