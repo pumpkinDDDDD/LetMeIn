@@ -142,6 +142,7 @@ label start:
     pause 0.5
     scene bedroomnight with fade
     "(I can’t sleep)"
+    achieve beginning
     "(I’ll go take a walk)"
     scene cg1 with fade 
     #whether we use a video or not is decided later
@@ -3592,6 +3593,7 @@ label ed1:
     MC "(I don’t if Howard will ever visit me ever again.)"
     MC "(In fact, I’m not sure if he’s still alive.)"
     MC "(But I won’t lose hope because I still have my family with me and I know they’ll love me no matter what.)"
+    achieve o
     "ENDING 1 : Maybe Someday He’ll Return"
     jump credits
 
@@ -4529,6 +4531,7 @@ label hairpinremove:
             "Nothing warms my heart quite like seeing him happy. After decades of isolation, he’s finally found people who will welcome him with open arms."
             "It was hard at first, but as the missing villagers slowly returned, everyone soon realised that it wasn’t Howard who they should hate."
             "With the two of us together, surrounded by other people who love us to our core, I think we’ve finally reached our happily ever after."
+            achieve office
             "ENDING 2 : Reunited at last"
             jump credits
 
@@ -4569,6 +4572,7 @@ label hairpinremove:
             "Under the moonlight, there’s nothing more captivating than the sight of him smiling at me while stained with blood."
             "With the creature gone, he can finally be free, completely unchained. He’s left his cage for good and I couldn’t be happier."
             "As far as I’m concerned, the two of us have reached our very own happy ever after."
+            achieve beach
             "ENDING 3: Stained with blood"
             jump credits
 
@@ -4612,7 +4616,7 @@ label credits:
     ## We display a screen that shows how much the player has seen and played of the game.
     show screen results
     
-    centered "Fin"
+    centered "The End"
 
     hide screen results
 
