@@ -19,14 +19,22 @@
 #   (You can also replace or remove the two sample achievements.)
 #   (If you're using Steam, the reference_ids should be the API name of the achievements.)
 #   (This does not currently support progress stats.)
+#define BOBCACHIEVEMENT_LIST = (
+ #   # ("EXAMPLE_ID", _("EXAMPLE TITLE"), _("EXAMPLE DESCRIPTION"), True),
+  #  ("beginning", _("Beginning"), _("Started a new game")),
+   # ("office", _("Office"), _("Went to the office")),
+    #("beach", _("Beach"), _("Went to the beach")),
+    #("completionist", _("Completionist"), _("Read all of the game"), True),
+    #)
+
 define BOBCACHIEVEMENT_LIST = (
     # ("EXAMPLE_ID", _("EXAMPLE TITLE"), _("EXAMPLE DESCRIPTION"), True),
-    ("beginning", _("Beginning"), _("Started a new game")),
-    ("office", _("Office"), _("Went to the office")),
-    ("beach", _("Beach"), _("Went to the beach")),
-    ("completionist", _("Completionist"), _("Read all of the game"), True),
+    ("beginning", _("Once Upon a Time"), _("Begin the Story")),
+    ("o", _("Maybe Someday He'll Return"), _("Reached Ending 1")),
+    ("office", _("Reunited at Last"), _("Reached Ending 2")),
+    ("beach", _("Stained by Blood"), _("Reached Ending 3")),
+    ("completionist", _("Happilly Ever After"), _("Finished the entire game"), True),
     )
-
 # 3) In your game script, when you want to grant an achievement, type "achieve <reference_id>" without the
 #    quotes or <> (and without a leading $). For example, to grant the sample "Started The Game" achievement:
 #

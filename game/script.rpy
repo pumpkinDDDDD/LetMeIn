@@ -23,6 +23,8 @@ define e = Character("Eileen", color="#f88787", image="eileen")
 define e_nvl = Character("Eileen", color="#f88787", kind=nvl, image="eileen")
 define e_bubble = Character(color="#f88787", kind=bubble, image="eileen")
 define nar_nvl = nvl_narrator
+image rain1 = Fixed(SnowBlossom("gui/rain1.png", 400, xspeed=(-900, -1500), yspeed=(1000, 3000), start=200))
+image rain2 = Fixed(SnowBlossom("gui/rain2.png", 200, xspeed=(-200, -1500), yspeed=(1000, 2000), start=100))
 
 
 define MC = Character ("[mc]")    
@@ -1471,6 +1473,7 @@ label bwardrobe:
                 BM "Hmph."
                 hide fx
                 show bm swpose
+                play audio "audio/SB1.mp3"
                 BM "I don’t want to leave."
                 MC "Why? Did you fall in love with me?"
                 show bm idia:
@@ -1533,6 +1536,7 @@ label bcarpet:
                 play sound "audio/sfx tackle.mp3"
                 #stumblesfx
                 show bm surprised with vpunch
+                play audio "audio/Eek.mp3"
                 BM "Ack!"
                 MC "Sorry! I’ll open the window for you."
                 scene bedroomnight3 with fade
@@ -2057,7 +2061,7 @@ label kshelf:
                                 yalign 0.0
                                 linear 0.0 yalign 0.0 xalign 0.5
                         show bm idia
-                        BM "Eek! [mc]! P-please put me down!"
+                        BM "Eek! [mc]!Please put me down!"
                         MC "I wouldn’t have to do this if you agreed to let me take care of you."
                         show bm finger
                         show fx blush:
