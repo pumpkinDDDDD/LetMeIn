@@ -4727,9 +4727,9 @@ label credits:
                 BM "Of course! I still have time."
                 scene black with fade
                 centered "I always do."
-            show text "{size=60}{color=#ffffff}You've unlocked a special message.\nAccess it through the Extras Menu.{/color}{/s}":
-                xalign 0.5 yalign 0.5 alpha 0.0
-                linear 1.0 alpha 1.0
+                show text "{size=60}{color=#ffffff}You've unlocked a special message.\nAccess it through the Extras Menu.{/color}{/s}":
+                    xalign 0.5 yalign 0.5 alpha 0.0
+                    linear 1.0 alpha 1.0
 
             $ persistent.game_clear = True
 
