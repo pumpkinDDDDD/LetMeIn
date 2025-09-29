@@ -253,13 +253,13 @@ screen extras_navigation():
 
         textbutton _("Achievements") action ShowMenu("bobcachievements") alt "Achievements"
 
-        textbutton _("Sprite Gallery") action ShowMenu("sprite_gallery") alt "Sprite Gallery"
+       # textbutton _("Sprite Gallery") action ShowMenu("sprite_gallery") alt "Sprite Gallery"
 
-        textbutton _("Background Gallery") action ShowMenu("bg_gallery") alt "Background Gallery"
+        textbutton _("CG Gallery") action ShowMenu("bg_gallery") alt "Background Gallery"
 
-        textbutton _("Music Room") action ShowMenu("music_gallery") alt "Music Room"
+        #textbutton _("Music Room") action ShowMenu("music_gallery") alt "Music Room"
 
-        textbutton _("Replay Room") action ShowMenu("replay_gallery") alt "Replay Room"
+       # textbutton _("Replay Room") action ShowMenu("replay_gallery") alt "Replay Room"
 
         if persistent.game_clear:
 
@@ -467,12 +467,14 @@ screen dev_notes():
                 text "[gui.dev_notes!t]\n"
 
 ## Type your special message here.
-#define gui.dev_notes = _p("""Hello, this is BáiYù of tofurocks here. I want to thank you for downloading this All-In-One GUI template to use in your own game, though it's been a while since I last updated this, hasn't it? Somehow when I updated Eileen's sprite with the latest version of Mannequin, Ren'Py wouldn't recognize her new Happy face layer... I hope that it's okay though.
-   # \n
-    #While the code provided here is almost a straight copy from the official documentation for the most part, I purposely kept it very bare-bones so that you can customize the GUI yourself. I hope that by sharing this with others, the overall quality of all Ren'Py games will improve.
-    #\n
-    #Thank you for taking the time to read this, and I wish you the best on your
-   # development adventures to come.""")
+define gui.dev_notes = _p("""Hi!! This is Whatdoinamemyself (genuinely didn't know what to name myself at the time) as the Writer, Artist and secondary programmer and I'd like to thank you for playing the game! Honestly, the entire month has been a pretty wild ride and I wasn't sure we were gonna finish on time.
+    But hey, if you're reading this now then it probably meant that we finished it at some point? It's my first time working with voices and I hope we did an okay job?
+    \n
+    Since this text is pretty secret and all, I figured I'd add a few things surrounding the story. Starting with the entire premise, the entire story is actually heavilly based on 'The feather of Finist the Falcon' which was my favorite tale growing up.
+    I don't know why I latched on to it so much but I loved it. The story basically revolves around the protagonist who had to travel across the world to find her love (The titular Finist the falcon) after her sisters put knives on her window to deter him from entering.
+    In the story it was because they were jealous that the protagonist had a handsome guy who was giving her accesories and stuff but honestly, I've always wondered what it'd be like if they did it out of worry instead. If you think about, a random guy who only visits your little sister at night through the window is probably someone a little suspicious, no? Especially when their dad already knew about the whole thing, I feel like he doesn't need to show up only at night unless there were some magical hindrance preventing him from visiting during the day and through the door like a normal person.
+    \n
+    In any case, thank you so much for playing!! I hope you had fun throughout the game!.""")
 
 ## Achievements screen ######################################
 ##
