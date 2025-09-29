@@ -2128,6 +2128,7 @@ label kshelf:
                 show bm swpose
                 BM "Thank you. You’re.. really nice to me"
                 MC "I wouldn’t say that I’m nice, in fact I’m sure I may have pushed you out of your comfort zone a few times."
+                play audio "audio/VL24.mp3"
                 BM "W-well...I..I don’t hate it.."
                 BM "The fact that I can’t ever win against you..."
                 MC "Really? Well.. I like that but I’m also curious, why not? You’re strong enough to do it."
@@ -2484,11 +2485,13 @@ label awardrobe:
                 MC "Really?"
                 show bm explanation
                 BM "So, you know how I’ve been molting for a few weeks and I have a lot of feathers in my room?"
+                play audio "audio/VL24.mp3"
                 BM "Well, I remembered that you told me about how you asked for a feather of mine instead of new clothes when your father was going to the fair."
                 BM "And, since I had the opportunity to learn recently, I made a few things for you made out of my feathers..! "
                 BM "Here’s the coat I made you along with some boots and a scarf."
                 show bm swpose
                 show fx sweat
+                play audio "audio/.U uhmp3"
                 BM "Y-you don’t find that weird..do you? The fact that I made them with my feathers..?"
                 BM "{size=-10}Maybe I should’ve thought this through..{/size}"
                 hide fx
@@ -2501,10 +2504,12 @@ label awardrobe:
                 show bm swpose at center:
                             linear 0.050 yoffset +10
                             linear 0.050 yoffset -10
+                play audio "audio/Ohrs.mp3"
                 BM "Oh not at all! I assure you that I wasn’t hurt in the slightest! I used the feathers that fell out!"
                 menu:
                         "Thank you! I appreciate you doing all this.":
                             show bm explanation
+                            play audio "audio/VL24.mp3"
                             BM "Well, I’ve been a guest in your home every night so I thought I’d have to bring a gift to my host eventually?"
                             MC "You really didn’t need to. Especially when I can’t give you anything back that’s this nice."
                             MC "Unless you’re willing to wait a few years..?"
@@ -2525,6 +2530,7 @@ label awardrobe:
                                 linear 0.050 yoffset -10
                                 linear 0.050 xoffset +10
                                 linear 0.050 xoffset -10
+                            play audio "audio/Eek.mp3"
 
                             BM "(!!!)"
                             show fx blush:
@@ -2535,6 +2541,7 @@ label awardrobe:
                                     linear 0.0 yalign 0.0 xalign 0.5
 
                             BM "[mc]..Y-you can’t just do things like this without warning..!"
+                            play audio "audio/SB1.mp3"
                             BM "I thought my heart was going to leap through my chest for a moment.."
                             MC "Do you hate it though?"
                             show bm swpose
@@ -2544,6 +2551,7 @@ label awardrobe:
                             MC "I know."
                             BM "Don’t let me go. You started this."
                             MC "Sure sure. I’ll keep on going until you pull away."
+                            play audio "audio/.mp3"
                             BM "You better.."
                             "..."
                             BM "What if I don't want to pull away?"
@@ -2593,6 +2601,7 @@ label awardrobe:
                                 linear 0.050 yoffset -10
                             BM "NO..! The mask is not in the way!"
                             show fx blush
+                            play audio "audio/SB1.mp3"
                             BM "I-i don’t need you to see how red I am..!"
                             MC "Sure sure."
 
@@ -2601,6 +2610,7 @@ label awardrobe:
                             show fx blush
                             BM "I’m glad you think that way."
                             MC "It kinda feels like a representation of you in a way. Like you’re right by my side even when you’re not."
+                            play audio "audio/Hm.mp3"
                             BM "T-that would be nice.."
                             BM "I want to make you more things now..."
                             MC "Well aren’t you just the sweetest?"
@@ -2638,6 +2648,7 @@ label awindow:
                             BM "Ow.. That arrow almost hit me.."
                             MC "(Is that him? He’s already here?)"
                             BM "[mc]! I’m here! "
+                            play audio "audio/Ohrs.mp3"
                             BM "Oh! I forgot I have to be quieter.."
                             BM "[mc]?"
                             extend "I guess [player_gender] [player_sbn] here yet.."
@@ -2647,6 +2658,7 @@ label awindow:
                             show mc keyhole
                             BM "..."
                             MC "(He’s just waiting on my bed.)"
+                            play audio "audio/Humming.mp3"
                             #humming soundbite
                             "He sits on the edge as politely as I thought anyone ever could, his back seemingly straight as a ruler and his feet flat on the floor."
                             play sound "audio/sfx fabric.mp3"
@@ -2665,6 +2677,7 @@ label awindow:
                             play sound "audio/sfx door.mp3"
                             MC "Getting comfy on my bed?"
                             show fx sweat2
+                            play audio "audio/U uh.mp3"
                             BM "N-no! I wasn’t..uhh.."
                             show fx sweat
                             extend "Sorry, I was getting too comfortable."
@@ -2702,6 +2715,7 @@ label awindow:
                             BM "Thank you, I really needed this tonight."
                             MC "What’s up? You seem more on edge than usual."
                             show bm explanation
+                            play audio "audio/VL24.mp3"
                             BM "W-well, is it just me or has there been more hunters at night recently?"
                             BM "Even your family has gone on these ‘night patrols’ right?"
                             BM "The night used to be pretty safe for me, maybe one or two people wandering about."
@@ -2713,6 +2727,7 @@ label awindow:
                             MC "Well, I’m not sure either. My family said they’re looking for a monster but it might not be you?"
                             MC "But to be honest, the amount of missing people has increased recently."
                             show bm idia
+                            play audio "audio/Surprised.mp3"
                             BM "Really..?!"
                             MC "That’s what I read in the newspapers."
                             MC "If you’re curious, you can read it?"
@@ -2721,10 +2736,12 @@ label awindow:
                             #paper
                             BM "List of missing people..."
                             MC "A few of them have portraits, maybe you’ll recognize some of them?"
+                            play audio "audio/Hmmm.mp3"
                             BM "Hmm.."
                             show bm idia:
                                     linear 0.050 yoffset +10
                                     linear 0.050 yoffset -10
+                            play audio "audio/Surprised.mp3"
                             BM "(!!)"
                             MC "What’s wrong?"
                             show bm swpose
@@ -2795,6 +2812,7 @@ label awindow:
                             BM "But they wouldn’t have gone missing if it weren’t for me..!!"
                             MC "Take a deep breath, and explain to me slowly. I’m right here for you."
                             MC "What makes you think it’s your fault?"
+                            BM "It only got them because it was searching for {i}me{/i}!"
                             BM "I-I’ve seen them. Recently."
                             BM "They’re the new servants back where I came from."
                             BM "I didn’t know.. That they were..."
@@ -2828,6 +2846,7 @@ label awindow:
                                         BM "A-alright."
                                         MC "Now, hands behind your back."
                                         show bm swpose
+                                        play audio "audio/U uh.mp3"
                                         BM "[mc], w-what are you doing..?"
                                         MC "Sorry, I just wanted to make sure you wouldn’t interrupt me."
                                         show bm explanation
@@ -2862,6 +2881,7 @@ label awindow:
                                         extend "I mean..no I didn’t hate it."
                                         BM "I really liked it..!"
                                         show bm questioning
+                                        play audio "audio/SB1.mp3"
                                         BM "Curses, you’re making it really hard for me to leave..."
                                         show bm swpose
                                         #put mask on
@@ -2915,6 +2935,7 @@ label awindow:
 
                                         #zoom
                                         "In a spur of the moment decision,  I grab him by the collar and place a brief kiss on where his mouth should be."
+                                        play audio "audio/Surprised.mp3"
                                         BM "(!!!)"
                                         #zoom out a little
                                         show bm swpose:
@@ -2983,6 +3004,7 @@ label atrap:
                                 show bm bird at center
                                 show windown
                                 MC "Give me a minute, I need to grab a few things."
+                                play audio "audio/Ohgn.mp3"
                                 BM "Oh! You do remember me..!"
                                 BM "Take your time, I can wait."
                                 play sound "audio/sfx door.mp3"
@@ -3004,6 +3026,7 @@ label atrap:
                                 MC "I don’t mind, talking to a bird is pretty cool."
                                 BM "Don’t you find it scary..?"
                                 MC "What’s the scary part?"
+                                play audio "audio/u uh.mp3"
                                 BM "I..I don’t quite understand the details but most people seem to either despise my existence or fear me..?"
                                 MC "What did you do?"
                                 show bm bird:
@@ -3029,6 +3052,7 @@ label atrap:
                                 show mc knife
                                 MC "Fine, but don’t make me regret it."
                                 scene black with fade
+                                play audio "audio/Eek.mp3"
                                 BM "Eek! That knife of yours always scares me..."
                                 MC "Well? Get on with your transformation, my eyes are closed."
                                 BM "Right, sorry!"
@@ -3039,6 +3063,7 @@ label atrap:
                                 scene bedroomnight3 with fade
                                 MC "Are you ever gonna let me see you transform? It seems pretty cool."
                                 show bm explanation
+                                play audio "audio/Uhhh.mp3"
                                 BM "Uhh n-no. It’s sort of grotesque actually."
                                 menu:
                                         "Even better.":
@@ -3067,6 +3092,7 @@ label atrap:
                                             BM "Wh-what..?! No! Uhh..That’s not what I was trying to say.."
                                             MC "So? What were you trying to say?"
                                             show bm finger
+                                            play audio "audio/U uh.mp3"
                                             BM "Uh..I..uh.."
                                             BM "Nevermind..just do it already..."
                                             MC "Sure sure."
@@ -3089,6 +3115,7 @@ label atrap:
                                             BM "Y-you won’t right?"
                                             MC "Who knows?"
                                             show bm explanation
+                                            play audio "audio/VL24.mp3"
                                             BM "W-well I guess you can hurt me a little..?"
                                             MC "I’m just teasing. I won’t hurt you , or at least I’ll try?"
                             
@@ -3112,7 +3139,7 @@ label atrap:
                                 BM "Do as you please"
                                 scene tiedupinquirecg with fade
                                 BM "So..?"
-                                MC "Well you're definitely was less scary without the mask" 
+                                MC "Well you're definitely way less scary without the mask" 
                                 BM "Anyway, I suppose you have questions for me..?"
                                 MC "I do."
                                 BM "W-well, what is it?"
@@ -3121,6 +3148,7 @@ label atrap:
                                 BM "Umm..I’m not sure."
                                 MC "What’s the default?"
                                 scene tiedupworrycg
+                                play audio "audio/VL24.mp3"
                                 BM "W-well you haven’t seen it yet but during the day I tend to exist in another form."
                                 BM "A more monstrous, frightening form as one might say."
                                 menu:
@@ -3132,6 +3160,7 @@ label atrap:
                                             BM "But aren’t humans normally frightened by monsters like me..?"
                                             MC "I don’t know, I haven’t seen how scary you could be."
                                             MC "Especially when I can tie you up so easily."
+                                            play audio "audio/Uhhh.mp3"
                                             BM "Uhh..That might be a hard request.."
                                             scene tiedupworrycg
                                             BM "Travelling here is much easier to do when the world is shrouded by darkness."
@@ -3146,6 +3175,7 @@ label atrap:
                                             BM "I don’t. I’m kept in a cage most of the time."
                                             MC "Whoa what?"
                                             scene tiedupsurprisedcg with vpunch
+                                                play audio "audio/Ah.mp3"
                                             BM "(!)"
                                             scene tiedupscaredcg
                                             BM "Nevermind, forget I said anything..!"
@@ -3187,6 +3217,7 @@ label acurtain:
                                         repeat 3
                                 MC "BOO!"
                                 show bm idia
+                                play audio "audio/Eek.mp3"
                                 BM "(!!)"
                                 play sound "audio/sfx tackle.mp3"
                                 #sfx
@@ -3197,6 +3228,7 @@ label acurtain:
                                 MC "I thought it’d fit today’s theme but I guess it was too much? Or was it too little? "
                                 MC "I’ve never been good at imitating ghosts."
                                 show bm explanation
+                                play audio "audio/Hm.mp3"
                                 BM "No, it wasn’t too much. But what’s this about a theme?"
                                 MC "It’s All Hallow’s Eve. Haven’t you heard of it?"
                                 BM "I’m afraid not, is it famous around here?"
@@ -3216,6 +3248,7 @@ label acurtain:
                                 show bm explanation
                                 BM "So, where are we going?"
                                 MC "Just across the hall, in the attic."
+                                play audio "audio/Ohrs.mp3"
                                 BM "Oh.! That’s exciting, I’ve never been there."
                                 MC "It’s not much but I did clean up a bit before you got here. Let’s go."
                                 play sound "audio/sfx door.mp3"
@@ -3255,6 +3288,7 @@ label acurtain:
                                 MC "I hope you’re not too scared of the dark? I only have this candle for lighting."
                                 BM "I’m used to it."
                                 show bm explanation
+                                play audio "audio/Hm.mp3"
                                 BM "So, enlighten me. What does one do on All Hallow’s Eve?"
                                 MC "Well normally I’d visit the festival with my family and we’ll dress up as ghosts like I’m doing right now."
                                 MC "But since this year that was cancelled, I figured we can swap scary stories?"
@@ -3266,6 +3300,7 @@ label acurtain:
                                 menu:
                                         "Is your life that scary?":
                                             show bm swpose
+                                            play audio "audio/VL24.mp3"
                                             BM "Well.."
                                             BM "..."
                                             show bm explanation
@@ -3322,6 +3357,7 @@ label acurtain:
                                 MC "A sweet old lady who lives in a house with flaming bones around it?"
                                 MC "Are you sure she’s sweet?"
                                 show bm swpose
+                                play audio "audio/VL24.mp3"
                                 BM "Well she hasn’t hurt me and she hasn’t ignored me either, so she seems... nice?"
                                 MC "I see. What else?"
                                 BM "That’s it really, I simply wanted to tell you but haven’t had the chance."
@@ -3349,9 +3385,11 @@ label acurtain:
                                                 linear 0.050 yoffset -10
                                                 linear 0.050 xoffset +10
                                                 linear 0.050 xoffset -10
+                                play audio "audio/Surprised.mp3"
                                 BM "You knew?!"
                                 MC "I was joking! I didn’t think you were actually on the run!"
                                 show bm swpose
+                                play audio "audio/VL24.mp3"
                                 BM "Well..I am or at least I try to, but..it finds me everytime.."
                                 MC "Who is ‘it’?"
                                 BM "I-I..I’m not at liberty to say.."
@@ -3376,6 +3414,7 @@ label acurtain:
                                                     linear 0.050 yoffset -10
                                                     linear 0.050 xoffset +10
                                                     linear 0.050 xoffset -10
+                                            play audio "audio/Surprised.mp3"
                                             BM "(!!!)"
                                             BM "[mc], are you sure about this?"
                                             MC "Of course I am."
@@ -3396,6 +3435,7 @@ label acurtain:
                                                     linear 0.050 yoffset -10
                                                     linear 0.050 yoffset +10
                                                     linear 0.050 yoffset -10
+                                            play audio "audio/Surprised.mp3"
                                             BM "(!!!)"
                             
                                 scene black with fade
@@ -3831,7 +3871,7 @@ label othereds:
 
     scene black with fade
     #bgm: https://dova-s.jp/EN/bgm/play22027.html
-    play music "audio/sfx cg1.mp3"
+    play music "audio/sfx cg1.mp3" fadein2.0
 
     pause 0.5
     show b happy
@@ -3870,8 +3910,8 @@ label othereds:
     MC "Goodnight everyone. Sweet dreams."
 
     scene black with fade
-    play music "audio/sfx bgm sad.mp3"
-    play sound "audio/sfx window.mp3"
+    play music "audio/bgm sad.mp3" fadein 2.0
+    play sound "audio/sfx wind.mp3"
     #wind
     MC "(I can’t open my eyes.)"
     #witch hut dream scene
@@ -3888,19 +3928,31 @@ label othereds:
     play sound "audio/sfx .mp3"
     pause 2.0
 
+    play audio "audio/VL10.mp3"
     BM "T-that’s a lot of blood.."
+    play audio "audio/VL11.mp3"
     BM "H-hey, did you get sick of me already..?"
     MC "(No, I haven’t!)"
+    play audio "audio/VL11.5.mp3"
     BM "I..I thought y-you wouldn’t do that to me.."
+    play audio "audio/12.mp3"
     BM "D..do you really not care anymore? P-please..tell me.."
+    play audio "audio/VL13.mp3"
     BM "Why won’t you wake up..?! Pl–please help me.."
+    play audio "audio/VL17.mp3"
     BM "[mc]..P-please..I thought you loved me.. Have I been fooled this whole time..?"
+    play audio "audio/VL18.mp3"
     BM "Even when I’m bleeding like this my voice still can’t seem to reach you. Is this the end of us..?"
+    play audio "audio/VL19.mp3"
     BM "So be it then, I’ll leave."
+    play audio "audio/VL20.mp3"
     BM "If you ever wish to find me you’ll have to head north, search through three times nine countries at the edge of the world."
+    play audio "audio/VL21.mp3"
     BM "A-are you still not listening to me..?"
+    play audio "audio/VL22.mp3"
     BM "I’m really leaving."
     "..."
+    play audio "audio/VL23.mp3"
     BM "Fine, I understand."
     play sound "audio/sfx feather.mp3"
     pause 2.0
@@ -4362,13 +4414,14 @@ label hairpinremove:
     MC "(!!!)"
     MC "Howard..? You’re awake."
     scene cagecg3
+    play audio "audio/Y yes.mp3"
     BM "Yes? I..uh. Heard everything you said earlier."
     BM "Y..you don’t mind that I look like this, do you?"
     scene cagecg4
     MC "Not at all. I’m glad I can finally see you like this."
     scene cagecg3
     BM "Really..? You don’t regret travelling all the way here for.."
-    extend "this, right?"
+    extend "{i}this{/i}, right?"
     scene cagecg4
     MC "Howard, look at me. I haven't taken a bath in months."
     MC "The real question is {i}you{/i} mind if I look like this."
@@ -4399,6 +4452,7 @@ label hairpinremove:
 
     MC "We need to get married. Right now."
     scene cagecg3
+    play audio "audio/Surprised.mp3"
     BM "What?"
     scene cagecg4
     MC "Unless you don’t want to? "
@@ -4408,7 +4462,7 @@ label hairpinremove:
     MC "Obviously, that’s why I asked."
     MC "Howard, will you marry me?"
     scene cagecg3 with vpunch
-    BM 'YES.'
+    BM "YES."
     BM "B-but not here, we should get to the altar. There’s one nearby."
     scene cagecg4
     MC "Let’s go then."
@@ -4470,13 +4524,21 @@ label hairpinremove:
     MC "Take your time."
     BM "Thank you.."
     show bm bhappy
+    play audio "audio/VL24.mp3"
     BM "Well.."
+    play audio "audio/VL25.mp3"
     BM "I..don’t think I deserve you but I’m glad you looked past all the things that I hated about myself and found beauty in them."
+    play audio "audio/VL26.mp3"
     BM "You’ve shown interest in me, listened to me and most importantly, you actually care about me."
+    play audio "audio/VL27.mp3"
     BM "I know it’s weird to say but I kind of liked it when you tied me up, especially since I knew you wouldn’t cause me any harm and you’d always give me a way out."
+    play audio "audio/VL28.mp3"
     BM "I liked that you treated me gently and I hope you’ll continue to stay with me until the end of time."
+    play audio "audio/VL29.mp3"
     BM "I promise that I will always return to your side each night, no matter how far apart we were during the day."
+    play audio "audio/VL30.mp3"
     BM "If you ever need me for anything at all, wave a feather of mine at your window and I’ll be at your side as soon as I can."
+    play audio "audio/31.mp3"
     BM "I love you.. And I’ll never stop, now and forever."
     show bm smile
     "No more words were said between us but one look into his eyes gave me the final confirmation I needed before officially sealing the deal."
@@ -4488,6 +4550,7 @@ label hairpinremove:
     BM "It’s official."
     MC "Indeed it is."
     show bm happy
+    play audio "audio/Giggle.mp3"
     BM "What now? Is there anything else that you wanted to do?"
     
     menu:
@@ -4500,6 +4563,7 @@ label hairpinremove:
             BM "What if they don’t?"
             MC "Stop thinking negatively here, they won’t. Once they get to know you, I’m sure they’ll love you."
             show bm happy
+            play audio "audio/VL24.mp3"
             BM "W-well, it’d be nice if they do."
             BM "Can I really have hope like this..?"
             MC "Of course. You always deserve hope."
@@ -4517,11 +4581,13 @@ label hairpinremove:
             MC "Lizzie’s right y’know? You’re the only one not wearing them."
             DA "Catherine, why don’t you join us?"
             MC "Please?"
+            play audio "audio/Please.mp3"
             BM "Um, please? Sister in law?"
             C "I guess I can’t refuse when both my little [player_fm] and brother in law are asking so nicely, can I?"
             E "Woo! I am so glad [mc] has good taste. Welcome to the family Howard."
             C "I know we’ve said this before, but let us say it again."
             C "We’re deeply sorry for what we’ve done to you." 
+            play audio "audio/Ohrs.mp3"
             BM "Oh it’s okay now! We’re.. family right?"
             BM "{size=-5}Family..That’s an unfamiliar word{/size}"
             MC "We’ll get you used to it."
