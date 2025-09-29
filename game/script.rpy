@@ -1538,10 +1538,12 @@ label bcarpet:
                 play sound "audio/sfx tackle.mp3"
                 #sfx
                 show bm finger
+                play audio "audio/SB1.mp3"
                 BM "[mc].. Don’t scare me like that, what if I fell off?"
                 BM "Your whole family would hear me.."
                 MC "I thought you were gonna say that you’d be seriously injured."
                 show bm explanation
+                play audio "audio/Ohgn.mp3"
                 BM "Oh that too, but I’ll be fine."
                 MC "That’s worrying, you need to care for yourself more."
                 BM "It’s alright, you won’t be able to see any cuts or bruises anyway."
@@ -1557,6 +1559,7 @@ label bcarpet:
                 MC "Oh it’s not your fault, don’t worry."
                 MC "Or maybe it is in a way..?"
                 show bm idia
+                play audio "audio/Please.mp3"
                 BM "I-I’m not sure what I did but I’m sorry..? Please don’t leave me.."
                 MC "I’m not leaving you. It’s just that my family has caught on to the fact that I’ve been super tired in the daytime now."
                 MC "Since I’ve been spending my nights talking to you, I haven’t been getting much sleep."
@@ -1564,12 +1567,15 @@ label bcarpet:
                 BM "Sorry.."
                 MC "It’s fine. I just really like talking to you."
                 show bm finger
+                play audio "audio/Surprised.mp3"
                 BM "You do..?!"
                 MC "Well yea? Otherwise I would just ignore you."
                 MC "Anyway, while I did say that we can’t talk for long, that doesn’t mean I want you to leave."
                 BM "Really? You want me to stick around..?"
                 MC "Definitely."
                 MC "Anyway, wanna sleep with me tonight?"
+                play audio "audio/cough.mp3"
+                pause 1.0
                 #cough
                 show bm idia:
                             linear 0.050 xoffset +10
@@ -1582,6 +1588,7 @@ label bcarpet:
                 extend "We’re sleeping. "
                 extend "Do you not like to sleep??"
                 show fx sweat2
+                play audio "audio/U uh.mp3"
                 BM "B-but..the bed?? It’s...there’s ..There’s only one??"
                 hide fx
                 MC "Yea? It fits up to three people last I checked, my older sisters used to sleep over when I have nightmares."
@@ -1590,6 +1597,7 @@ label bcarpet:
                 MC "Then again, that was a few years ago..."
                 MC "Is the bed too small for you?"
                 show bm swpose
+                play audio "audio/VL24.mp3"
                 BM "W-well no.. but that would mean y-you and me, we’d be..uhh"
                 MC "Use your words, I don’t understand you."
                 show bm idia
@@ -1608,7 +1616,7 @@ label bcarpet:
                             show bm swpose
                             BM "N-no that’d be fine."
 
-                MC "So you’ll agree if one of us sleeps on  the bed and the other sleeps on the carpet?"
+                MC "So you’ll agree if one of us sleeps on the bed and the other sleeps on the carpet?"
                 show bm explanation
                 BM "That sounds fine, your carpet doesn’t look too bad to sleep on."
                 MC "Did I say {i}you{/i} were the one who’s sleeping on the floor?"
@@ -1619,6 +1627,7 @@ label bcarpet:
                 show bm idia
                 BM "That won’t happen! I’m not that fragile!"
                 MC "Are you sure? "
+                play audio "audio/Hmph.mp3"
                 show fx huffy
                 show bm idia:
                             linear 0.050 yoffset +10
@@ -1651,8 +1660,10 @@ label bcarpet:
                         yalign 0.0
                         linear 0.0 yalign 0.0 xalign 0.5
 
+                play audio "audio/Hmmm.mp3"
                 BM "It’s.. strange. But I like it."
                 MC "You think you can go to sleep like this?"
+                play audio "audio/Hm.mp3"
                 BM "Well...if you’re with me then perhaps I can."
                 BM "Goodnight, [mc]."
                 scene black with fade
@@ -1680,7 +1691,7 @@ label bwindow:
                 #menu 6
                     MC "(The window! Will he show up tonight?)"
                     hide bm
-                    show tsm nsdnormal:
+                    scene bedroomnight:
                         parallel:
                             ease .5 zoom 1.5
                         parallel:
@@ -1999,6 +2010,7 @@ label kshelf:
                 MC "(I’ll open the windows, just in case.)"
                 scene black with fade
                 play sound "audio/sfx feather.mp3"
+                play audio "audio/cough.mp3"
                 #feathers,cough
                 BM "[mc]...I’m here"
                 BM "Curses, am I too late?"
@@ -2012,6 +2024,7 @@ label kshelf:
                 BM "D-don’t worry about me. An arrow just grazed my wing."
                 MC "So your arms are what turns into wings, huh?"
                 show bm explanation
+                play audio "audio/VL24.mp3"
                 BM "Well, yes."
                 MC "Interesting, I thought they’d grow out of your back like on portraits of angels."
                 show bm swpose
@@ -2019,6 +2032,7 @@ label kshelf:
                 MC "You sure? You seem like one to me."
                 show bm idia
                 show fx blush
+                play audio "audio/SB1.mp3"
                 BM "[mc]... Stop saying things that would make me go red.."
                 MC "But I can’t see your expressions..?"
                 show bm finger
@@ -2074,9 +2088,11 @@ label kshelf:
                         MC "Because I like seeing your reactions?"
                         show bm swpose
                         show fx huffy
+                        play audio "audio/Hmph.mp3"
                         BM "Hmph.."
                         hide fx
                         MC "Come on, let me take care of you."
+                        play audio "audio/Please.mp3"
                         BM "P-please be gentle, alright?"
                         MC "I will."
 
@@ -2091,14 +2107,17 @@ label kshelf:
 
                 BM "No.. I guess not."
                 show bm explanation
+                play audio "audio/Hm.mp3"
                 BM "Honestly, I was expecting you to knock me out first."
                 MC "Why would I do that?"
                 BM "Is that not how typical medical procedures go?"
                 MC "Uhh no? I’m not a healer but I don’t think that’s how it works. Is that how it works where you came from?"
                 show fx sweat
+                play audio "audio/U uh.mp3"
                 BM "Umm..In a way, yes?"
                 hide fx
                 MC "Whatever healer you’ve been visiting, you need to stop seeing them immediately."
+                play audio "audio/Hm.mp3"
                 BM "I’ll keep that in mind."
                 show bm swpose
                 BM "Thank you. You’re.. really nice to me"
@@ -2117,6 +2136,7 @@ label kshelf:
                 BM "But if you put it that way I guess I did come off as someone up to no good."
                 show bm swpose
                 BM "I’m sorry, I was just.."
+                play audio "audio/Sigh.mp3"
                 extend "really desperate for any sort of positive interaction."
                 BM "And I thought that someone who likes my feathers might also take an interest in me..?"
                 MC "Sweetie, by this point I’m more than just interested in you." 
@@ -2132,10 +2152,12 @@ label kshelf:
                 show bm explanation
                 BM "Are you sure?  I don’t think I’ve ever met someone who liked having me around before."
                 show bm sw pose
+                play audio "audio/U uh.mp3"
                 BM "I..I..uh..nevermind."
                 MC "Whoa, don’t stop there! Now I’m curious."
                 BM "N-no need."
                 MC "C’mon, use your words."
+                play audio "audio/VL24.mp3"
                 BM "W-well, I was about to ask if I could hug you but... I got scared. W-what if I scratch you?"
                 MC "Well in that case, {i}I{/i} can hug you instead?"
                 show bm idia
@@ -2192,6 +2214,7 @@ label kcupboard:
                             MC "(What could these be for?)"
                             scene cg2 with fade
                             play sound "audio/sfx cg2.mp3"
+                            play audio "audio/VL9.mp3"
                             NO "LET ME IN"
                 
                             scene kitchen with vpunch
@@ -2204,6 +2227,7 @@ label kcupboard:
                             play sound "audio/sfx barge.mp3"
                             scene bedroomday with fade
                             MC "(Is this really what these blades are for..?)"
+                            play audio "audio/sfx knife.mp3"
                             #minicg, bladenoise
                             show w blades
                             MC "(Oh no..)"
