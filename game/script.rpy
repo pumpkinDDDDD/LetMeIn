@@ -23,6 +23,8 @@ define e = Character("Eileen", color="#f88787", image="eileen")
 define e_nvl = Character("Eileen", color="#f88787", kind=nvl, image="eileen")
 define e_bubble = Character(color="#f88787", kind=bubble, image="eileen")
 define nar_nvl = nvl_narrator
+image rain1 = Fixed(SnowBlossom("gui/rain1.png", 400, xspeed=(-900, -1500), yspeed=(1000, 3000), start=200))
+image rain2 = Fixed(SnowBlossom("gui/rain2.png", 200, xspeed=(-200, -1500), yspeed=(1000, 2000), start=100))
 
 
 define MC = Character ("[mc]")    
