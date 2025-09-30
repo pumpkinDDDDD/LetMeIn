@@ -42,6 +42,14 @@ define VB= Character ("Villager B")
 define WI= Character ("Witch")
 define Q = Character (" ")
 
+image cg2 = "CGs/cg2.png"
+image tacklecg = "CGs/tacklecg.png"
+image tiedupcg = "CGs/tiedupcg.png"
+image ed1cg2 = "CGs/ed1cg2.png"
+image ed2cg = "CGs/ed2cg.png"
+image ed3cg = "CGs/ed3cg.png"
+image completecg = "CGs/completecg.png"
+
 #bedroom
 default visited_bbed = False
 default visited_bwardrobe = False
@@ -197,8 +205,8 @@ label start:
     play audio "audio/VL7.mp3"
     NO "Ack! {size=-5} I sure hope you remove them soon, it’s starting to hurt..{/size}"
     #stab
-
-    scene cg2 with fade
+    
+    show cg2 with fade
     play audio "audio/VL8.mp3"
     NO "Let me in."
     scene cg2 with vpunch
@@ -455,8 +463,8 @@ label next1:
                     parallel:
                         yalign 0.0
                         linear 0.0 yalign 0.0 xalign 0.0
-                B "{size=-10} Stay calm, just greet him as cheerfully as you can{/size}"
-                MC "{size=-10} Alright{/size}"
+                B "{size=-10} Stay calm, just greet him as cheerfully as you can.{/size}"
+                MC "{size=-10} Alright.{/size}"
                 #sprite back
                 show b silent:
                     parallel:
@@ -774,7 +782,7 @@ label next2:
     play audio "audio/Eek.mp3"
 
     NO "Ack! Mercy! Mercy!"
-    scene tacklecg
+    show tacklecg
     "Taking a few moments to calm myself, I finally took a good look at the person I tackled to the floor."
     "His mask may hide his expression but it can’t hide his rapid breathing or the way his body shakes under me."
     "For someone I assume to be a burglar, he doesn’t seem any good at it. "
@@ -1201,7 +1209,7 @@ label bbed:
                 play sound "audio/sfx fabric.mp3"
                 pause 2.5
 
-                scene tiedupcg with fade
+                show tiedupcg with fade
                 MC "And done!"
                 BM "I fail to see how this would make you safe. This scarf is already torn and you didn’t tie it very tightly."
                 BM "I can break out of this fairly easily."
@@ -2896,6 +2904,7 @@ label awindow:
                                         BM "Goodbye, [mc]."
                                         play sound "audio/sfx feather.mp3"
                                         scene black with fade
+                                        jump middle3
                                         #feathersfx
 
                                     "No, not until you explain it to me.":
@@ -3176,7 +3185,7 @@ label atrap:
                                             BM "I don’t. I’m kept in a cage most of the time."
                                             MC "Whoa what?"
                                             scene tiedupsurprisedcg with vpunch
-                                                play audio "audio/Ah.mp3"
+                                            play audio "audio/Ah.mp3"
                                             BM "(!)"
                                             scene tiedupscaredcg
                                             BM "Nevermind, forget I said anything..!"
@@ -3621,7 +3630,7 @@ label ed1:
     E "I’m sorry too [mc]. It can’t bring him back but I hope you can forgive us..?"
     MC "Of course I do. But..."
     MC "I don’t know about Howard though. He's the one you should be apologizing to"
-    scene ed1cg2
+    show ed1cg2
     E "Tell you what [mc], if he doesn’t turn out to be evil. We’ll apologize a hundred times to him."
     C "We’ll welcome him with open arms."
     MC "That’s the best outcome I can ask for at this moment."
@@ -3867,7 +3876,7 @@ label othereds:
 
     scene black with fade
     #bgm: https://dova-s.jp/EN/bgm/play22027.html
-    play music "audio/sfx cg1.mp3" fadein2.0
+    play music "audio/sfx cg1.mp3" fadein 2.0
 
     pause 0.5
     show b happy
@@ -4566,7 +4575,7 @@ label hairpinremove:
             scene black with fade
             pause 1
         
-            scene ed2cg with fade
+            show ed2cg with fade
             play music "audio/cg1.mp3"
             E "Catherine, c’monnnn. Are you not gonna wear the flower crowns with us?"
             E "Even Howard and dad are joining in!"
@@ -4618,7 +4627,7 @@ label hairpinremove:
             VB "Just run!"
             VA "Well, as long as those two are happy I guess."
 
-            scene ed3cg with fade
+            show ed3cg with fade
             play sound "audio/sfx gore.mp3"
             #sfx
             BM "Was this..enough [mc]?"
@@ -4682,7 +4691,7 @@ label credits:
 
     hide screen results
 
-    if persistent.game_clear:
+    if persistent.game_clear: 
 
         pass
 
@@ -4700,22 +4709,22 @@ label credits:
             # kalau g bisa tambahin hashtag aja depan label semuakelar
             label semuakelar:
                 
-                scene completecg with fade
+                show completecg with fade
                 pause
                 scene black with fade
                 pause 1
                 scene completecg with fade
-                BM "Hey [mc]?
+                BM "Hey, [mc]?"
                 BM "Wake up, everyone else already left the lecture hall."
                 MC "?"
-                BM "Cmon, don't look at me like that"
-                BM "As your boyfriend, I'm here to wake you up"
+                BM "Cmon, don't look at me like that."
+                BM "As your boyfriend, I'm here to wake you up."
                 MC "Boyfriend..?"
                 BM "[mc]..Don't tell me you forgot about me..?!"
-                MC "Nah, I just thought we were married"
+                MC "Nah, I just thought we were married."
                 scene completecg with vpunch
                 BM "(!!!)"
-                BM "C'mon.. You can't just say things like that out of nowhere..! You know I turn all red when you do"
+                BM "C'mon.. You can't just say things like that out of nowhere..! You know I turn all red when you do."
                 MC "Isn't that what the mask is for?"
                 BM "I guess.."
                 BM "Oh! And here's an energy drink in case you want one."
@@ -4728,7 +4737,7 @@ label credits:
                 BM "Of course! I still have time."
                 scene black with fade
                 centered "I always do."
-                show text "{size=60}{color=#ffffff}You've unlocked a special message.\nAccess it through the Extras Menu.{/color}{/s}":
+                show text "{size=60}{color=#ffffff}You've unlocked a special message.\n Access it through the Extras Menu.{/color}{/s}":
                     xalign 0.5 yalign 0.5 alpha 0.0
                     linear 1.0 alpha 1.0
 

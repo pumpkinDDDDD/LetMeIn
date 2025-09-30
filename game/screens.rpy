@@ -117,7 +117,8 @@ screen say(who, what):
                 style "namebox"
                 text who id "who"
 
-        text what id "what"
+        text what id "what":
+            ypos 60
 
     use quick_menu
 
@@ -315,8 +316,20 @@ screen navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
+            xalign 5
+
+        else:
+            xoffset 5
+       #   
+
+        if main_menu:
 
             textbutton _("Start") action Start()
+            xpos 5000
+            ypos 5000
+            #imagebutton:
+                #auto "menuUI/start_%s.png"
+             #   action Start()
 
         else:
 
@@ -324,10 +337,18 @@ screen navigation():
             # textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
+        
+
 
         textbutton _("Load") action ShowMenu("load")
+        #imagebutton:
+          #  auto "menuUI/load_%s.png"
+           # action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
+        #imagebutton:
+           # auto "menuUI/preferences_%s.png"
+           # action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -338,21 +359,33 @@ screen navigation():
             textbutton _("Main Menu") action MainMenu()
 
         textbutton _("About") action ShowMenu("about")
+        #imagebutton:
+               # auto "menuUI/about_%s.png"
+               # action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
             textbutton _("Help") action ShowMenu("help")
+            #imagebutton:
+               # auto "menuUI/help_%s.png"
+              #  action ShowMenu("help")
 
         if main_menu:
 
             textbutton _("Extras") action ShowMenu("bobcachievements") alt "Extras"
+            #imagebutton:
+               # auto "menuUI/extras_%s.png"
+               # action ShowMenu("bobcachievements") alt "Extras"
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
+            #imagebutton:
+               # auto "menuUI/quit_%s.png"
+               # action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -364,6 +397,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################
@@ -378,6 +412,49 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
+
+    imagebutton:
+            auto "menuUI/start_%s.png"
+            action Start()
+            xpos 0
+            ypos 100
+
+    imagebutton:
+            auto "menuUI/load_%s.png"
+            action ShowMenu("load")
+            xpos 0
+            ypos 280
+
+    imagebutton:
+            auto "menuUI/preferences_%s.png"
+            action ShowMenu("preferences")
+            xpos -10
+            ypos 390
+
+    imagebutton:
+            auto "menuUI/about_%s.png"
+            action ShowMenu("about")
+            xpos 0
+            ypos 500
+
+    imagebutton:
+            auto "menuUI/help_%s.png"
+            action ShowMenu("help")
+            xpos 0
+            ypos 610
+
+    imagebutton:
+            auto "menuUI/extras_%s.png"
+            action ShowMenu("bobcachievements") alt "Extras"
+            xpos 0
+            ypos 720
+
+    imagebutton:
+            auto "menuUI/quit_%s.png"
+            action Quit(confirm=not main_menu)
+            xpos 0
+            ypos 830
+
 
     ## This empty frame darkens the main menu.
     ## Don't want that sidebar on the left? Change the image associated

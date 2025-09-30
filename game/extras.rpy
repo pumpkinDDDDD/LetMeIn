@@ -183,59 +183,59 @@ image eupset_button = Crop((170, 245, 290, 290), "eileen upset")
 image eangry_button = Crop((170, 245, 290, 290), "eileen angry")
 image spritelock_button = "gui/button/sprite_locked.jpg"
 
-init python:
+#init python:
 
-    g_bg = Gallery()
+    #g_bg = Gallery()
 
     # Backgrounds for the BG Gallery
-    g_bg.button("room")
-    g_bg.unlock_image("room") 
+    #g_bg.button("room")
+    #g_bg.unlock_image("room") 
 
-    g_bg.button("office")
-    g_bg.image("future_office")
-    g_bg.unlock("future_office")
+    #g_bg.button("office")
+    #g_bg.image("future_office")
+    #g_bg.unlock("future_office")
 
-    g_bg.button("beach")
-    g_bg.image("sort_of_beautiful_beach_day")
-    g_bg.unlock("sort_of_beautiful_beach_day")
+    #g_bg.button("beach")
+    #g_bg.image("sort_of_beautiful_beach_day")
+    #g_bg.unlock("sort_of_beautiful_beach_day")
 
     # Sprites for the Sprite Gallery
     # We put a background in the first spot so Eileen isn't floating in a void.
 
-    g_sprite = Gallery()
+    #g_sprite = Gallery()
 
-    g_sprite.button("eileen neutral")
-    g_sprite.unlock_image("room", "eileen neutral")
+    #g_sprite.button("eileen neutral")
     #g_sprite.unlock_image("room", "eileen neutral")
-    g_sprite.unlock_image("sort_of_beautiful_beach_day", "eileen summer neutral")
+    #g_sprite.unlock_image("room", "eileen neutral")
+    #g_sprite.unlock_image("sort_of_beautiful_beach_day", "eileen summer neutral")
 
-    g_sprite.button("eileen surprised")
-    g_sprite.unlock_image("room", "eileen surprised")
+    #g_sprite.button("eileen surprised")
+    #g_sprite.unlock_image("room", "eileen surprised")
 
-    g_sprite.button("eileen upset")
-    g_sprite.image("room", "eileen upset")
-    g_sprite.unlock("room", "eileen upset")
+    #g_sprite.button("eileen upset")
+    #g_sprite.image("room", "eileen upset")
+    #g_sprite.unlock("room", "eileen upset")
 
-    g_sprite.button("eileen angry")
-    g_sprite.image("room", "eileen angry")
-    g_sprite.unlock("room", "eileen angry")
+    #g_sprite.button("eileen angry")
+    #g_sprite.image("room", "eileen angry")
+    #g_sprite.unlock("room", "eileen angry")
 
     # The button used for locked images
-    g_bg.locked_button = "bglock_button"
-    g_sprite.locked_button = "spritelock_button"
+    #g_bg.locked_button = "bglock_button"
+    #g_sprite.locked_button = "spritelock_button"
 
     # The transition used when switching images.
-    g_bg.transition = dissolve
-    g_sprite.transition = dissolve
+    #g_bg.transition = dissolve
+    #g_sprite.transition = dissolve
 
     # MusicRoom instance.
-    mr = MusicRoom(fadeout=1.0)
+    #mr = MusicRoom(fadeout=1.0)
 
     # Add music files.
-    mr.add("audio/music/Careless-Summer_Looping.mp3", always_unlocked=True)
-    mr.add("audio/music/Future-Business_v001.mp3")
-    mr.add("audio/music/Sculpture-Garden_Looping.mp3")
-    mr.add("audio/music/The-Concrete-Bakes_Looping.mp3")
+    #mr.add("audio/music/Careless-Summer_Looping.mp3", always_unlocked=True)
+   # mr.add("audio/music/Future-Business_v001.mp3")
+    #mr.add("audio/music/Sculpture-Garden_Looping.mp3")
+    #mr.add("audio/music/The-Concrete-Bakes_Looping.mp3")"
 
 ## Extras Navigation screen ############################################################
 ##
@@ -255,7 +255,7 @@ screen extras_navigation():
 
        # textbutton _("Sprite Gallery") action ShowMenu("sprite_gallery") alt "Sprite Gallery"
 
-        textbutton _("CG Gallery") action ShowMenu("bg_gallery") alt "Background Gallery"
+        textbutton _("CG Gallery") action ShowMenu("album") alt "CG Gallery"
 
         #textbutton _("Music Room") action ShowMenu("music_gallery") alt "Music Room"
 
@@ -492,13 +492,7 @@ define credits_string = _p("""
 {size=+75}Programming{/size}
 \n
 Dhidhiand
-\n
-#bobcgames
-#\n
-#npckc
-#\n
-#TheoMinute
-#\n\n
+\n\n
 {size=+75}Art{/size}
 \n
 Sprites & BG - Whatdoinamemyself
@@ -510,10 +504,6 @@ Dovasyndrome
 {size=+75}Sound Effects{/size}
 \n
 Pixabay
-\n\n\n\n\n\n\n\n
-{size=+100}Made with{/size}
-\n
-{size=+100}Ren'Py [renpy.version_only].{/size}
 \n\n\n\n
 {size=+100}Thanks for Playing!{/size}
 """)
