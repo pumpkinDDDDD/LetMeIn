@@ -1,4 +1,5 @@
 ﻿# The script of the game goes in this file.
+#yukbisayuk
 # gedagedigeda0
 # Set up LayeredImage Sprites
 layeredimage eileen:
